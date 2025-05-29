@@ -25,6 +25,7 @@ export default function MainSlide() {
         className="mySwiper"
       >
         <SwiperSlide>
+          {/* TODO: 이미지 변경 */}
           <Image src="/images/testImg.png" alt="테스트 이미지" width={500} height={500} className="w-full overflow-hidden max-h-[500px]"></Image>
         </SwiperSlide>
         <SwiperSlide>

@@ -11,14 +11,14 @@ export default function GNB() {
   };
 
   return (
-    <div className="flex mx-auto bg-white opacity-90 mt-10 justify-between items-center w-full max-w-[1440px]">
+    <div className="flex mx-auto bg-white opacity-90 mt-10 justify-between items-center w-full max-w-[1440px] z-[100] relative">
       <Link href={"/"}>
         <Image src={"/images/logo.png"} alt="Logo" width={100} height={100} className="mr-10 py-6" />
       </Link>
 
       {/* 데스크톱 메뉴 */}
       <div className="hidden md:flex w-full justify-center">
-        <header className="bg-white opacity-90 w-full max-w-[1000px] mx-auto">
+        <header className="bg-white opacity-90 w-full max-w-[1000px] mx-auto relative z-[101]">
           <div className="relative group">
             {/* 상위 메뉴 */}
             <ul className="flex justify-between text-xl font-medium py-6 px-16">
@@ -37,7 +37,7 @@ export default function GNB() {
             </ul>
 
             {/* 하위 메뉴 - 호버 시만 표시 */}
-            <div className="absolute left-0 w-full bg-white placeholder-opacity-95 text-base text-black py-8 px-16 shadow-xl border-t-2 rounded-b-2xl hidden group-hover:flex justify-between z-10">
+            <div className="absolute left-0 w-full bg-white placeholder-opacity-95 text-base text-black py-8 px-16 shadow-xl border-t-2 rounded-b-2xl hidden group-hover:flex justify-between z-[9999]">
               <ul className="flex flex-col gap-4 items-center">
                 <li>
                   <Link href="/company/philosophy">경영이념</Link>
@@ -91,13 +91,13 @@ export default function GNB() {
       </div>
 
       {/* 모바일 햄버거 메뉴 버튼 - md 사이즈 이하에서만 표시 */}
-      <div className="md:hidden relative">
+      <div className="md:hidden relative z-[102]">
         <button onClick={toggleMenu} className="p-2">
           <Image src={"/images/menu_m.png"} alt="Menu" width={30} height={30} />
         </button>
 
         {/* 모바일 메뉴 */}
-        <nav className={`${isOpen ? "block" : "hidden"} absolute top-full right-0 w-screen bg-white shadow-lg border-t z-20`}>
+        <nav className={`${isOpen ? "block" : "hidden"} absolute top-full right-0 w-screen bg-white shadow-lg border-t z-[9999]`}>
           <ul className="flex flex-col text-center text-xl font-medium p-4 gap-4">
             <li className="border-b pb-2">
               <Link href="/company" onClick={toggleMenu}>
