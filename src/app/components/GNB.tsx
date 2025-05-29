@@ -50,10 +50,10 @@ export default function GNB() {
   };
 
   return (
-    <div className="flex mx-auto bg-white opacity-90 mt-10 justify-between items-center w-full z-[100] relative">
+    <div className="flex mx-auto   mt-10 justify-between items-center w-full z-[100] relative">
       {/* 데스크톱 메뉴 */}
       <div className="hidden md:flex w-full justify-center">
-        <header className="bg-white opacity-90 w-full  mx-auto relative z-[101]">
+        <header className="opacity-90 w-full  mx-auto relative z-[101]">
           <div className="relative group">
             {/* 상위 메뉴 */}
             <ul className="flex justify-center items-center mx-auto text-xl font-medium pb-4 px-16 gap-20">

@@ -7,6 +7,29 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
 
+const sliderData = [
+  {
+    id: 1,
+    image: "/images/testImg.png",
+    alt: "테스트 이미지 1",
+  },
+  {
+    id: 2,
+    image: "/images/testImg.png",
+    alt: "테스트 이미지 2",
+  },
+  {
+    id: 3,
+    image: "/images/testImg.png",
+    alt: "테스트 이미지 3",
+  },
+  {
+    id: 4,
+    image: "/images/testImg.png",
+    alt: "테스트 이미지 4",
+  },
+];
+
 export default function MainSlide() {
   return (
     <>
@@ -24,19 +47,12 @@ export default function MainSlide() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          {/* TODO: 이미지 변경 */}
-          <Image src="/images/testImg.png" alt="테스트 이미지" width={500} height={500} className="w-full overflow-hidden max-h-[500px]"></Image>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src="/images/testImg.png" alt="테스트 이미지" width={500} height={500} className="w-full overflow-hidden max-h-[500px]"></Image>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src="/images/testImg.png" alt="테스트 이미지" width={500} height={500} className="w-full overflow-hidden max-h-[500px]"></Image>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src="/images/testImg.png" alt="테스트 이미지" width={500} height={500} className="w-full overflow-hidden max-h-[500px]"></Image>
-        </SwiperSlide>
+        {/* TODO: 이미지 변경 */}
+        {sliderData.map((item) => (
+          <SwiperSlide key={item.id}>
+            <Image src={item.image} alt={item.alt} width={500} height={500} className="w-full overflow-hidden max-h-[500px]"></Image>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );
