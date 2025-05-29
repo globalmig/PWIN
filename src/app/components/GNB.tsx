@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+// 상위 카테고리
 const desktopMenuItems = [
   { name: "회사소개", href: "/company" },
   { name: "제품소개", href: "/product" },
@@ -10,36 +11,7 @@ const desktopMenuItems = [
   { name: "시공갤러리", href: "/gallery" },
 ];
 
-const SubMenuItems = [
-  {
-    companySubMenu: [
-      { name: "경영이념", href: "/company/philosophy" },
-      { name: "회사연혁", href: "/company/philosophy" },
-      { name: "인증현황", href: "/company/philosophy" },
-      { name: "오시는길", href: "/company/philosophy" },
-    ],
-  },
-  {
-    ProductsSubMenu: [
-      { name: "경영이념", href: "/company/philosophy" },
-      { name: "회사연혁", href: "/company/philosophy" },
-      { name: "인증현황", href: "/company/philosophy" },
-      { name: "오시는길", href: "/company/philosophy" },
-    ],
-  },
-  {
-    ConstructionSubMenu: [
-      { name: "경영이념", href: "/company/philosophy" },
-      { name: "회사연혁", href: "/company/philosophy" },
-      { name: "인증현황", href: "/company/philosophy" },
-      { name: "오시는길", href: "/company/philosophy" },
-    ],
-  },
-  {
-    GallerySubMenu: [{ name: "경영이념", href: "/company/philosophy" }],
-  },
-];
-
+// 하위 카테고리
 const CompanySubMenuItems = [
   { name: "경영이념", href: "/company/philosophy" },
   { name: "회사연혁", href: "/company/philosophy" },
@@ -60,6 +32,7 @@ const ConstructionSubMenuItems = [
 
 const GallerySubMenuItems = [{ name: "실제 사례", href: "/construction" }];
 
+// 모바일 메뉴
 const mobileMenuItems = [
   { name: "회사소개", href: "/company" },
   { name: "제품소개", href: "/product" },
@@ -163,6 +136,8 @@ export default function GNB() {
             ))}
           </ul>
         </nav>
+
+        {/* TODO: 모바일 하위 카테고리 제작 */}
       </div>
     </div>
   );
