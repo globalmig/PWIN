@@ -9,10 +9,10 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay, EffectCoverflow } from "swiper/modules";
 
-export default function ProductSlider01() {
+export default function GallerySlider() {
   return (
     <div className="flex flex-col items-center justify-center h-[500px] bg-gray-100">
-      <h2 className="text-4xl font-bold mb-8">제품소개</h2>
+      <h2 className="text-4xl font-bold mb-8">시공 사례</h2>
       <div className="w-full  px-4">
         <Swiper
           effect={"coverflow"}

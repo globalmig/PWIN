@@ -3,6 +3,70 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+const desktopMenuItems = [
+  { name: "회사소개", href: "/company" },
+  { name: "제품소개", href: "/product" },
+  { name: "공법소개", href: "/construction" },
+  { name: "시공갤러리", href: "/gallery" },
+];
+
+const SubMenuItems = [
+  {
+    companySubMenu: [
+      { name: "경영이념", href: "/company/philosophy" },
+      { name: "회사연혁", href: "/company/philosophy" },
+      { name: "인증현황", href: "/company/philosophy" },
+      { name: "오시는길", href: "/company/philosophy" },
+    ],
+  },
+  {
+    ProductsSubMenu: [
+      { name: "경영이념", href: "/company/philosophy" },
+      { name: "회사연혁", href: "/company/philosophy" },
+      { name: "인증현황", href: "/company/philosophy" },
+      { name: "오시는길", href: "/company/philosophy" },
+    ],
+  },
+  {
+    ConstructionSubMenu: [
+      { name: "경영이념", href: "/company/philosophy" },
+      { name: "회사연혁", href: "/company/philosophy" },
+      { name: "인증현황", href: "/company/philosophy" },
+      { name: "오시는길", href: "/company/philosophy" },
+    ],
+  },
+  {
+    GallerySubMenu: [{ name: "경영이념", href: "/company/philosophy" }],
+  },
+];
+
+const CompanySubMenuItems = [
+  { name: "경영이념", href: "/company/philosophy" },
+  { name: "회사연혁", href: "/company/philosophy" },
+  { name: "인증현황", href: "/company/philosophy" },
+  { name: "오시는길", href: "/company/philosophy" },
+];
+
+const ProductsSubMenuItems = [
+  { name: "보강토 옹벽", href: "/company/philosophy" },
+  { name: "회사연혁", href: "/company/philosophy" },
+  { name: "인증현황", href: "/company/philosophy" },
+];
+
+const ConstructionSubMenuItems = [
+  { name: "시공단면", href: "/construction" },
+  { name: "시공예시", href: "/construction" },
+];
+
+const GallerySubMenuItems = [{ name: "실제 사례", href: "/construction" }];
+
+const mobileMenuItems = [
+  { name: "회사소개", href: "/company" },
+  { name: "제품소개", href: "/product" },
+  { name: "공법소개", href: "/construction" },
+  { name: "시공갤러리", href: "/gallery" },
+];
+
 export default function GNB() {
   const [isOpen, setOpen] = useState(false);
 
@@ -11,79 +75,69 @@ export default function GNB() {
   };
 
   return (
-    <div className="flex mx-auto bg-white opacity-90 mt-10 justify-between items-center w-full max-w-[1440px] z-[100] relative">
-      <Link href={"/"}>
-        <Image src={"/images/logo.png"} alt="Logo" width={100} height={100} className="mr-10 py-6" />
-      </Link>
-
+    <div className="flex mx-auto bg-white opacity-90 mt-10 justify-between items-center w-full  z-[100] relative">
       {/* 데스크톱 메뉴 */}
       <div className="hidden md:flex w-full justify-center">
-        <header className="bg-white opacity-90 w-full max-w-[1000px] mx-auto relative z-[101]">
+        <header className="bg-white opacity-90 w-full  mx-auto relative z-[101]">
           <div className="relative group">
             {/* 상위 메뉴 */}
-            <ul className="flex justify-between text-xl font-medium py-6 px-16">
+            <ul className="flex justify-center items-center mx-auto text-xl font-medium py-6 px-16 gap-20">
               <li>
-                <Link href="/company">회사소개</Link>
+                <Link href={"/"}>
+                  <Image src={"/images/logo.png"} alt="Logo" width={100} height={100} className="mr-10 py-6" />
+                </Link>
               </li>
-              <li>
-                <Link href="/product">제품소개</Link>
-              </li>
-              <li>
-                <Link href="/construction">공법소개</Link>
-              </li>
-              <li>
-                <Link href="/gallery">시공갤러리</Link>
-              </li>
+              <ul className="flex w-full justify-between max-w-[960px] ">
+                {desktopMenuItems.map((item) => (
+                  <li>
+                    <Link href={item.href}>{item.name}</Link>
+                  </li>
+                ))}
+              </ul>
             </ul>
 
             {/* 하위 메뉴 - 호버 시만 표시 */}
-            <div className="absolute left-0 w-full bg-white placeholder-opacity-95 text-base text-black py-8 px-16 shadow-xl border-t-2 rounded-b-2xl hidden group-hover:flex justify-between z-[9999]">
-              <ul className="flex flex-col gap-4 items-center">
-                <li>
-                  <Link href="/company/philosophy">경영이념</Link>
-                </li>
-                <li>
-                  <Link href="/company/history">회사연혁</Link>
-                </li>
-                <li>
-                  <Link href="/company/cert">인증현황</Link>
-                </li>
-                <li>
-                  <Link href="/company/location">오시는 길</Link>
-                </li>
-              </ul>
-              <ul className="flex flex-col gap-4 items-center">
-                <li>
-                  <Link href="/product/1">보강토</Link>
-                </li>
-                <li>
-                  <Link href="/product/2">식생축조블록</Link>
-                </li>
-                <li>
-                  <Link href="/product/3">환경호안블록</Link>
-                </li>
-              </ul>
-              <ul className="flex flex-col gap-4 items-center">
-                <li>
-                  <Link href="/construction/1">시공단면</Link>
-                </li>
-                <li>
-                  <Link href="/construction/2">시공예</Link>
-                </li>
-              </ul>
-              <ul className="flex flex-col gap-4 items-center">
-                <li>
-                  <Link href="/gallery/1">보강토 옹벽 블록</Link>
-                </li>
-                <li>
-                  <Link href="/gallery/2">식생축조블록</Link>
-                </li>
-                <li>
-                  <Link href="/gallery/3">환경호안블록</Link>
-                </li>
-                <li>
-                  <Link href="/gallery/4">기타</Link>
-                </li>
+            <div className="absolute hidden w-full mx-auto bg-white placeholder-opacity-95 text-xl text-black py-16 px-16 shadow-xl border-t-2 group-hover:flex justify-center z-[9999]">
+              <ul className="w-full flex justify-center gap-12">
+                {/* 빈공간 채우기용 DON'T REMOVE THIS CODE. */}
+                <li className="w-[140px] md:w-[120px] mr-12 py-6"></li>
+                <ul className="flex w-full justify-between max-w-[960px]">
+                  {/* 회사 소개 하위 카테고리 */}
+                  <ul className="flex flex-col gap-9 items-center ">
+                    {CompanySubMenuItems.map((item) => (
+                      <Link href={item.href}>
+                        <li>{item.name}</li>
+                      </Link>
+                    ))}
+                  </ul>
+
+                  {/* 제품 하위 카테고리 */}
+                  <ul className="flex flex-col gap-9 items-center">
+                    {ProductsSubMenuItems.map((item) => (
+                      <Link href={item.href}>
+                        <li>{item.name}</li>
+                      </Link>
+                    ))}
+                  </ul>
+
+                  {/* 공법소개 하위 카테고리 */}
+                  <ul className="flex flex-col gap-9 items-center">
+                    {ConstructionSubMenuItems.map((item) => (
+                      <Link href={item.href}>
+                        <li>{item.name}</li>
+                      </Link>
+                    ))}
+                  </ul>
+
+                  {/* 갤러리 하위 카테고리 */}
+                  <ul className="flex flex-col gap-9 items-center">
+                    {GallerySubMenuItems.map((item) => (
+                      <Link href={item.href}>
+                        <li>{item.name}</li>
+                      </Link>
+                    ))}
+                  </ul>
+                </ul>
               </ul>
             </div>
           </div>
@@ -91,34 +145,22 @@ export default function GNB() {
       </div>
 
       {/* 모바일 햄버거 메뉴 버튼 - md 사이즈 이하에서만 표시 */}
-      <div className="md:hidden relative z-[102]">
+      <div className="md:hidden relative z-[102] flex w-full justify-between">
+        <Link href={"/"}>
+          <Image src={"/images/logo.png"} alt="Logo" width={100} height={100} className="mr-10 py-6" />
+        </Link>
         <button onClick={toggleMenu} className="p-2">
           <Image src={"/images/menu_m.png"} alt="Menu" width={30} height={30} />
         </button>
 
         {/* 모바일 메뉴 */}
         <nav className={`${isOpen ? "block" : "hidden"} absolute top-full right-0 w-screen bg-white shadow-lg border-t z-[9999]`}>
-          <ul className="flex flex-col text-center text-xl font-medium p-4 gap-4">
-            <li className="border-b pb-2">
-              <Link href="/company" onClick={toggleMenu}>
-                회사소개
+          <ul className="flex flex-col text-center text-xl font-medium p-8 gap-8">
+            {mobileMenuItems.map((item) => (
+              <Link href={item.href} onClick={toggleMenu}>
+                <li className="border-b pb-4">{item.name}</li>
               </Link>
-            </li>
-            <li className="border-b pb-2">
-              <Link href="/product" onClick={toggleMenu}>
-                제품소개
-              </Link>
-            </li>
-            <li className="border-b pb-2">
-              <Link href="/construction" onClick={toggleMenu}>
-                공법소개
-              </Link>
-            </li>
-            <li>
-              <Link href="/gallery" onClick={toggleMenu}>
-                시공갤러리
-              </Link>
-            </li>
+            ))}
           </ul>
         </nav>
       </div>
