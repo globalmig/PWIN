@@ -1,9 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
 import MainSlide from "./components/MainSlide";
-import ProductSlider01 from "./components/home/GallerySlider";
+
 import ProductSlider02 from "./components/home/ProductSlider02";
 import CompanyList from "./components/home/CompanyList";
+import GallerySlider from "./components/home/GallerySlider";
 
 export default function Home() {
   return (
@@ -15,7 +14,7 @@ export default function Home() {
         <ProductSlider02 />
       </section>
       <section>
-        <ProductSlider01 />
+        <GallerySlider />
       </section>
       <section>
         <CompanyList />

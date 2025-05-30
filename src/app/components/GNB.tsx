@@ -50,16 +50,17 @@ export default function GNB() {
   };
 
   return (
-    <div className="flex mx-auto   mt-10 justify-between items-center w-full z-[100] relative">
+    <div className="flex mx-auto mt-10 justify-between items-center w-full z-[100] relative">
       {/* 데스크톱 메뉴 */}
-      <div className="hidden md:flex w-full justify-center">
+      <div className="hidden md:flex w-full justify-center ">
         <header className="opacity-90 w-full  mx-auto relative z-[101]">
           <div className="relative group">
             {/* 상위 메뉴 */}
             <ul className="flex justify-center items-center mx-auto text-xl font-medium pb-4 px-16 gap-20">
               <li>
                 <Link href={"/"} onClick={() => setActiveMenu(activeMenu === "home" ? "" : "home")}>
-                  <Image src={"/images/logo.png"} alt="Logo" width={100} height={100} className="mr-10 py-6" />
+                  <Image src={"/images/logo.png"} alt="Logo" width={100} height={100} className="mr-10 py-6 max-h-[74px]" />
+                  {/* TODO: 로고 바뀌면 해당 사이즈대로 최대 높이 재설정 */}
                 </Link>
               </li>
               <ul className="flex w-full justify-between max-w-[960px] ">
@@ -126,10 +127,10 @@ export default function GNB() {
       {/* 모바일 햄버거 메뉴 버튼 - md 사이즈 이하에서만 표시 */}
       <div className="md:hidden relative z-[102] flex w-full justify-between">
         <Link href={"/"}>
-          <Image src={"/images/logo.png"} alt="Logo" width={100} height={100} className="mr-10 py-6" />
+          <Image src={"/images/logo.png"} alt="Logo" width={100} height={100} className="mr-10 py-6 ml-4" />
         </Link>
-        <button onClick={toggleMenu} className="p-2">
-          <Image src={"/images/menu_m.png"} alt="Menu" width={30} height={30} />
+        <button onClick={toggleMenu} className="px-4">
+          <Image src={"/images/menu_m.png"} alt="Menu" width={32} height={30} />
         </button>
 
         {/* 모바일 메뉴 */}

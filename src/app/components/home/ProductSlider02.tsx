@@ -5,15 +5,20 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 // import required modules
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
+import Link from "next/link";
 
+// Product List
+// TODO: 이동 경로 추가하기
 const products = [
   {
     id: 1,
     name: "환경호안 블록",
     image: "/images/products/환경호안블록.png",
+
     description: "이것은 제품 1의 설명입니다.",
   },
   {
@@ -49,26 +54,31 @@ const products = [
   {
     id: 7,
     name: "제품 7",
-    image: "/images/testImg.png",
+    image: "/images/products/보강토_옹벽블록_yellow.png",
     description: "이것은 제품 3의 설명입니다.",
+    // TODO: 추가 제품으로 수정
   },
 ];
 
 export default function ProductSlider02() {
   return (
-    <div className="flex flex-col items-center justify-center h-[500px] bg-gray-100 w-full  mx-auto px-4">
-      <h2 className="text-4xl font-bold mb-20">제품소개</h2>
-      <div className="w-full  px-20 max-w-[1440px]">
+    <div className="flex flex-col items-center justify-center h-[500px] bg-gray-100 w-full px-4">
+      <h2 className="text-3xl md:text-4xl font-bold my-10 md:mb-20">제품소개</h2>
+      <div className="w-full max-w-[1440px]">
         <Swiper
           slidesPerView={1}
+          // centeredSlides={true}
+          speed={1600}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
           }}
           spaceBetween={2}
+          modules={[Autoplay, Navigation]}
           pagination={{
             clickable: true,
           }}
+          navigation={true}
           breakpoints={{
             "@0.00": {
               slidesPerView: 1,
@@ -79,28 +89,28 @@ export default function ProductSlider02() {
               spaceBetween: 20,
             },
             "@1.00": {
-              slidesPerView: 3,
+              slidesPerView: 4,
               spaceBetween: 40,
             },
             "@1.50": {
-              slidesPerView: 6,
+              slidesPerView: 5,
               spaceBetween: 50,
             },
           }}
-          modules={[Autoplay]}
           className="mySwiper"
         >
           {products.map((product) => (
-            <SwiperSlide key={product.id}>
-              <Image src={product.image} alt={product.name} width={500} height={500} className="w-full overflow-hidden max-w-[171px] max-h-[134px] rounded-md relative mx-auto" />
-              <div className="hidden">
-                <div className="bg-slate-500 opacity-90 rounded-full shadow-lg w-[65%] h-[80%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-white text-xl ">
-                  <p>상세보기</p>
+            <Link href={`/product/${product.id}`} key={product.id} className="no-underline">
+              <SwiperSlide>
+                <div className="relative group w-full md:max-w-[300px] lg:max-w-[171px] mx-auto">
+                  <Image src={product.image} alt={product.name} width={530} height={420} className="w-full h-auto object-cover rounded-md" />
+                  <div className="absolute inset-0 hidden group-hover:flex items-center justify-center bg-black bg-opacity-60 rounded-md transition-opacity">
+                    <p className="text-white text-xl">상세보기</p>
+                  </div>
+                  <h3 className="text-lg font-semibold mt-4 text-center">{product.name}</h3>{" "}
                 </div>
-              </div>
-
-              <h3 className="text-lg font-semibold mt-4 text-center">{product.name}</h3>
-            </SwiperSlide>
+              </SwiperSlide>
+            </Link>
           ))}
         </Swiper>
       </div>
