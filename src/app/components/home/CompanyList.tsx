@@ -48,11 +48,11 @@ export default function CompanyList() {
       <ul className="flex flex-col gap-4 w-full items-center justify-center text-xl font-medium py-20 md:hidden">
         {companyList.map((item) => (
           <Link href={item.link} key={item.id} className="w-full px-4">
-            <li className="flex flex-col items-center gap-2 w-full">
+            <li className="flex flex-col items-center gap-2 w-full relative">
               <div className="relative w-full h-[200px] bg-black rounded-md overflow-hidden mb-2">
                 <Image src={item.image} alt="테스트 이미지" fill sizes="100vw" className="object-cover rounded-md" />
+                <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-3xl">{item.name}</p>
               </div>
-              <p>{item.name}</p>
             </li>
           </Link>
         ))}
