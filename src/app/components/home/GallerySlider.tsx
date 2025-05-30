@@ -11,6 +11,7 @@ import { Autoplay, EffectCoverflow } from "swiper/modules";
 import { link } from "fs";
 import Link from "next/link";
 
+// 시공 사례 리스트
 const galleryList = [
   { id: 1, title: "시공 사례 1", content: "사례01", image: "https://swiperjs.com/demos/images/nature2.jpg", link: "/gallery/1" },
   { id: 2, title: "시공 사례 2", content: "사례02", image: "https://swiperjs.com/demos/images/nature-2.jpg", link: "/gallery/2" },

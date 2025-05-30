@@ -32,11 +32,26 @@ const companyList = [
 export default function CompanyList() {
   return (
     <div>
-      <ul className="flex gap-4 items-center justify-center text-xl font-medium py-20 px-16 ">
+      {/* pc 버전 */}
+      <ul className="md:flex gap-4 items-center justify-center text-xl font-medium py-20 px-16 hidden">
         {companyList.map((item) => (
           <Link href={item.link} key={item.id}>
             <li className="flex flex-col items-center gap-2">
               <Image src={item.image} alt="테스트 이미지" width={200} height={200} className="rounded-full overflow-hidden w-36 h-36" />
+              <p>{item.name}</p>
+            </li>
+          </Link>
+        ))}
+      </ul>
+
+      {/* 모바일 버전  */}
+      <ul className="flex flex-col gap-4 w-full items-center justify-center text-xl font-medium py-20 md:hidden">
+        {companyList.map((item) => (
+          <Link href={item.link} key={item.id} className="w-full px-4">
+            <li className="flex flex-col items-center gap-2 w-full">
+              <div className="relative w-full h-[200px] bg-black rounded-md overflow-hidden mb-2">
+                <Image src={item.image} alt="테스트 이미지" fill sizes="100vw" className="object-cover rounded-md" />
+              </div>
               <p>{item.name}</p>
             </li>
           </Link>
