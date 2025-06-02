@@ -17,7 +17,7 @@ const CompanySubMenuItems = [
   { key: 5, name: "경영이념", href: "/company" },
   { key: 6, name: "회사연혁", href: "/company/history" },
   { key: 7, name: "인증현황", href: "/company/certificate" },
-  { key: 8, name: "오시는길", href: "/company/local" },
+  { key: 8, name: "오시는길", href: "/company/location" },
 ];
 
 const ProductsSubMenuItems = [
