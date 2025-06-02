@@ -8,12 +8,11 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Autoplay, EffectCoverflow } from "swiper/modules";
-import { link } from "fs";
 import Link from "next/link";
 
 // 시공 사례 리스트
 const galleryList = [
-  { id: 1, title: "시공 사례 1", content: "사례01", image: "https://swiperjs.com/demos/images/nature2.jpg", link: "/gallery/1" },
+  { id: 1, title: "시공 사례 1", content: "사례01", image: "https://swiperjs.com/demos/images/nature-2.jpg", link: "/gallery/1" },
   { id: 2, title: "시공 사례 2", content: "사례02", image: "https://swiperjs.com/demos/images/nature-2.jpg", link: "/gallery/2" },
   { id: 3, title: "시공 사례 3", content: "사례03", image: "https://swiperjs.com/demos/images/nature-2.jpg", link: "/gallery/3" },
   { id: 4, title: "시공 사례 4", content: "사례04", image: "https://swiperjs.com/demos/images/nature-2.jpg", link: "/gallery/4" },
@@ -63,17 +62,17 @@ export default function GallerySlider() {
           }}
         >
           {galleryList.map((item) => (
-            <Link href={item.link} key={item.id}>
-              <SwiperSlide>
+            <SwiperSlide key={item.id}>
+              <Link href={item.link}>
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                  <img src={item.link} alt={item.title} className="w-full h-48 object-cover" />
+                  <img src={item.image} alt={item.title} className="w-full h-48 object-cover" />
                   <div className="p-4">
                     <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                     <p className="text-gray-600 text-sm">{item.content}</p>
                   </div>
                 </div>
-              </SwiperSlide>
-            </Link>
+              </Link>
+            </SwiperSlide>
           ))}
         </Swiper>
       </div>

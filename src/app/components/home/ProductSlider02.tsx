@@ -100,8 +100,8 @@ export default function ProductSlider02() {
           className="mySwiper"
         >
           {products.map((product) => (
-            <Link href={`/product/${product.id}`} key={product.id} className="no-underline">
-              <SwiperSlide>
+            <Link href={`/product/${product.name}`} key={product.id} className="no-underline">
+              <SwiperSlide key={product.id}>
                 <div className="relative group w-full md:max-w-[300px] lg:max-w-[171px] mx-auto">
                   <Image src={product.image} alt={product.name} width={530} height={420} className="w-full h-auto object-cover rounded-md" />
                   <div className="absolute inset-0 hidden group-hover:flex items-center justify-center bg-black bg-opacity-60 rounded-md transition-opacity">

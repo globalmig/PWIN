@@ -1,3 +1,4 @@
+import { title } from "process";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -7,7 +8,14 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        body: "#17171B",
+        title: "#17171B",
       },
+      fontSize: {
+        title: "1.875rem",
+        body: "1.25rem",
+      },
+
       fontFamily: {
         pretendard: ["Pretendard Variable", "sans-serif"],
       },
