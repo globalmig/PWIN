@@ -16,6 +16,7 @@ const historyList = [
   { key: 11, year: "2021~현재", title: "'평스톤'상표 및 제품 디자인 다수 특허청 등록" },
 ];
 
+// TODO: 배경 추가, 이미지 리소스 받으면 진행예정"
 export default function History() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isActive, setActive] = useState(historyList[0]);
