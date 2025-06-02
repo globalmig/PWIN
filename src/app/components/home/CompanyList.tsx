@@ -6,7 +6,7 @@ const companyList = [
   {
     id: 1,
     name: "CEO 인사말",
-    link: "/company/philosophy",
+    link: "/company",
     image: "/images/testImg.png",
   },
   {
@@ -33,12 +33,12 @@ export default function CompanyList() {
   return (
     <div>
       {/* pc 버전 */}
-      <ul className="md:flex gap-4 items-center justify-center text-xl font-medium py-20 px-16 hidden">
+      <ul className="md:flex gap-8 items-center justify-center text-xl font-medium py-20 px-16 hidden ">
         {companyList.map((item) => (
           <li className="flex flex-col items-center gap-2" key={item.id}>
             <Link href={item.link}>
               <Image src={item.image} alt="테스트 이미지" width={200} height={200} className="rounded-full overflow-hidden w-36 h-36" />
-              <p>{item.name}</p>
+              <p className="text-center mt-2">{item.name}</p>
             </Link>
           </li>
         ))}
