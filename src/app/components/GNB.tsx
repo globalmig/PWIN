@@ -7,7 +7,7 @@ import { useState } from "react";
 // 상위 카테고리
 const desktopMenuItems = [
   { key: 1, name: "회사소개", href: "/company" },
-  { key: 2, name: "제품소개", href: "/product" },
+  { key: 2, name: "제품소개", href: "/products" },
   { key: 3, name: "공법소개", href: "/construction" },
   { key: 4, name: "시공갤러리", href: "/gallery" },
 ];
@@ -21,9 +21,9 @@ const CompanySubMenuItems = [
 ];
 
 const ProductsSubMenuItems = [
-  { key: 9, name: "보강토 옹벽", href: "/company/philosophy" },
-  { key: 10, name: "회사연혁", href: "/company/philosophy" },
-  { key: 11, name: "인증현황", href: "/company/philosophy" },
+  { key: 9, name: "보강토 옹벽", href: "/products" },
+  { key: 10, name: "식생축조블록", href: "/products" },
+  { key: 11, name: "환경호안블록", href: "/products" },
 ];
 
 const ConstructionSubMenuItems = [
@@ -36,7 +36,7 @@ const GallerySubMenuItems = [{ key: 14, name: "실제 사례", href: "/construct
 // 모바일 메뉴
 const mobileMenuItems = [
   { key: 15, name: "회사소개", href: "/company" },
-  { key: 16, name: "제품소개", href: "/product" },
+  { key: 16, name: "제품소개", href: "/products" },
   { key: 17, name: "공법소개", href: "/construction" },
   { key: 18, name: "시공갤러리", href: "/gallery" },
 ];
