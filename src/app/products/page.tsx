@@ -1,22 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import EcoDescription from "../components/products/EcoDescription";
 import MasonryDescription from "../components/products/MasonryDescription";
 import RetainingDescription from "../components/products/RetainingDescription";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const blockData = [
-  { key: 1, title: "보강토 옹벽 블록", img: "/images/products/보강토_옹벽블록_btn.png", alt: "보강토옹벽블록버튼", desc: "하천 저/고수 호안공, 만곡부, 유수지, 도로 법면", type: "보강토옹벽" },
-  { key: 2, title: "식생축조 블록", img: "/images/products/식생축조블록_btn.png", alt: "식생축조블록버튼", desc: "소하천, 도로, 법면 절/성토부", type: "식생축조" },
-  { key: 3, title: "환경호안 블록", img: "/images/products/환경호안블록_btn.png", alt: "환경호안블록버튼", desc: "도로 절개지, 산사태 방지 시설, 산업단지, 교량 접근로 사면", type: "환경호안" },
+  { key: 1, title: "보강토 옹벽 블록", img: "/images/products/보강토_옹벽블록_btn.png", alt: "보강토옹벽블록버튼", desc: "하천 저/고수 호안공, 만곡부, 유수지, 도로 법면", type: "retaining" },
+  { key: 2, title: "식생축조 블록", img: "/images/products/식생축조블록_btn.png", alt: "식생축조블록버튼", desc: "소하천, 도로, 법면 절/성토부", type: "masonry" },
+  { key: 3, title: "환경호안 블록", img: "/images/products/환경호안블록_btn.png", alt: "환경호안블록버튼", desc: "도로 절개지, 산사태 방지 시설, 산업단지, 교량 접근로 사면", type: "eco" },
 ];
 
 export default function Product() {
-  const [selectedBlock, setSelectedBlock] = useState<string | null>("보강토옹벽");
+  const searchParams = useSearchParams();
+  const [selectedBlock, setSelectedBlock] = useState("retaining");
+
+  useEffect(() => {
+    const type = searchParams.get("type");
+    if (type) {
+      setSelectedBlock(type);
+    }
+  }, [searchParams]);
+
+  const router = useRouter();
+
   const handleSelect = (value: string) => {
     setSelectedBlock(value);
-    console.log("선택된 타입:", value);
+    router.push(`/products?type=${value}`);
   };
 
   return (
@@ -30,7 +42,7 @@ export default function Product() {
           {blockData.map((item) => (
             <li
               key={item.key}
-              className={`relative group w-1/3 h-20 md:h-40 mt-28 md:mt-48 bg-white  shadow-lg rounded-xl border-zinc-100 flex flex-col justify-center items-center transform duration-200 ease-in-out hover:brightness-90 ${
+              className={`relative group w-1/3 h-20 md:h-40 mt-28 md:mt-48 bg-white  shadow-lg rounded-xl border-zinc-100 flex flex-col justify-center items-center transform duration-200 ease-in-out hover:brightness-90 cursor-pointer ${
                 selectedBlock === item.type ? "bg-[#3A7D44] text-white text-3xl" : "bg-white text-black"
               }`}
               onClick={() => handleSelect(item.type)}
@@ -59,9 +71,9 @@ export default function Product() {
       </section>
 
       <section className="w-full">
-        {selectedBlock === "보강토옹벽" && <RetainingDescription />}
-        {selectedBlock === "식생축조" && <MasonryDescription />}
-        {selectedBlock === "환경호안" && <EcoDescription />}
+        {selectedBlock === "retaining" && <RetainingDescription />}
+        {selectedBlock === "masonry" && <MasonryDescription />}
+        {selectedBlock === "eco" && <EcoDescription />}
       </section>
     </div>
   );

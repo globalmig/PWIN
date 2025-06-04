@@ -9,10 +9,9 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay, Navigation } from "swiper/modules";
-import Link from "next/link";
 
-// Product List
-// TODO: 이동 경로 추가하기
+import { useRouter } from "next/navigation";
+
 const products = [
   {
     id: 1,
@@ -20,47 +19,58 @@ const products = [
     image: "/images/products/환경호안블록.png",
 
     description: "이것은 제품 1의 설명입니다.",
+    type: "eco",
   },
   {
     id: 2,
     name: "식생 축조블록",
     image: "/images/products/식생축조블록.png",
     description: "이것은 제품 2의 설명입니다.",
+    type: "masonry",
   },
   {
     id: 3,
     name: "보강토 옹벽블록 (회색)",
     image: "/images/products/보강토_옹벽블록_gray.png",
     description: "이것은 제품 3의 설명입니다.",
+    type: "retaining",
   },
   {
     id: 4,
     name: "보강토 옹벽블록 (적색)",
     image: "/images/products/보강토_옹벽블록_red.png",
     description: "이것은 제품 3의 설명입니다.",
+    type: "retaining",
   },
   {
     id: 5,
     name: "보강토 옹벽블록 (황토색)",
     image: "/images/products/보강토_옹벽블록_yellow.png",
     description: "이것은 제품 3의 설명입니다.",
+    type: "retaining",
   },
   {
     id: 6,
     name: "보강토 옹벽블록 (흑색)",
     image: "/images/products/보강토_옹벽블록_black.png",
     description: "이것은 제품 3의 설명입니다.",
+    type: "retaining",
   },
   {
     id: 7,
     name: "제품 7",
     image: "/images/products/보강토_옹벽블록_yellow.png",
     description: "이것은 제품 3의 설명입니다.",
+    type: "retaining",
     // TODO: 추가 제품으로 수정
   },
 ];
 
 export default function ProductSlider02() {
+  const router = useRouter();
+  const handleClick = (type: string) => {
+    router.push(`/products?type=${type}`);
+  };
   return (
     <div className="flex flex-col items-center justify-center h-[500px] bg-gray-100 w-full px-4">
       <h2 className="text-3xl md:text-4xl font-bold my-10 md:mb-20">제품소개</h2>
@@ -100,17 +110,15 @@ export default function ProductSlider02() {
           className="mySwiper"
         >
           {products.map((product) => (
-            <Link href={`/product/${product.name}`} key={product.id} className="no-underline">
-              <SwiperSlide key={product.id}>
-                <div className="relative group w-full md:max-w-[300px] lg:max-w-[171px] mx-auto">
-                  <Image src={product.image} alt={product.name} width={530} height={420} className="w-full h-auto object-cover rounded-md" />
-                  <div className="absolute inset-0 hidden group-hover:flex items-center justify-center bg-black bg-opacity-60 rounded-md transition-opacity">
-                    <p className="text-white text-xl">상세보기</p>
-                  </div>
-                  <h3 className="text-lg font-semibold mt-4 text-center">{product.name}</h3>{" "}
+            <SwiperSlide key={product.id}>
+              <div className="relative group w-full md:max-w-[300px] lg:max-w-[171px] mx-auto cursor-pointer" onClick={() => handleClick(product.type as string)}>
+                <Image src={product.image} alt={product.name} width={530} height={420} className="w-full h-auto object-cover rounded-md" />
+                <div className="absolute inset-0 hidden group-hover:flex items-center justify-center bg-black bg-opacity-60 rounded-md transition-opacity">
+                  <p className="text-white text-xl">상세보기</p>
                 </div>
-              </SwiperSlide>
-            </Link>
+                <h3 className="text-lg font-semibold mt-4 text-center">{product.name}</h3>{" "}
+              </div>
+            </SwiperSlide>
           ))}
         </Swiper>
       </div>

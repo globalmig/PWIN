@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 // TODO: 경로 수정해야함
 // 상위 카테고리
@@ -21,9 +22,9 @@ const CompanySubMenuItems = [
 ];
 
 const ProductsSubMenuItems = [
-  { key: 9, name: "보강토 옹벽", href: "/products" },
-  { key: 10, name: "식생축조블록", href: "/products" },
-  { key: 11, name: "환경호안블록", href: "/products" },
+  { key: 9, name: "보강토 옹벽", href: "/products", type: "retaining" },
+  { key: 10, name: "식생축조블록", href: "/products", type: "masonry" },
+  { key: 11, name: "환경호안블록", href: "/products", type: "eco" },
 ];
 
 const ConstructionSubMenuItems = [
@@ -48,6 +49,11 @@ export default function GNB() {
 
   const toggleMenu = () => {
     setOpen(!isOpen);
+  };
+
+  const router = useRouter();
+  const handleClick = (type: string) => {
+    router.push(`/products?type=${type}`);
   };
 
   return (
@@ -96,8 +102,8 @@ export default function GNB() {
                     {/* 제품 하위 카테고리 */}
                     <ul className="flex flex-col gap-9 items-center">
                       {ProductsSubMenuItems.map((item) => (
-                        <li className="hover:scale-150 hover:font-semibold transition-transform duration-200 cursor-pointer" key={item.key}>
-                          <Link href={item.href}>{item.name} </Link>
+                        <li className="hover:scale-150 hover:font-semibold transition-transform duration-200 cursor-pointer" onClick={() => handleClick(item.type as string)} key={item.key}>
+                          {item.name}
                         </li>
                       ))}
                     </ul>
