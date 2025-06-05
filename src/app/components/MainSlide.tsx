@@ -33,7 +33,7 @@ const sliderData = [
 
 export default function MainSlide() {
   return (
-    <div className="">
+    <div>
       <div className="absolute top-[200px] md:top-1/3 left-0 right-0 md:right-48 z-10 text-white text-3xl sm:text-4xl md:text-5xl font-semibold">
         <div className="w-full max-w-[1440px] mx-auto px-4 flex justify-center md:justify-end">
           <div className="text-center md:text-end md:text-shadow-lg text-shadow-xl">

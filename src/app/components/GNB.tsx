@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+// TODO:GNB 선택값 오류 수정
 // TODO: 경로 수정해야함
 // 상위 카테고리
 const desktopMenuItems = [
