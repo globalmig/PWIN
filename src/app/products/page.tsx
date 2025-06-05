@@ -42,9 +42,9 @@ export default function Product() {
           {blockData.map((item) => (
             <li
               key={item.key}
-              className={`relative group w-1/3 h-20 md:h-40 mt-28 md:mt-48 bg-white  shadow-lg rounded-xl border-zinc-100 flex flex-col justify-center items-center transform duration-200 ease-in-out hover:brightness-90 cursor-pointer ${
-                selectedBlock === item.type ? "bg-[#3A7D44] text-white text-3xl" : "bg-white text-black"
-              }`}
+              className={`relative group w-1/3 h-20 md:h-40 mt-28 md:mt-48 shadow-lg rounded-xl border-zinc-100 flex flex-col justify-center items-center transform duration-200 ease-in-out hover:brightness-90 cursor-pointer
+  ${selectedBlock === item.type ? "bg-[#3A7D44] text-white text-3xl" : "bg-white text-black"}
+`}
               onClick={() => handleSelect(item.type)}
             >
               <div
