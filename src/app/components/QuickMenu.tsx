@@ -23,7 +23,7 @@ export default function QuickMenu() {
             onClick={openMenu}
             className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-green-700 hover:bg-green-800 text-white px-2 py-10 rounded-l-lg transition-colors duration-200 z-20"
           >
-            <span className={`inline-block transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>{isOpen ? ">" : ">"}</span>
+            <span className={`inline-block transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>{isOpen ? "<" : "<"}</span>
           </button>
 
           {/* 활성화 했을때 menu */}

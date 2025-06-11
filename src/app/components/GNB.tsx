@@ -67,8 +67,8 @@ export default function GNB() {
               {/* 상위 메뉴 */}
               <ul className="flex justify-center items-center mx-auto text-xl font-medium pb-4 px-16 gap-20">
                 <li>
-                  <Link href={"/"} onClick={() => setActiveMenu(activeMenu === "home" ? "" : "home")}>
-                    <Image src={"/images/logo.png"} alt="Logo" width={100} height={100} className="mr-10 py-6 max-h-[74px]" />
+                  <Link href={"/"} onClick={() => setActiveMenu(activeMenu === "home" ? "" : "home")} prefetch={true}>
+                    <Image src={"/images/logo.png"} alt="Logo" width={100} height={100} className="mr-10 py-6 max-h-[74px]" priority />
                     {/* TODO: 로고 바뀌면 해당 사이즈대로 최대 높이 재설정 */}
                   </Link>
                 </li>
@@ -79,7 +79,9 @@ export default function GNB() {
                       onClick={() => setActiveMenu(item.name)}
                       className={`cursor-pointer hover:font-bold transition-colors duration-200 pb-1 ${activeMenu === item.name ? "text-lime-700 font-bold border-b-2 border-lime-600" : "text-black"}`}
                     >
-                      <Link href={item.href}>{item.name}</Link>
+                      <Link href={item.href} prefetch={true}>
+                        {item.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -95,7 +97,9 @@ export default function GNB() {
                     <ul className="flex flex-col gap-9 items-center ">
                       {CompanySubMenuItems.map((item) => (
                         <li className="hover:scale-150 hover:font-semibold transition-transform duration-200 cursor-pointer" key={item.key}>
-                          <Link href={item.href}>{item.name}</Link>
+                          <Link href={item.href} prefetch={true}>
+                            {item.name}
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -113,7 +117,9 @@ export default function GNB() {
                     <ul className="flex flex-col gap-9 items-center">
                       {ConstructionSubMenuItems.map((item) => (
                         <li className="hover:scale-150 hover:font-semibold transition-transform duration-200 cursor-pointer" key={item.key}>
-                          <Link href={item.href}>{item.name} </Link>
+                          <Link href={item.href} prefetch={true}>
+                            {item.name}{" "}
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -122,7 +128,9 @@ export default function GNB() {
                     <ul className="flex flex-col gap-9 items-center">
                       {GallerySubMenuItems.map((item) => (
                         <li className="hover:scale-150 hover:font-semibold transition-transform duration-200 cursor-pointer" key={item.key}>
-                          <Link href={item.href}>{item.name} </Link>
+                          <Link href={item.href} prefetch={true}>
+                            {item.name}{" "}
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -135,8 +143,8 @@ export default function GNB() {
 
         {/* 모바일 햄버거 메뉴 버튼 - md 사이즈 이하에서만 표시 */}
         <div className="md:hidden relative z-[102] flex w-full justify-between">
-          <Link href={"/"}>
-            <Image src={"/images/logo.png"} alt="Logo" width={100} height={100} className="mr-10 py-6 ml-4" />
+          <Link href={"/"} prefetch={true}>
+            <Image src={"/images/logo.png"} alt="Logo" width={100} height={100} className="mr-10 py-6 ml-4" priority />
           </Link>
           <button onClick={toggleMenu} className="px-4">
             <Image src={"/images/menu_m.png"} alt="Menu" width={32} height={30} />
@@ -147,7 +155,7 @@ export default function GNB() {
             <ul className="flex flex-col text-center text-xl font-medium p-8 gap-8">
               {mobileMenuItems.map((item) => (
                 <li className="border-b pb-4" key={item.key}>
-                  <Link href={item.href} onClick={toggleMenu}>
+                  <Link href={item.href} onClick={toggleMenu} prefetch={true}>
                     {item.name}
                   </Link>
                 </li>
