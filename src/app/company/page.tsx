@@ -2,13 +2,15 @@
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { useFormStatus } from "react-dom";
+import History from "./history/page";
+import Certificate from "./certificate/page";
+import Location from "./location/page";
 
 export default function Company() {
   return (
-    <div className="w-full mx-auto flex flex-col justify-center items-center">
-      <p className="text-title font-semibold">경영이념 및 방침</p>
-
-      <section className="boss w-full max-w-[1440px] px-4">
+    <div className="w-full mx-auto flex flex-col justify-center items-center gap-10">
+      <section className="boss w-full max-w-[1440px] flex flex-col px-4 justify-center items-center">
+        <p className="text-title font-semibold">경영이념 및 방침</p>
         <div className="flex flex-col md:flex-row gap-4 my-10">
           <div className="bg-black w-ful md:w-1/2 h-20"></div>
           <p className="w-full md:w-1/2 text-body px-10">
@@ -20,6 +22,16 @@ export default function Company() {
             평원산업 임직원 일동
           </p>
         </div>
+      </section>
+      <section>
+        {/* TODO: 회사 연혁 디자인 변경  */}
+        <History />
+      </section>
+      <section>
+        <Certificate />
+      </section>
+      <section>
+        <Location />
       </section>
     </div>
   );
