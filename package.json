@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@supabase/supabase-js": "^2.50.0",
+    "framer-motion": "^12.18.1",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.263.1",
     "next": "15.1.8",
     "pdfjs-dist": "^5.3.31",

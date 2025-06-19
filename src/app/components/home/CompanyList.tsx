@@ -13,19 +13,19 @@ const companyList = [
   {
     id: 2,
     name: "회사연혁",
-    link: "/company/history",
+    link: "/company#history",
     image: "/images/testImg.png",
   },
   {
     id: 3,
     name: "인증현황",
-    link: "/company/certificate",
+    link: "/company#certificate",
     image: "/images/testImg.png",
   },
   {
     id: 4,
     name: "오시는 길",
-    link: "/company/location",
+    link: "/company#location",
     image: "/images/testImg.png",
   },
 ];

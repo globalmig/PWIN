@@ -20,10 +20,16 @@ const certificateData = [
 export default function Certificate() {
   return (
     <div className="w-full mx-auto flex flex-col justify-center items-center">
-      <p className="text-title font-semibold">인증현황</p>
-      <section className="w-full max-w-[1440px] gap-4 grid grid-cols-2 md:grid-cols-4">
+      <section className="w-full max-w-[1440px] flex flex-wrap justify-center gap-4">
         {certificateData.map((item) => (
-          <Image src={item.image} alt={item.alt} width={400} height={400} key={item.key} />
+          <Image
+            key={item.key}
+            src={item.image}
+            alt={item.alt}
+            width={400}
+            height={400}
+            className="hover:scale-105 md:hover:scale-150 hover:shadow-2xl hover:rounded-xl hover:border transform duration-500 ease-in-out hover:z-10"
+          />
         ))}
       </section>
     </div>

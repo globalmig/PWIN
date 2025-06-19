@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import SNB from "../components/SNB";
+import { motion } from "framer-motion";
 
 const technique = [
   { key: 11, title: "성토부 시공예", img: "/images/construction/technique01.png", alt: "성토부 시공예" },
@@ -75,42 +77,49 @@ const explain = [
 
 export default function Construction() {
   return (
-    <div className="w-full max-w-[1000px] mx-auto flex flex-col justify-center items-center px-4 my-10 md:my-20">
-      {/* 네비게이션 */}
-      <SNB />
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }}>
+      <div className="w-full max-w-[1000px] mx-auto flex flex-col justify-center items-center px-4 my-10 md:my-20">
+        {/* 네비게이션 */}
+        <SNB />
 
-      {/* 시공단면 섹션 */}
-      <section id="title01" className="w-full mb-10">
-        <h2 className="text-2xl md:text-5xl mb-4 transform duration-500 ease-in-out font-bold text-center">블록식 보강토 옹벽 시공단면</h2>
-        <p className="text-base md:text-lg mb-2 md:mb-10 text-center">평원산업은 선진화 된 기술력으로 친환경 제품개발에 앞장서겠습니다.</p>
+        {/* 시공단면 섹션 */}
+        <section id="title01" className="w-full mb-10 mx-auto">
+          <div className="flex flex-col w-fit mx-auto">
+            <h2 className="text-4xl md:text-5xl font-medium border-b-2 mb-2 border-lime-700 px-6 pb-2 text-center">블록식 보강토 옹벽 시공단면</h2>
+            <p className="text-base md:text-lg mb-2 md:mb-10 text-center">평원산업은 선진화 된 기술력으로 친환경 제품개발에 앞장서겠습니다.</p>
+          </div>
 
-        {/* 성토부 시공예, 절토부 시공예 section */}
-        <div className="flex flex-col md:flex-row w-full">
-          {technique.map((item) => (
-            <figure className="flex flex-col justify-center w-full gap-2 my-0 md:my-11" key={item.key}>
-              <figcaption className="w-full text-xl md:text-3xl font-semibold mt-4 text-center text-[#3D7D38]">{item.title}</figcaption>
-              <div className="w-full">
-                <Image src={item.img} alt={item.alt} width={400} height={300} className="w-full" />
-              </div>
+          {/* 성토부 시공예, 절토부 시공예 section */}
+          <div className="flex flex-col md:flex-row w-full">
+            {technique.map((item) => (
+              <figure className="flex flex-col justify-center w-full gap-2 my-0 md:my-11" key={item.key}>
+                <figcaption className="w-full text-xl md:text-3xl font-semibold mt-4 text-center text-[#3D7D38]">{item.title}</figcaption>
+                <div className="w-full">
+                  <Image src={item.img} alt={item.alt} width={400} height={300} className="w-full" />
+                </div>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        {/* 시공예 섹션 */}
+        <section id="title02" className="explanation">
+          <div className="flex flex-col w-fit mx-auto">
+            <h2 className="text-4xl md:text-5xl font-medium border-b-2 mb-2 border-lime-700 px-6 pb-2 text-center">블록식 보강토 옹벽 시공예</h2>
+            <p className="text-base md:text-lg mb-2 md:mb-10 text-center">평원산업은 선진화 된 기술력으로 친환경 제품개발에 앞장서겠습니다.</p>
+          </div>
+
+          {explain.map((item) => (
+            <figure id={item.name} className={`${item.name} flex md:flex-row flex-col-reverse justify-between w-full gap-4 my-4 md:my-11`} key={item.key}>
+              <figcaption className="w-full md:w-1/2">
+                <h3 className="text-xl md:text-3xl font-semibold mb-4 text-[#3D7D38]">{item.title}</h3>
+                <p className="text-lg md:text-2xl text-[#161616]">{item.sub}</p>
+              </figcaption>
+              <Image src={item.img} alt={item.alt} width={475} height={393} className="w-full md:w-1/2" />
             </figure>
           ))}
-        </div>
-      </section>
-
-      {/* 시공예 섹션 */}
-      <section id="title02" className="explanation">
-        <h2 className="text-2xl md:text-5xl mb-4 transform duration-500 ease-in-out font-bold text-center">블록식 보강토 옹벽 시공예</h2>
-        <p className="text-base md:text-lg mb-4 md:mb-10 text-center">평원산업은 선진화 된 기술력으로 친환경 제품개발에 앞장서겠습니다.</p>
-        {explain.map((item) => (
-          <figure id={item.name} className={`${item.name} flex md:flex-row flex-col-reverse justify-between w-full gap-4 my-4 md:my-11`} key={item.key}>
-            <figcaption className="w-full md:w-1/2">
-              <h3 className="text-xl md:text-3xl font-semibold mb-4 text-[#3D7D38]">{item.title}</h3>
-              <p className="text-lg md:text-2xl text-[#161616]">{item.sub}</p>
-            </figcaption>
-            <Image src={item.img} alt={item.alt} width={475} height={393} className="w-full md:w-1/2" />
-          </figure>
-        ))}
-      </section>
-    </div>
+        </section>
+      </div>
+    </motion.div>
   );
 }

@@ -33,7 +33,8 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-pretendard`}>
         <GNB />
-        {children}
+        <div className="min-h-screen h-full">{children}</div>
+
         <QuickMenu />
         <FNB />
       </body>

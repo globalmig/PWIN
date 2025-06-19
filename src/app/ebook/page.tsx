@@ -9,7 +9,7 @@ import "react-pdf/dist/esm/Page/TextLayer.css";
 const PDFViewer = dynamic(() => import("../components/PDFViewer"), {
   ssr: false,
   loading: () => (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="flex items-center justify-center bg-gray-100">
       <div className="flex flex-col items-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
         <p className="text-gray-600">PDF 뷰어를 불러오는 중...</p>
@@ -20,7 +20,7 @@ const PDFViewer = dynamic(() => import("../components/PDFViewer"), {
 
 export default function Ebook() {
   return (
-    <div className="w-full h-screen">
+    <div className="w-full ">
       {/* 
       <PDFViewer pdfUrl={"/pwin_catalog.pdf"} title="평원산업 카타로그" /> */}
       <PDFViewer pdfUrl={"/flipbook_sample.pdf"} title="평원산업 카타로그" />
