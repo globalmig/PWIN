@@ -5,10 +5,6 @@ export default function EcoDescription() {
   return (
     <>
       <div className="flex flex-col gap-4">
-        <section className="w-full ">
-          <ProductSlide />
-        </section>
-
         {/* 제품 특징 · 적용 섹션 */}
         <section className="w-full flex flex-col md:flex-row justify-between gap-4">
           <div className="border border-zinc-300 rounded-xl w-full md:w-1/2 p-8 text-sm md:text-xl transform duration-500 ease-in-out">
@@ -30,7 +26,6 @@ export default function EcoDescription() {
             </ul>
           </div>
         </section>
-
         {/* 시공단면도 */}
         <section className="w-full mt-5 md:mt-10">
           <div className="w-full h-[200px] md:h-[400px] relative">
@@ -42,7 +37,6 @@ export default function EcoDescription() {
             <Image src="/images/products/환경호안블록/상세도/시공평면도.png" alt="환경호안블록시공평면도" width={424} height={444} className="w-1/3" />
           </div>
         </section>
-
         {/* 규격 테이블 표*/}
         <section className="w-full border-t-2 py-5 md:py-10">
           <p className="w-full text-end text-zinc-500 mb-2">단위: mm</p>
@@ -76,8 +70,7 @@ export default function EcoDescription() {
               </tr>
             </tbody>
           </table>
-        </section>
-
+        </section>{" "}
         {/* 예시 이미지 */}
         <section className="w-full border-t-2 pt-5 md:pt-10 ">
           <div className="flex gap-2 w-full">

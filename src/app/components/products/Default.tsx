@@ -1,19 +1,9 @@
+import React from "react";
 import Image from "next/image";
-import ProductSlide from "../ProductSlide ";
-import { img } from "framer-motion/client";
 
-const exImage = [
-  { key: 1, title: "식생축조설치중", img: "/images/products/식생축조/예시(0).png" },
-  { key: 2, title: "식생축조설치중", img: "/images/products/식생축조/예시(1).png" },
-  { key: 3, title: "식생축조설치중", img: "/images/products/식생축조/예시(2).png" },
-  { key: 4, title: "식생축조설치중", img: "/images/products/식생축조/예시(3).png" },
-  { key: 5, title: "식생축조설치중", img: "/images/products/식생축조/예시(4).png" },
-  { key: 6, title: "식생축조설치중", img: "/images/products/식생축조/예시(5).png" },
-];
-
-export default function MasonryDescription() {
+export default function Default() {
   return (
-    <div className="flex flex-col gap-4">
+    <div>
       {/* 제품 특징 · 적용 섹션 */}
       <section className="w-full flex flex-col md:flex-row justify-between gap-4">
         <div className="border border-zinc-300 rounded-xl w-full md:w-1/2 p-8 text-sm md:text-xl transform duration-500 ease-in-out">
@@ -70,16 +60,6 @@ export default function MasonryDescription() {
             </tr>
           </tbody>
         </table>
-      </section>{" "}
-      {/* 예시 이미지 */}
-      <section className="w-full  pt-5 md:pt-10 border-t-2">
-        <div className="grid grid-cols-2 gap-2 w-full">
-          {exImage.map((item) => (
-            <div key={item.key}>
-              <Image src={item.img} alt={item.title} width={660} height={575} className="w-full rounded-lg" />
-            </div>
-          ))}
-        </div>
       </section>
     </div>
   );

@@ -38,8 +38,7 @@ export default function GalleryDetail() {
   }, [id]);
 
   const itemDetails = [
-    { key: 1, title: "NAME", name: galleryItem?.type },
-    { key: 2, title: "DATE", name: galleryItem?.created_at },
+    { key: 2, title: "DATE", name: galleryItem?.created_at?.split("T")[0] }, //타임 0 노출
     { key: 3, title: "TYPE", name: galleryItem?.type },
   ];
 
@@ -65,7 +64,6 @@ export default function GalleryDetail() {
         </div>
       </section>
 
-      {/* 실제 시공 사진 - TODO: 데이터 연결 / 데이터에 따라 바뀌는 영역 */}
       <section className="px-4 py-10 max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
         {galleryItem?.images?.map((imgSrc, index) => (
           <div key={index} className="w-full aspect-[3/2] overflow-hidden rounded-3xl shadow-md relative">
@@ -73,8 +71,6 @@ export default function GalleryDetail() {
           </div>
         ))}
       </section>
-
-      <Block01Detail />
 
       <section>
         <ProductSlider02 />

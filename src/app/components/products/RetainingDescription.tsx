@@ -5,10 +5,6 @@ export default function RetainingDescription() {
   return (
     <>
       <div className="flex flex-col gap-4">
-        <section className="w-full ">
-          <ProductSlide />
-        </section>
-
         {/* 제품 특징 · 적용 섹션 */}
         <section className="w-full flex flex-col md:flex-row justify-between gap-4">
           <div className="border border-zinc-300 rounded-xl w-full md:w-1/2 p-8 text-sm md:text-xl transform duration-500 ease-in-out">
@@ -54,25 +50,22 @@ export default function RetainingDescription() {
                 <th className="py-4 px-2 border-r-2 border-zinc-300">L</th>
                 <th className="py-4 px-2 border-r-2 border-zinc-300">H</th>
                 <th className="py-4 px- border-r-2 border-zinc-300">참고중량</th>
-                <th className="py-4 px-2">단위수량</th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-b-2 border-zinc-300">
-                <td className="py-4 px-2 border-r-2 border-zinc-300">환경블록</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">400</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">보강토 옹벽블록 (250형)</td>
                 <td className="py-4 px-2 border-r-2 border-zinc-300">500</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">200</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">12kg</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">16개</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">410</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">250</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">60kg</td>
               </tr>
               <tr>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">유공블록</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">300</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">400</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">150</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">8kg</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">20개</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">마감(캡) 블록</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">500</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">350</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">125</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">42kg</td>
               </tr>
             </tbody>
           </table>
