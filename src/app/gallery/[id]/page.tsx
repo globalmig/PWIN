@@ -3,7 +3,8 @@ import ProductSlider02 from "@/app/components/home/ProductSlider02";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import Block01Default from "@/app/components/gallery/Block01Default";
+
+import Block01Detail from "@/app/components/gallery/Block03Detail";
 
 // 타입 정의
 interface GalleryItem {
@@ -73,7 +74,7 @@ export default function GalleryDetail() {
         ))}
       </section>
 
-      <Block01Default />
+      <Block01Detail />
 
       <section>
         <ProductSlider02 />

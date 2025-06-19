@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-export default function Block01Default() {
+export default function Block01Detail() {
   return (
     <>
       {/* 제품 상세 설명 */}
