@@ -14,19 +14,31 @@ import { useState } from "react";
 // TODO: 이미지 변경
 // 시공 사례 리스트
 const galleryList = [
-  { id: 1, title: "시공 사례 1", content: "사례01-01", image: "https://swiperjs.com/demos/images/nature-2.jpg", link: "/gallery/1", type: "블록01" },
-  { id: 2, title: "시공 사례 2", content: "사례02-01", image: "https://swiperjs.com/demos/images/nature-2.jpg", link: "/gallery/2", type: "블록01" },
-  { id: 3, title: "시공 사례 3", content: "사례03-03", image: "https://swiperjs.com/demos/images/nature-2.jpg", link: "/gallery/3", type: "블록03" },
-  { id: 4, title: "시공 사례 4", content: "사례04-02", image: "https://swiperjs.com/demos/images/nature-2.jpg", link: "/gallery/4", type: "블록02" },
-  { id: 5, title: "시공 사례 5", content: "사례05-02", image: "https://swiperjs.com/demos/images/nature-2.jpg", link: "/gallery/5", type: "블록02" },
-  { id: 6, title: "시공 사례 6", content: "사례06-01", image: "https://swiperjs.com/demos/images/nature-2.jpg", link: "/gallery/6", type: "블록01" },
+  // 1보강토 리스트
+  { id: 1, title: "보강토(멀티)", content: "가평군 상면 연화리 전원주택단지 조성공사", image: "/images/main/type01/1.webp", link: "/gallery/43", type: "보강토" },
+  { id: 11, title: "보강토(적색)", content: "가평 쁘띠프랑스 이태리마을 옹벽공사", image: "/images/main/type01/2.webp", link: "/gallery/44", type: "보강토" },
+  { id: 111, title: "보강토(멀티)", content: "가평군 상면 행현리 단지조성", image: "/images/main/type01/3.webp", link: "/gallery/37", type: "보강토" },
+  { id: 1111, title: "보강토(흑색)", content: "남양주시 화도읍 가곡리 단지조성", image: "/images/main/type01/4.webp", link: "/gallery/16", type: "보강토" },
+  { id: 11111, title: "보강토(회색+흑색)", content: "춘천 신북 전원주택단지 조성공사", image: "/images/main/type01/5.webp", link: "/gallery/3", type: "보강토" },
+  { id: 111111, title: "보강토(회색+적색)", content: "남양주시 화도읍 마석우리 전원주택 단지조성", image: "/images/main/type01/6.webp", link: "/gallery/15", type: "보강토" },
+
+  // 2식생축조 리스트
+  { id: 2, title: "축조블록(타원형)", content: "남양주 조안면 삼봉리 옹벽공사", image: "/images/main/type02/1.jpg", link: "/gallery/1014", type: "식생축조" },
+  { id: 22, title: "축조블록(타원형)", content: "양평군 양평읍 회현리 축조공사", image: "/images/main/type02/2.jpg", link: "/gallery/1025", type: "식생축조" },
+  { id: 222, title: "축조블록(타원형)", content: "남양주 별내면 광적리 묘역조성공사", image: "/images/main/type02/3.jpg", link: "/gallery/1022", type: "식생축조" },
+  { id: 2222, title: "축조블록(타원형)", content: "포천시 내촌면 신팔리 절토사면 옹벽공사", image: "/images/main/type02/4.jpg", link: "/gallery/1030", type: "식생축조" },
+  { id: 22222, title: "축조블록(타원형)", content: "양평군 옥천면 용천리 절토사면 옹벽공사", image: "/images/main/type02/5.jpg", link: "/gallery/1026", type: "식생축조" },
+  { id: 222222, title: "축조블록(타원형)", content: "남양주 수동면 외방리 절토사면 옹벽공사", image: "/images/main/type02/6.webp", link: "/gallery/1012", type: "식생축조" },
+
+  // 3 환경리스트
+  { id: 3, title: "환경호안블록", content: "별내 용암천 지방하천 정비사업", image: "/images/main/type03/1.webp", link: "/gallery/10000", type: "환경호안" },
 ];
 
 const filter = [
   { key: 1, name: "ALL", type: "ALL" },
-  { key: 2, name: "블록01", type: "블록01" },
-  { key: 3, name: "블록02", type: "블록02" },
-  { key: 4, name: "블록03", type: "블록03" },
+  { key: 2, name: "보강토", type: "보강토" },
+  { key: 3, name: "식생축조", type: "식생축조" },
+  { key: 4, name: "환경호안", type: "환경호안" },
 ];
 
 export default function GallerySlider() {
