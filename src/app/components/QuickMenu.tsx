@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { FaFax } from "react-icons/fa";
 
 const menuItems = [
   {
@@ -34,7 +35,7 @@ export default function QuickMenu() {
       <button
         onClick={toggleMenu}
         className="absolute right-0 top-1/2 transform -translate-y-1/2 
-                   bg-green-700 hover:bg-green-800 text-white 
+                  bg-gradient-to-tr  from-green-600 to-green-600 hover:bg-green-800 text-white 
                    px-4 py-20 h-80 rounded-l-lg 
                    transition-colors duration-200 z-20 shadow-lg "
         aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
@@ -52,10 +53,10 @@ export default function QuickMenu() {
         {menuItems.map((item, index) => (
           <div
             key={item.id}
-            className={`bg-green-600 hover:bg-gray-800 text-white w-48 py-3 px-4 
-                        rounded-lg cursor-pointer mb-1
-                        transform transition-all duration-500 ease-in-out
-                        ${isOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"}`}
+            className={`bg-gradient-to-r from-green-500 to-emerald-500 hover:from-gray-700 hover:to-gray-900 text-white w-48 py-3 px-4
+            rounded-lg cursor-pointer mb-1
+            transform transition-all duration-500 ease-in-out
+            ${isOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"}`}
             style={{
               transitionDelay: isOpen ? `${200 + index * 100}ms` : "0ms",
             }}
@@ -67,27 +68,28 @@ export default function QuickMenu() {
         ))}
 
         {/* 운영시간 및 전화연결 */}
-        <div className="bg-zinc-100 text-lime-950 w-48 py-3 px-4 rounded-t-lg">
-          <p>운영시간</p>
+        <div className="bg-zinc-100 shadow-xl border text-lime-950 w-48 py-3 px-4 rounded-t-lg">
+          <p className="text-xl font-bold">운영시간</p>
           <p>{CONTACT_INFO.hours}</p>
         </div>
 
         {/* 연락처 정보 */}
         <div
-          className={`bg-green-100 text-lime-950 w-48 py-3 px-4  mb-1
+          className={`bg-zinc-100 border text-lime-950 w-48 py-3 px-4
                       transform transition-all duration-500 ease-in-out
                       ${isOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"}`}
           style={{ transitionDelay: isOpen ? "100ms" : "0ms" }}
         >
-          <p>
+          <pre>
             ☎ {CONTACT_INFO.phone} <br />
-            Fax {CONTACT_INFO.fax}
-          </p>
+            <strong>Fax </strong>
+            {CONTACT_INFO.fax}
+          </pre>
         </div>
         <a
           // href={`tel:${CONTACT_INFO.phone.replace(/[~-]/g, "")}`}
           href="/call"
-          className="bg-green-900 hover:bg-green-800 text-white w-48 py-3 px-4 
+          className="bg-gradient-to-r from-teal-500 to-emerald-500  hover:from-gray-700 hover:to-gray-900 hover:text-green-400 text-white w-48 py-3 px-4 
                      rounded-b-xl transition-colors duration-200"
         >
           <p>☎ 전화 연결하기</p>

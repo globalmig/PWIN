@@ -30,6 +30,7 @@ export default function RootLayout({
     <html lang="ko">
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
+        <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-pretendard`}>
         <GNB />

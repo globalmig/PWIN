@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import History from "./history/page";
-import History2 from "../components/company/History2";
+
 import Certificate from "./certificate/page";
 import Location from "./location/page";
 import History3 from "../components/company/History3";
