@@ -37,12 +37,13 @@ export default function MasonryDescription() {
       {/* 시공단면도 */}
       <section className="w-full mt-5 md:mt-10">
         <div className="w-full h-[200px] md:h-[400px] relative">
-          <Image src="/images/products/환경호안블록/시공단면도.png" alt="환경호안블록시공단면도" fill className="object-contain" />
+          <Image src="/images/products/식생축조/단면도.png" alt="환경호안블록시공단면도" fill className="object-contain" />
         </div>
-        <div className="w-full flex mt-10 border-t-2 pd-5 md:gap-4 md:pt-10">
-          <Image src="/images/products/환경호안블록/상세도/평면도.png" alt="환경호안블록평면도" width={346} height={403} className="w-1/3" />
-          <Image src="/images/products/환경호안블록/상세도/측면도.png" alt="환경호안블록시공측면도" width={346} height={403} className="w-1/3" />
-          <Image src="/images/products/환경호안블록/상세도/시공평면도.png" alt="환경호안블록시공평면도" width={424} height={444} className="w-1/3" />
+        <div className="w-full flex-col mt-10 border-t-2 pd-5 md:gap-10 md:pt-10">
+          <Image src="/images/products/식생축조/certificates 9.png" alt="식생축조단면도" width={771} height={238} className="w-full my-4 md:my-10" />
+          <Image src="/images/products/식생축조/certificates 10.png" alt="식생축조단면도" width={684} height={769} className="w-full my-4 md:my-10" />
+          {/* <Image src="/images/products/환경호안블록/상세도/측면도.png" alt="환경호안블록시공측면도" width={346} height={403} className="w-1/3" />
+          <Image src="/images/products/환경호안블록/상세도/시공평면도.png" alt="환경호안블록시공평면도" width={424} height={444} className="w-1/3" /> */}
         </div>
       </section>
       {/* 규격 테이블 표*/}

@@ -29,7 +29,7 @@ export default function QuickMenu() {
   };
 
   return (
-    <section className="fixed bottom-32 right-0 z-20 h-72 shadow-lg ">
+    <section className="fixed bottom-32 right-0  z-20 h-72 shadow-lg ">
       {/* 메뉴 토글 버튼 */}
       <button
         onClick={toggleMenu}
@@ -85,7 +85,8 @@ export default function QuickMenu() {
           </p>
         </div>
         <a
-          href={`tel:${CONTACT_INFO.phone.replace(/[~-]/g, "")}`}
+          // href={`tel:${CONTACT_INFO.phone.replace(/[~-]/g, "")}`}
+          href="/call"
           className="bg-green-900 hover:bg-green-800 text-white w-48 py-3 px-4 
                      rounded-b-xl transition-colors duration-200"
         >

@@ -50,13 +50,13 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl, title = "PDF 도서" }) =
         <button onClick={prevPage} className="p-2 border rounded hover:bg-gray-200 dark:hover:bg-gray-700">
           <ChevronLeft />
         </button>
-        <button onClick={zoomOut} className="p-2 border rounded hover:bg-gray-200 dark:hover:bg-gray-700">
+        {/* <button onClick={zoomOut} className="p-2 border rounded hover:bg-gray-200 dark:hover:bg-gray-700">
           <ZoomOut />
         </button>
         <span className="text-sm">{Math.round(scale * 100)}%</span>
         <button onClick={zoomIn} className="p-2 border rounded hover:bg-gray-200 dark:hover:bg-gray-700">
           <ZoomIn />
-        </button>
+        </button> */}
         <button onClick={nextPage} className="p-2 border rounded hover:bg-gray-200 dark:hover:bg-gray-700">
           <ChevronRight />
         </button>

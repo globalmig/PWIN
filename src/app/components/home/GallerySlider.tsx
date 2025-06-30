@@ -50,7 +50,7 @@ export default function GallerySlider() {
   const filteredList = isSelected === "ALL" ? galleryList : galleryList.filter((item) => item.type === isSelected);
 
   return (
-    <div className="flex flex-col items-center justify-center h-[500px] my-48 px-4">
+    <div className="flex flex-col items-center justify-center h-[500px] my-32 md:my-48 px-4">
       <div className="my-10 md:mb-10 text-center">
         <h2 className="text-4xl md:text-5xl font-medium border-b-2 mb-2 border-lime-700 px-6 pb-2">시공 사례</h2>
         <p className="text-xl text-zinc-400">CONSTRUCTION GALLERY</p>
@@ -119,18 +119,18 @@ export default function GallerySlider() {
                   <div className="card-container relative w-full h-96 flex justify-center items-center [perspective:1000px] group ">
                     <div className="card [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] transition-transform duration-700 w-[300px]">
                       {/* 카드 앞면 */}
-                      <div className="bg-white rounded-2xl shadow-2xl overflow-hidden [backface-visibility:hidden]">
-                        <img src={item.image} alt={item.title} className="w-full h-48 object-cover" />
-                        <div className="p-4">
-                          <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                          <p className="text-gray-600 text-sm">{item.content}</p>
+                      <div className=" rounded-2xl shadow-2xl overflow-hidden [backface-visibility:hidden] relative  w-full">
+                        <img src={item.image} alt={item.title} className="w-full h-72 object-cover" />
+                        <div className="p-4 absolute text-white bottom-0 left-0 text-shadow-xl">
+                          <h3 className="text-3xl font-semibold mb-2">{item.title}</h3>
+                          <p className="text-sm">· {item.content}</p>
                         </div>
                       </div>
 
                       {/* 카드 뒷면 */}
                       <div className="bg-white absolute left-0 right-0 top-0 bottom-0 rounded-lg shadow-2xl overflow-hidden [backface-visibility:hidden] [transform:rotateY(180deg)]">
                         {/* <img src={item.image} alt={item.title} className="w-full h- object-cover " /> */}
-                        <div className="p-4 absolute top-2">
+                        <div className="p-4 absolute top-2 flex flex-col items-start justify-center h-full">
                           <h3 className="text-3xl font-semibold mb-2">{item.title}</h3>
                           <p className="text-gray-600 text-lg">{item.content}</p>
                         </div>

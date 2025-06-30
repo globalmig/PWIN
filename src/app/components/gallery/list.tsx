@@ -77,38 +77,39 @@ export default function List() {
 
       {/* 갤러리 리스트 */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredList.map((item) => (
-          <Link href={`/gallery/${item.id}`} key={item.id} className="block">
-            <div className="group rounded-xl h-96 relative overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-              {/* 이미지 */}
-              <Image
-                src={item.images?.[0] || "/images/default_x.png"}
-                alt={item.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+        {Array.isArray(filteredList) &&
+          filteredList.map((item) => (
+            <Link href={`/gallery/${item.id}`} key={item.id} className="block">
+              <div className="group rounded-xl h-96 relative overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                {/* 이미지 */}
+                <Image
+                  src={item.images?.[0] || "/images/default_x.png"}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
 
-              <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300" />
+                <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300" />
 
-              <div className="relative z-10 flex flex-col justify-between items-center h-full p-8">
-                <div className="text-center">
-                  <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight drop-shadow-lg my-8 group-hover:-translate-y-2 transition-transform duration-300">{item.title}</h3>
-                  <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">{item.content}</p>
+                <div className="relative z-10 flex flex-col justify-between items-center h-full p-8">
+                  <div className="text-center">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight drop-shadow-lg my-8 group-hover:-translate-y-2 transition-transform duration-300">{item.title}</h3>
+                    <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">{item.content}</p>
+                  </div>
+
+                  <button
+                    className="text-lg font-medium border-2 border-white text-white group-hover:bg-white group-hover:text-black transition-all duration-300 w-4/5 h-12 rounded-lg backdrop-blur-sm translate-y-4 group-hover:translate-y-0 opacity-80 group-hover:opacity-100"
+                    type="button"
+                  >
+                    시공사례 보기
+                  </button>
                 </div>
 
-                <button
-                  className="text-lg font-medium border-2 border-white text-white group-hover:bg-white group-hover:text-black transition-all duration-300 w-4/5 h-12 rounded-lg backdrop-blur-sm translate-y-4 group-hover:translate-y-0 opacity-80 group-hover:opacity-100"
-                  type="button"
-                >
-                  시공사례 보기
-                </button>
+                <div className="absolute top-4 right-4 bg-white bg-opacity-90 text-[#255853] px-3 py-1 rounded-full text-sm font-medium">{item.type}</div>
               </div>
-
-              <div className="absolute top-4 right-4 bg-white bg-opacity-90 text-[#255853] px-3 py-1 rounded-full text-sm font-medium">{item.type}</div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
       </div>
 
       {/* 필터 결과 없음 */}

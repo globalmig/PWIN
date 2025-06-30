@@ -4,7 +4,7 @@ import ProductClient from "../components/products/ProductClient";
 
 export default function ProductsPage() {
   return (
-    <Suspense fallback={<div>로딩 중...</div>}>
+    <Suspense fallback={<div className="mx-auto min-h-screen flex justify-center items-center">로딩 중...</div>}>
       <ProductClient />
     </Suspense>
   );

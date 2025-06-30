@@ -23,7 +23,7 @@ export default function Ebook() {
     <div className="w-full ">
       {/* 
       <PDFViewer pdfUrl={"/pwin_catalog.pdf"} title="평원산업 카타로그" /> */}
-      <PDFViewer pdfUrl={"/flipbook_sample.pdf"} title="평원산업 카타로그" />
+      <PDFViewer pdfUrl={"/flipbook_sample4.pdf"} title="평원산업 카타로그" />
     </div>
   );
 }

@@ -9,25 +9,25 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const sliderData = [
-  {
-    id: 1,
-    image: "/images/default_x.png",
-    alt: "테스트 이미지 1",
-  },
+  // {
+  //   id: 1,
+  //   image: "/images/default_x.png",
+  //   alt: "테스트 이미지 1",
+  // },
   {
     id: 2,
-    image: "/images/default_x.png",
+    image: "/images/main/main02.png",
     alt: "테스트 이미지 2",
   },
   {
     id: 3,
-    image: "/images/default_x.png",
+    image: "/images/main/main03.png",
     alt: "테스트 이미지 3",
   },
   {
     id: 4,
-    image: "/images/default_x.png",
-    alt: "테스트 이미지 4",
+    image: "/images/main/main04.jpg",
+    alt: "테스트 이미지 3",
   },
 ];
 

@@ -72,7 +72,7 @@ export default function ProductSlider02() {
     router.push(`/products?type=${type}`);
   };
   return (
-    <div className="flex flex-col items-center justify-center h-[500px]  w-full px-4 my-10">
+    <div className="flex flex-col items-center justify-center h-[500px]  w-full px-4 md:my-10">
       <div className="my-10 md:mb-20 text-center">
         <h2 className="text-4xl md:text-5xl font-medium border-b-2 mb-2 border-lime-700 px-6 pb-2">제품소개</h2>
         <p className="text-xl text-zinc-400">PWIN PRODUCTS</p>
