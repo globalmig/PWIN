@@ -32,8 +32,8 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
 }
 
 // 게시글 삭제
-export async function DELETE(_: NextRequest, { params }: { params: { id: string } }) {
-  const id = params.id;
+export async function DELETE(_req: Request, context: { params: { id: string } }) {
+  const id = context.params.id;
 
   const { error } = await supabase.from("gallery").delete().eq("id", Number(id));
 
