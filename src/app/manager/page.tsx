@@ -24,9 +24,31 @@ export default function Manager() {
   const [previewUrls, setPreviewUrls] = useState<string[]>([]);
   const [editId, setEditId] = useState<string | null>(null);
   const [galleryList, setGalleryList] = useState<GalleryItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [uploading, setUploading] = useState(false);
   const correctPassword = process.env.NEXT_PUBLIC_MANAGER_PASSWORD;
+
+  // 갤러리 데이터 fetch 함수
+  const fetchGallery = async () => {
+    try {
+      const res = await fetch("/api/gallery");
+      const fetchedData = await res.json();
+      const sorted = fetchedData.sort((a: GalleryItem, b: GalleryItem) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+      setGalleryList(sorted);
+    } catch (err) {
+      console.error("갤러리 불러오기 실패", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // 컴포넌트 마운트 시 갤러리 데이터 로드
+  useEffect(() => {
+    if (isAuthorized) {
+      fetchGallery();
+    }
+  }, [isAuthorized]);
 
   const handlePasswordSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,6 +77,7 @@ export default function Manager() {
       const result = await res.json();
       if (result.success) {
         alert("삭제 완료되었습니다.");
+        // 삭제 후 갤러리 리스트 업데이트
         setGalleryList((prev) => prev.filter((item) => item.id !== id));
       } else {
         alert("삭제 실패: " + result.error);
@@ -77,7 +100,7 @@ export default function Manager() {
   const handlePostSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!title || !description || !isType || (editId === null && selectedFiles.length === 0)) {
+    if (!title || !isType || (editId === null && selectedFiles.length === 0)) {
       alert("모든 항목을 입력하고 이미지를 선택해야 합니다.");
       return;
     }
@@ -112,7 +135,7 @@ export default function Manager() {
 
       if (editId) {
         // 수정 요청
-        await fetch(`/api/gallery/${editId}`, {
+        const updateRes = await fetch(`/api/gallery/${editId}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -122,7 +145,24 @@ export default function Manager() {
             images: uploadedUrls.length > 0 ? uploadedUrls : undefined,
           }),
         });
-        alert("수정되었습니다!");
+
+        if (updateRes.ok) {
+          alert("수정되었습니다!");
+          // 수정 후 갤러리 리스트 업데이트
+          setGalleryList((prev) =>
+            prev.map((item) =>
+              item.id === editId
+                ? {
+                    ...item,
+                    title,
+                    description,
+                    type: isType,
+                    images: uploadedUrls.length > 0 ? uploadedUrls : item.images,
+                  }
+                : item
+            )
+          );
+        }
       } else {
         // 새 게시글 등록
         const postRes = await fetch("/api/gallery", {
@@ -153,6 +193,18 @@ export default function Manager() {
         }
 
         alert("게시글이 등록되었습니다!");
+
+        // 새 게시글을 리스트 맨 앞에 추가
+        const newItem: GalleryItem = {
+          id: result.id,
+          title,
+          description,
+          type: isType,
+          images: uploadedUrls,
+          link: "",
+          created_at: new Date().toISOString(),
+        };
+        setGalleryList((prev) => [newItem, ...prev]);
       }
 
       resetForm();
@@ -237,7 +289,7 @@ export default function Manager() {
             </div>
           </form>
 
-          <List onEdit={handleEdit} isAuthorized={isAuthorized} onDelete={handleDelete} galleryList={galleryList} setGalleryList={setGalleryList} />
+          <List onEdit={handleEdit} isAuthorized={isAuthorized} onDelete={handleDelete} galleryList={galleryList} setGalleryList={setGalleryList} isLoading={isLoading} />
         </>
       )}
     </div>

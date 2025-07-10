@@ -9,6 +9,7 @@ interface ListProps {
   isAuthorized?: boolean;
   galleryList?: GalleryItem[];
   setGalleryList?: React.Dispatch<React.SetStateAction<GalleryItem[]>>;
+  isLoading?: boolean;
 }
 
 interface GalleryItem {
@@ -35,33 +36,42 @@ const filter: FilterItem[] = [
   { key: "5", name: "기타", type: "기타" },
 ];
 
-export default function List({ onEdit, onDelete, isAuthorized }: ListProps) {
+export default function List({ onEdit, onDelete, isAuthorized, galleryList = [], setGalleryList, isLoading = false }: ListProps) {
   const [isSelected, setSelected] = useState<string>("ALL");
-  const [galleryList, setGalleryList] = useState<GalleryItem[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [localGalleryList, setLocalGalleryList] = useState<GalleryItem[]>([]);
+  const [localIsLoading, setLocalIsLoading] = useState(true);
+
+  // Manager에서 galleryList가 전달되면 그것을 사용, 아니면 자체 fetch
+  const effectiveGalleryList = galleryList.length > 0 ? galleryList : localGalleryList;
+  const effectiveIsLoading = galleryList.length > 0 ? isLoading : localIsLoading;
 
   useEffect(() => {
-    async function fetchGallery() {
-      try {
-        const res = await fetch("/api/gallery");
-        const fetchedData = await res.json();
-        const sorted = fetchedData.sort((a: GalleryItem, b: GalleryItem) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
-        setGalleryList(sorted);
-      } catch (err) {
-        console.error("갤러리 불러오기 실패", err);
-      } finally {
-        setIsLoading(false);
+    // Manager에서 galleryList를 전달받지 않는 경우에만 자체 fetch
+    if (galleryList.length === 0 && !isAuthorized) {
+      async function fetchGallery() {
+        try {
+          const res = await fetch("/api/gallery");
+          const fetchedData = await res.json();
+          const sorted = fetchedData.sort((a: GalleryItem, b: GalleryItem) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+          setLocalGalleryList(sorted);
+        } catch (err) {
+          console.error("갤러리 불러오기 실패", err);
+        } finally {
+          setLocalIsLoading(false);
+        }
       }
-    }
 
-    fetchGallery();
-  }, []);
+      fetchGallery();
+    } else if (galleryList.length > 0) {
+      setLocalIsLoading(false);
+    }
+  }, [galleryList.length, isAuthorized]);
 
   const handleSelect = (type: string) => setSelected(type);
 
-  const filteredList = isSelected === "ALL" ? galleryList : galleryList.filter((item) => item.type === isSelected);
+  const filteredList = isSelected === "ALL" ? effectiveGalleryList : effectiveGalleryList.filter((item) => item.type === isSelected);
 
-  if (isLoading) {
+  if (effectiveIsLoading) {
     return <div className="w-full py-20 text-center text-gray-500 text-lg">시공사례를 불러오는 중입니다...</div>;
   }
 
@@ -120,7 +130,7 @@ export default function List({ onEdit, onDelete, isAuthorized }: ListProps) {
                     e.preventDefault();
                     onEdit?.(item);
                   }}
-                  className="text-xs bg-yellow-400 text-white px-3 py-1 rounded"
+                  className="text-base bg-green-600 text-white px-4 py-2 rounded"
                 >
                   수정
                 </button>
@@ -128,9 +138,9 @@ export default function List({ onEdit, onDelete, isAuthorized }: ListProps) {
                   onClick={(e) => {
                     e.stopPropagation();
                     e.preventDefault();
-                    onDelete?.(item.id); // ✅ 삭제는 props에서 받은 onDelete로 수행
+                    onDelete?.(item.id);
                   }}
-                  className="text-xs bg-red-600 text-white px-3 py-1 rounded"
+                  className="text-base bg-red-600 text-white px-4 py-2 rounded"
                 >
                   삭제
                 </button>

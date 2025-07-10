@@ -34,7 +34,7 @@ export default function GalleryDetail() {
 
         setGalleryItem(item);
 
-        const fetchedIds = data.map((item: any) => Number(item.id)).sort((a, b) => a - b);
+        const fetchedIds = data.map((item: any) => Number(item.id)).sort((a: number, b: number) => a - b);
         setIds(fetchedIds);
 
         const min = Math.min(...fetchedIds);

@@ -12,7 +12,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   // 수정할 값만 골라서 객체 구성
   const updateData: Record<string, any> = {};
   if (title) updateData.title = title;
-  if (content) updateData.description = content;
+  if (content !== undefined) updateData.description = content;
   if (type) updateData.type = type;
   if (images && Array.isArray(images)) updateData.images = images;
 
