@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 
 import { useRouter } from "next/navigation";
+import { FaSearchPlus } from "react-icons/fa";
 
 const products = [
   {
@@ -117,7 +118,8 @@ export default function ProductSlider02() {
             <SwiperSlide key={product.id}>
               <div className="relative group w-full  mx-auto cursor-pointer max-w-[300px]" onClick={() => handleClick(product.type as string)}>
                 <Image src={product.image} alt={product.name} width={530} height={420} className="w-full h-auto object-cover rounded-md" />
-                <div className="absolute inset-0 hidden group-hover:flex items-center justify-center bg-black bg-opacity-60 rounded-md transition-opacity">
+                <div className="absolute inset-0 hidden group-hover:flex items-center justify-center gap-2 bg-black bg-opacity-60 rounded-md transition-opacity">
+                  <FaSearchPlus color="white" size={30} />
                   <p className="text-white text-xl">상세보기</p>
                 </div>
                 <h3 className="text-lg font-semibold mt-4 text-center">{product.name}</h3>

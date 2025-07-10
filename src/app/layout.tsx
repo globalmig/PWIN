@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import GNB from "./components/GNB";
-import FNB from "./components/FNB";
+import Footer from "./components/Footer";
 
 import QuickMenu from "./components/QuickMenu";
 
@@ -37,7 +37,7 @@ export default function RootLayout({
         <div className="min-h-screen h-full">{children}</div>
 
         <QuickMenu />
-        <FNB />
+        <Footer />
       </body>
     </html>
   );

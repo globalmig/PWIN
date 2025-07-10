@@ -57,9 +57,12 @@ export default function CompanyList() {
         {companyList.map((item) => (
           <li className="flex flex-col items-center gap-2 w-full relative" key={item.id}>
             <Link href={item.link} className="w-full px-4">
-              <div className="relative w-full h-[200px] shadow-sm rounded-md overflow-hidden mb-2">
+              <div className="group relative w-full h-[200px] shadow-sm rounded-md overflow-hidden mb-2">
                 <Image src={item.image} alt={item.name} fill sizes="100vw" className="object-cover rounded-md" />
-                <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-3xl text-shadow-xl ">{item.name}</p>
+                <div className="absolute  inset-0 bg-black opacity-50 hover:opacity-30 rounded-lg translate ease-in-out duration-300"></div>
+                <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-3xl text-shadow-xl group-hover:scale-125  translate ease-in-out duration-300">
+                  {item.name}
+                </p>
               </div>
             </Link>
           </li>

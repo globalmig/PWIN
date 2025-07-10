@@ -3,14 +3,22 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-// 타입 정의
+interface ListProps {
+  onEdit?: (item: GalleryItem) => void;
+  onDelete?: (id: string) => void;
+  isAuthorized?: boolean;
+  galleryList?: GalleryItem[];
+  setGalleryList?: React.Dispatch<React.SetStateAction<GalleryItem[]>>;
+}
+
 interface GalleryItem {
   id: string;
   title: string;
-  content: string;
+  description: string;
   images: string[];
   link: string;
   type: string;
+  created_at: string;
 }
 
 interface FilterItem {
@@ -19,7 +27,6 @@ interface FilterItem {
   type: string;
 }
 
-// 필터 목록 (고정)
 const filter: FilterItem[] = [
   { key: "1", name: "ALL", type: "ALL" },
   { key: "2", name: "보강토", type: "보강토" },
@@ -28,7 +35,7 @@ const filter: FilterItem[] = [
   { key: "5", name: "기타", type: "기타" },
 ];
 
-export default function List() {
+export default function List({ onEdit, onDelete, isAuthorized }: ListProps) {
   const [isSelected, setSelected] = useState<string>("ALL");
   const [galleryList, setGalleryList] = useState<GalleryItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -37,8 +44,9 @@ export default function List() {
     async function fetchGallery() {
       try {
         const res = await fetch("/api/gallery");
-        const data = await res.json();
-        setGalleryList(data);
+        const fetchedData = await res.json();
+        const sorted = fetchedData.sort((a: GalleryItem, b: GalleryItem) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+        setGalleryList(sorted);
       } catch (err) {
         console.error("갤러리 불러오기 실패", err);
       } finally {
@@ -77,39 +85,59 @@ export default function List() {
 
       {/* 갤러리 리스트 */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {Array.isArray(filteredList) &&
-          filteredList.map((item) => (
-            <Link href={`/gallery/${item.id}`} key={item.id} className="block">
-              <div className="group rounded-xl h-96 relative overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                {/* 이미지 */}
-                <Image
-                  src={item.images?.[0] || "/images/default_x.png"}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-
-                <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300" />
-
-                <div className="relative z-10 flex flex-col justify-between items-center h-full p-8">
-                  <div className="text-center">
-                    <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight drop-shadow-lg my-8 group-hover:-translate-y-2 transition-transform duration-300">{item.title}</h3>
-                    <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">{item.content}</p>
-                  </div>
-
-                  <button
-                    className="text-lg font-medium border-2 border-white text-white group-hover:bg-white group-hover:text-black transition-all duration-300 w-4/5 h-12 rounded-lg backdrop-blur-sm translate-y-4 group-hover:translate-y-0 opacity-80 group-hover:opacity-100"
-                    type="button"
-                  >
-                    시공사례 보기
-                  </button>
+        {filteredList.map((item) => (
+          <div key={item.id} className="relative group rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+            <Link href={`/gallery/${item.id}`} className="block h-96 relative">
+              <Image
+                src={item.images?.[0] || "/images/default_x.png"}
+                alt={item.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300" />
+              <div className="relative z-10 flex flex-col justify-between items-center h-full p-8">
+                <div className="text-center">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight drop-shadow-lg my-8 group-hover:-translate-y-2 transition-transform duration-300">{item.title}</h3>
+                  <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">{item.description}</p>
                 </div>
-
-                <div className="absolute top-4 right-4 bg-white bg-opacity-90 text-[#255853] px-3 py-1 rounded-full text-sm font-medium">{item.type}</div>
+                {isAuthorized ? (
+                  <div />
+                ) : (
+                  <div className="text-lg font-medium border-2 border-white text-white group-hover:bg-white group-hover:text-black transition-all duration-300 w-4/5 h-12 rounded-lg backdrop-blur-sm translate-y-4 group-hover:translate-y-0 opacity-80 group-hover:opacity-100 flex items-center justify-center">
+                    시공사례 보기
+                  </div>
+                )}
               </div>
+              <div className="absolute top-4 right-4 bg-white bg-opacity-90 text-[#255853] px-3 py-1 rounded-full text-sm font-medium">{item.type}</div>
             </Link>
-          ))}
+
+            {isAuthorized && (
+              <div className="absolute bottom-4 right-4 flex gap-2 z-30">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    onEdit?.(item);
+                  }}
+                  className="text-xs bg-yellow-400 text-white px-3 py-1 rounded"
+                >
+                  수정
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    onDelete?.(item.id); // ✅ 삭제는 props에서 받은 onDelete로 수행
+                  }}
+                  className="text-xs bg-red-600 text-white px-3 py-1 rounded"
+                >
+                  삭제
+                </button>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
 
       {/* 필터 결과 없음 */}

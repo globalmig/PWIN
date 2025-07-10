@@ -1,5 +1,6 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { FaSearchPlus } from "react-icons/fa";
 
 // Import Swiper styles
 import "swiper/css";

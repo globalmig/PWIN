@@ -21,6 +21,7 @@
     "reportlab",
     "startxref",
     "supabase",
-    "textshadow"
+    "textshadow",
+    "uuidv"
   ]
 }
