@@ -32,14 +32,13 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
 }
 
 // 게시글 삭제
-export async function DELETE(_req: Request, context: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, context: { params: { id: string } }) {
   const id = context.params.id;
 
-  const { error } = await supabase.from("gallery").delete().eq("id", Number(id));
+  const { error } = await supabase.from("gallery").delete().eq("id", id);
 
   if (error) {
-    console.error("갤러리 삭제 실패:", error);
-    return NextResponse.json({ success: false, error: "갤러리 삭제 실패" }, { status: 500 });
+    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 
   return NextResponse.json({ success: true }, { status: 200 });
