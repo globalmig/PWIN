@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -40,13 +41,29 @@ export default function List({ onEdit, onDelete, isAuthorized, galleryList = [],
   const [isSelected, setSelected] = useState<string>("ALL");
   const [localGalleryList, setLocalGalleryList] = useState<GalleryItem[]>([]);
   const [localIsLoading, setLocalIsLoading] = useState(true);
+  const [visibleCount, setVisibleCount] = useState(9);
+  const loaderRef = useRef<HTMLDivElement | null>(null);
 
-  // Manager에서 galleryList가 전달되면 그것을 사용, 아니면 자체 fetch
   const effectiveGalleryList = galleryList.length > 0 ? galleryList : localGalleryList;
   const effectiveIsLoading = galleryList.length > 0 ? isLoading : localIsLoading;
 
+  const filteredList = isSelected === "ALL" ? effectiveGalleryList : effectiveGalleryList.filter((item) => item.type === isSelected);
+
   useEffect(() => {
-    // Manager에서 galleryList를 전달받지 않는 경우에만 자체 fetch
+    if (!loaderRef.current) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisibleCount((prev) => prev + 6);
+        }
+      },
+      { threshold: 1 }
+    );
+    observer.observe(loaderRef.current);
+    return () => observer.disconnect();
+  }, [filteredList]);
+
+  useEffect(() => {
     if (galleryList.length === 0 && !isAuthorized) {
       async function fetchGallery() {
         try {
@@ -60,16 +77,16 @@ export default function List({ onEdit, onDelete, isAuthorized, galleryList = [],
           setLocalIsLoading(false);
         }
       }
-
       fetchGallery();
     } else if (galleryList.length > 0) {
       setLocalIsLoading(false);
     }
   }, [galleryList.length, isAuthorized]);
 
-  const handleSelect = (type: string) => setSelected(type);
-
-  const filteredList = isSelected === "ALL" ? effectiveGalleryList : effectiveGalleryList.filter((item) => item.type === isSelected);
+  const handleSelect = (type: string) => {
+    setSelected(type);
+    setVisibleCount(9);
+  };
 
   if (effectiveIsLoading) {
     return <div className="w-full py-20 text-center text-gray-500 text-lg">시공사례를 불러오는 중입니다...</div>;
@@ -77,7 +94,6 @@ export default function List({ onEdit, onDelete, isAuthorized, galleryList = [],
 
   return (
     <div className="w-full max-w-[1440px] mx-auto px-4 py-8">
-      {/* 필터 버튼 */}
       <div className="flex flex-wrap gap-4 justify-center mb-12">
         {filter.map((item) => (
           <button
@@ -93,9 +109,8 @@ export default function List({ onEdit, onDelete, isAuthorized, galleryList = [],
         ))}
       </div>
 
-      {/* 갤러리 리스트 */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredList.map((item) => (
+        {filteredList.slice(0, visibleCount).map((item) => (
           <div key={item.id} className="relative group rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl">
             <Link href={`/gallery/${item.id}`} className="block h-96 relative">
               <Image
@@ -111,9 +126,7 @@ export default function List({ onEdit, onDelete, isAuthorized, galleryList = [],
                   <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight drop-shadow-lg my-8 group-hover:-translate-y-2 transition-transform duration-300">{item.title}</h3>
                   <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">{item.description}</p>
                 </div>
-                {isAuthorized ? (
-                  <div />
-                ) : (
+                {!isAuthorized && (
                   <div className="text-lg font-medium border-2 border-white text-white group-hover:bg-white group-hover:text-black transition-all duration-300 w-4/5 h-12 rounded-lg backdrop-blur-sm translate-y-4 group-hover:translate-y-0 opacity-80 group-hover:opacity-100 flex items-center justify-center">
                     시공사례 보기
                   </div>
@@ -150,7 +163,8 @@ export default function List({ onEdit, onDelete, isAuthorized, galleryList = [],
         ))}
       </div>
 
-      {/* 필터 결과 없음 */}
+      <div ref={loaderRef} className="h-10" />
+
       {filteredList.length === 0 && (
         <div className="text-center py-16">
           <p className="text-gray-500 text-lg">해당 필터에 맞는 시공사례가 없습니다.</p>
