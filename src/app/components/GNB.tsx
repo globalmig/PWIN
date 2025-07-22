@@ -69,7 +69,7 @@ export default function GNB() {
                 <li>
                   <Link href={"/"} onClick={() => setActiveMenu(activeMenu === "home" ? "" : "home")} prefetch={true}>
                     <Image
-                      src={"/images/pwinLogo7.svg"}
+                      src={"/images/logo2.svg"}
                       alt="Logo"
                       width={200}
                       height={400}
