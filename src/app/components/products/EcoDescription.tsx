@@ -1,7 +1,6 @@
 import Image from "next/image";
-import ProductSlide from "../ProductSlide ";
 
-export default function EcoDescription() {
+export default function EsoDescription() {
   return (
     <>
       <div className="flex flex-col gap-4">
@@ -26,17 +25,19 @@ export default function EcoDescription() {
             </ul>
           </div>
         </section>
-        {/* 시공단면도 */}
-        <section className="w-full mt-5 md:mt-10">
-          <div className="w-full h-[200px] md:h-[400px] relative">
-            <Image src="/images/products/환경호안블록/시공단면도.png" alt="환경호안블록시공단면도" fill className="object-contain" />
-          </div>
-          <div className="w-full flex mt-10 border-t-2 pd-5 md:gap-4 md:pt-10">
-            <Image src="/images/products/환경호안블록/상세도/평면도.png" alt="환경호안블록평면도" width={346} height={403} className="w-1/3" />
-            <Image src="/images/products/환경호안블록/상세도/측면도.png" alt="환경호안블록시공측면도" width={346} height={403} className="w-1/3" />
-            <Image src="/images/products/환경호안블록/상세도/시공평면도.png" alt="환경호안블록시공평면도" width={424} height={444} className="w-1/3" />
+        {/* 상세도 */}
+        <section className="w-full mt-5 md:mt-10 flex flex-col gap-10">
+          <p className="text-center mt-10 text-xl md:text-3xl font-bold border-b-2 pb-5 text-green-900">호안블록</p>
+          {/* 블록 색상별 섹션 */}
+          <div className="blockList relative ">
+            <div className="flex flex-col items-center justify-center gap-10">
+              <Image src="/images/products/환경호안블록/gray.png" alt="호안블록 회색" width={400} height={200} />
+              {/* <p className="text-center mt-6 ">[ 회색 ]</p> */}
+              <Image src="/images/products/환경호안블록/blueprint.png" alt="호안블록 설계도" width={1400} height={500} className="w-full md:max-w-[80%]" />
+            </div>
           </div>
         </section>
+
         {/* 규격 테이블 표*/}
         <section className="w-full border-t-2 py-5 md:py-10">
           <p className="w-full text-end text-zinc-500 mb-2">단위: mm</p>
@@ -48,38 +49,52 @@ export default function EcoDescription() {
                 <th className="py-4 px-2 border-r-2 border-zinc-300">L</th>
                 <th className="py-4 px-2 border-r-2 border-zinc-300">H</th>
                 <th className="py-4 px- border-r-2 border-zinc-300">참고중량</th>
-                <th className="py-4 px-2">단위수량</th>
+                <th className="py-4 px- border-r-2 border-zinc-300">단위 수량</th>
               </tr>
             </thead>
+            {/* 호안 200 */}
             <tbody>
               <tr className="border-b-2 border-zinc-300">
-                <td className="py-4 px-2 border-r-2 border-zinc-300">환경블록</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">400</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">500</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">호안블록(200형)</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">1000</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">1000</td>
                 <td className="py-4 px-2 border-r-2 border-zinc-300">200</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">12kg</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">16개</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">260kg</td>
+                <th className="py-4 px- border-r-2 border-zinc-300">1장/m²</th>
               </tr>
-              <tr>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">유공블록</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">300</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">400</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">150</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">8kg</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">20개</td>
+            </tbody>
+
+            {/* 호안 250 */}
+            <tbody>
+              <tr className="border-b-2 border-zinc-300">
+                <td className="py-4 px-2 border-r-2 border-zinc-300">호안블록(250형)</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">500</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">340</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">125</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">39kg</td>
+                <th className="py-4 px- border-r-2 border-zinc-300">1장/m²</th>
               </tr>
             </tbody>
           </table>
-        </section>{" "}
+        </section>
         {/* 예시 이미지 */}
-        <section className="w-full border-t-2 pt-5 md:pt-10 ">
-          <div className="flex gap-2 w-full">
+        <div className="w-full border-t-2 pt-5 md:pt-10 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full">
             <div className="basis-1/2">
-              <Image src="/images/products/환경호안블록/예시01.png" alt="환경호안블록 하천 설치" width={660} height={575} className="w-full rounded-lg" />
+              <Image src="/images/products/환경호안블록/example_01.png" alt="보강토200 사용예시" width={319} height={208} className="w-full rounded-lg" />
             </div>
             <div className="basis-1/2">
-              <Image src="/images/products/환경호안블록/예시02.png" alt="환경호안블록 하천 설치" width={660} height={575} className="w-full rounded-lg" />
+              <Image src="/images/products/환경호안블록/example_02.png" alt="보강토200 사용예시" width={319} height={208} className="w-full rounded-lg" />
             </div>
+          </div>
+        </div>
+
+        {/* 시공입체도 */}
+        <section className="w-full mt-5 md:mt-10 flex flex-col gap-10">
+          <p className="text-center mt-10 text-xl md:text-3xl font-bold border-b-2 pb-5 text-green-900">시공입체도</p>
+
+          <div className="flex flex-col items-center justify-center gap-10">
+            <Image src="/images/products/환경호안블록/design.png" alt="시공입체도" width={1075} height={603} className="w-full md:max-w-[60%]" />
           </div>
         </section>
       </div>

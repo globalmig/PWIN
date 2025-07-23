@@ -28,121 +28,108 @@ export default function RetainingDescription() {
         </section>
         {/* 상세도 */}
         <section className="w-full mt-5 md:mt-10 flex flex-col gap-10">
-          <p className="text-center mt-10 text-3xl font-bold border-b-2 pb-5 text-green-900">보강토 250</p>
-          <div className="w-full h-[200px] md:h-[400px] relative">
-            <Image src="/images/products/보강토/img (1).png" alt="보강토250형 색상 별" fill className="object-contain" />
-          </div>
-          <div className="w-full h-[200px] md:h-[400px] relative">
-            <Image src="/images/products/보강토/img (2).png" alt="보강토단면도" fill className="object-contain" />
-          </div>
-        </section>
-        {/* 예시 이미지 */}
-        <section className="w-full border-t-2 pt-5 md:pt-10 ">
-          <div className="flex gap-2 w-full">
-            <div className="basis-1/2">
-              <Image src="/images/products/보강토/img (3).png" alt="보강토200 사용예시" width={319} height={208} className="w-full rounded-lg" />
+          <p className="text-center mt-10 text-xl md:text-3xl font-bold border-b-2 pb-5 text-green-900">보강토 옹벽블록 (250형)</p>
+          {/* 블록 색상별 섹션 */}
+          <div className="blockList grid grid-cols-2 md:grid-cols-4 relative mt-10">
+            <div className="flex flex-col items-center justify-center">
+              <Image src="/images/products/보강토/gray.png" alt="보강토250형 회색" width={200} height={200} />
+              <p className="text-center mt-6 ">[ 회색 ]</p>
             </div>
-            <div className="basis-1/2">
-              <Image src="/images/products/보강토/img (4).png" alt="보강토200 사용예시" width={319} height={208} className="w-full rounded-lg" />
+            <div className="flex flex-col items-center justify-center">
+              <Image src="/images/products/보강토/red.png" alt="보강토250형 적색" width={200} height={200} />
+              <p className="text-center mt-6 ">[ 적색 ]</p>
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <Image src="/images/products/보강토/yellow.png" alt="보강토250형 황토색 주문생산 상품" width={200} height={200} />
+              <p className="text-center mt-6 ">[ 황토색(주문생산) ]</p>
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <Image src="/images/products/보강토/black.png" alt="보강토250형 흑색 주문생산 상품" width={200} height={200} />
+              <p className="text-center mt-6 ">[ 흑색(주문생산) ]</p>
             </div>
           </div>
-        </section>{" "}
-        {/* 규격 테이블 표*/}
-        <section className="w-full border-t-2 py-5 md:py-10">
-          <p className="w-full text-end text-zinc-500 mb-2">단위: mm</p>
-          <table className="w-full text-center border border-zinc-300 text-sm md:text-lg">
-            <thead>
-              <tr className="bg-slate-200 border-b-2 border-zinc-300 ">
-                <th className="py-4 px-2 border-r-2 border-zinc-300">품명</th>
-                <th className="py-4 px-2  border-r-2 border-zinc-300">W</th>
-                <th className="py-4 px-2 border-r-2 border-zinc-300">L</th>
-                <th className="py-4 px-2 border-r-2 border-zinc-300">H</th>
-                <th className="py-4 px- border-r-2 border-zinc-300">참고중량</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b-2 border-zinc-300">
-                <td className="py-4 px-2 border-r-2 border-zinc-300">보강토 옹벽블록 (250형)</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">500</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">410</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">250</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">60kg</td>
-              </tr>
-              <tr>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">마감(캡) 블록</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">500</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">350</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">125</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">42kg</td>
-              </tr>
-            </tbody>
-          </table>
+
+          {/* 시공단면도 */}
+
+          <section className="blockList grid grid-cols-1 md:grid-cols-2 relative mt-20">
+            <div className="flex flex-col items-center justify-center">
+              <Image src="/images/products/보강토/상세도1.png" alt="보강토250형 회색" width={600} height={600} />
+              <div className="flex justify-between w-full px-0 md:px-8 mb-20 md:mb-0">
+                <p className="text-center mt-6 w-full ">[ 정면도 ]</p>
+                <p className="text-center mt-6 w-full">[ 측면도 ]</p>
+              </div>
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <Image src="/images/products/보강토/상세도2.png" alt="보강토250형 회색" width={600} height={600} />
+              <div className="flex justify-between w-full px-0 md:px-8 mt-10">
+                <p className="text-center mt-6 w-full ">[ 정면도 ]</p>
+                <p className="text-center mt-6 w-full">[ 측면도 ]</p>
+              </div>
+            </div>
+          </section>
+          {/* 규격 테이블 표*/}
+          <section className="w-full border-t-2 py-5 md:py-10">
+            <p className="w-full text-end text-zinc-500 mb-2">단위: mm</p>
+            <table className="w-full text-center border border-zinc-300 text-sm md:text-lg">
+              <thead>
+                <tr className="bg-slate-200 border-b-2 border-zinc-300 ">
+                  <th className="py-4 px-2 border-r-2 border-zinc-300">품명</th>
+                  <th className="py-4 px-2  border-r-2 border-zinc-300">W</th>
+                  <th className="py-4 px-2 border-r-2 border-zinc-300">L</th>
+                  <th className="py-4 px-2 border-r-2 border-zinc-300">H</th>
+                  <th className="py-4 px- border-r-2 border-zinc-300">참고중량</th>
+                  <th className="py-4 px- border-r-2 border-zinc-300">단위 수량</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b-2 border-zinc-300">
+                  <td className="py-4 px-2 border-r-2 border-zinc-300">보강토 옹벽블록 (250형)</td>
+                  <td className="py-4 px-2 border-r-2 border-zinc-300">500</td>
+                  <td className="py-4 px-2 border-r-2 border-zinc-300">410</td>
+                  <td className="py-4 px-2 border-r-2 border-zinc-300">250</td>
+                  <td className="py-4 px-2 border-r-2 border-zinc-300">60kg</td>
+                  <td className="py-4 px-2 border-r-2 border-zinc-300">8장/m²</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          {/* 예시 이미지 */}
+          <div className="w-full border-t-2 pt-5 md:pt-10 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full">
+              <div className="basis-1/2">
+                <Image src="/images/products/보강토/example_01.png" alt="보강토200 사용예시" width={319} height={208} className="w-full rounded-lg" />
+              </div>
+              <div className="basis-1/2">
+                <Image src="/images/products/보강토/example_02.png" alt="보강토200 사용예시" width={319} height={208} className="w-full rounded-lg" />
+              </div>
+            </div>
+          </div>
         </section>
       </div>
 
-      <div className="flex flex-col gap-4">
-        <p className="text-center mt-40 text-3xl font-bold border-b-2 pb-5 text-green-900">보강토 200</p>
-        {/* 시공단면도 */}
-        <section className="w-full mt-5 md:mt-10 flex flex-col gap-10">
-          <div className="w-full h-[200px] md:h-[400px] relative">
-            <Image src="/images/products/보강토/img (5).png" alt="보강토200 회색,적색 " fill className="object-contain" />
+      {/* 시공입체도 */}
+      <section className="w-full mt-10 md:mt-32">
+        <p className="text-center mt-10 text-xl md:text-3xl font-bold border-b-2 pb-5 text-green-900">시공입체도</p>
+        <div className="w-full flex justify-center mt-10">
+          <Image src="/images/products/보강토/보강토시공입체도.png" alt="보강토시공입체도" width={1000} height={674} className="w-full md:max-w-[60%] rounded-lg" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10 ">
+          <div className="w-full flex justify-center mt-10">
+            <Image src="/images/products/보강토/size.png" alt="보강토시공입체도" width={1000} height={674} className="w-full md:max-w-[80%] rounded-lg" />
           </div>
-          <div className="w-full h-[200px] md:h-[400px] relative">
-            <Image src="/images/products/보강토/img (6).png" alt="환경호안블록시공단면도" fill className="object-contain" />
+          <div className="w-full flex justify-center mt-10">
+            <Image src="/images/products/보강토/grid.png" alt="보강토시공입체도" width={1000} height={674} className="w-full md:max-w-[80%] rounded-lg" />
           </div>
-          <div className="w-full h-[200px] md:h-[400px] relative">
-            <Image src="/images/products/보강토/img (9_1).png" alt="환경호안블록시공단면도" fill className="object-contain" />
-          </div>
-          {/* <div className="w-full flex mt-10 border-t-2 pd-5 md:gap-4 md:pt-10">
-            <Image src="/images/products/환경호안블록/상세도/평면도.png" alt="환경호안블록평면도" width={346} height={403} className="w-1/3" />
-            <Image src="/images/products/환경호안블록/상세도/측면도.png" alt="환경호안블록시공측면도" width={346} height={403} className="w-1/3" />
-            <Image src="/images/products/환경호안블록/상세도/시공평면도.png" alt="환경호안블록시공평면도" width={424} height={444} className="w-1/3" />
-          </div> */}
-        </section>
-        {/* 예시 이미지 */}
-        <section className="w-full border-t-2 py-5 md:py-10 ">
-          <div className="flex gap-2 w-full">
-            <div className="basis-1/2">
-              <Image src="/images/products/보강토/img (7).png" alt="보강토200 사용예시" width={660} height={575} className="w-full rounded-lg" />
-            </div>
-            <div className="basis-1/2">
-              <Image src="/images/products/보강토/img (8).png" alt="보강토200 사용예시" width={660} height={575} className="w-full rounded-lg" />
-            </div>
-          </div>
-        </section>{" "}
-        {/* 규격 테이블 표*/}
-        <section className="w-full border-t-2 py-5 md:py-10">
-          <p className="w-full text-end text-zinc-500 mb-2">단위: mm</p>
-          <table className="w-full text-center border border-zinc-300 text-sm md:text-lg">
-            <thead>
-              <tr className="bg-slate-200 border-b-2 border-zinc-300 ">
-                <th className="py-4 px-2 border-r-2 border-zinc-300">품명</th>
-                <th className="py-4 px-2  border-r-2 border-zinc-300">W</th>
-                <th className="py-4 px-2 border-r-2 border-zinc-300">L</th>
-                <th className="py-4 px-2 border-r-2 border-zinc-300">H</th>
-                <th className="py-4 px- border-r-2 border-zinc-300">참고중량</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b-2 border-zinc-300">
-                <td className="py-4 px-2 border-r-2 border-zinc-300">보강토 옹벽블록 (200형)</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">500</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">430</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">200</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">48kg</td>
-              </tr>
-              <tr>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">마감(캡) 블록</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">500</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">350</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">100</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">34kg</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <Image src="/images/products/보강토/img (10).png" alt="보강토200 사용예시" width={660} height={575} quality={90} sizes="(max-width: 768px) 100vw, 50vw" className="w-full rounded-lg" />
-      </div>
+        </div>
+      </section>
+
+      {/* 시공순서 */}
+      <section className="w-full mt-10 md:mt-32">
+        <p className="text-center mt-10 text-xl md:text-3xl font-bold border-b-2 pb-5 text-green-900">시공순서</p>
+        <div className="w-full flex justify-center mt-10">
+          <Image src="/images/products/보강토/process.png" alt="시공순서" width={1000} height={1000} className="w-full  rounded-lg" />
+        </div>
+      </section>
     </>
   );
 }

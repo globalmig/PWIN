@@ -9,11 +9,13 @@ import { motion } from "framer-motion";
 import RetainingDescription from "./RetainingDescription";
 import MasonryDescription from "./MasonryDescription";
 import EcoDescription from "./EcoDescription";
+import CapDescription from "./CapDescription ";
 
 const blockData = [
-  { key: 1, title: "보강토 옹벽 블록", img: "/images/products/보강토_옹벽블록_btn.png", alt: "보강토옹벽블록버튼", desc: "하천 저/고수 호안공, 만곡부, 유수지, 도로 법면", type: "retaining" },
-  { key: 2, title: "식생축조 블록", img: "/images/products/환경호안블록_btn.png", alt: "식생축조블록버튼", desc: "소하천, 도로, 법면 절/성토부", type: "masonry" },
-  { key: 3, title: "환경호안 블록", img: "/images/products/식생축조블록_btn.png", alt: "환경호안블록버튼", desc: "도로 절개지, 산사태 방지 시설, 산업단지, 교량 접근로 사면", type: "eco" },
+  { key: 1, title: "보강토블록", img: "/images/products/보강토_옹벽블록_btn.png", alt: "보강토블록버튼", desc: "하천 저/고수 호안공, 만곡부, 유수지, 도로 법면", type: "retaining" },
+  { key: 2, title: "캡블록", img: "/images/products/cap.png", alt: "보강토블록버튼", desc: "소하천, 도로, 법면 절/성토부", type: "cap" },
+  { key: 3, title: "식생축조", img: "/images/products/환경호안블록_btn.png", alt: "축조블록버튼", desc: "소하천, 도로, 법면 절/성토부", type: "masonry" },
+  { key: 4, title: "호안블록", img: "/images/products/식생축조블록_btn.png", alt: "호안블록버튼", desc: "하천 저/고수 호안공, 만곡부, 유수지, 도로 법면", type: "eco" },
 ];
 
 export default function ProductClient() {
@@ -67,6 +69,7 @@ ${selectedBlock === item.type ? "bg-[#3A7D44] text-white text-3xl" : "bg-white t
 
         <section className="w-full">
           {selectedBlock === "retaining" && <RetainingDescription />}
+          {selectedBlock === "cap" && <CapDescription />}
           {selectedBlock === "masonry" && <MasonryDescription />}
           {selectedBlock === "eco" && <EcoDescription />}
         </section>

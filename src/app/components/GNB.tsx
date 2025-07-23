@@ -154,7 +154,7 @@ export default function GNB() {
         <div className="md:hidden relative z-[102] flex w-full justify-between">
           <div className="w-[10%]" />
           <Link href={"/"} prefetch={true}>
-            <Image src="/images/pwinLogo6.svg" alt="Logo" width={120} height={120} className="mr-10 py-6 ml-4" priority />
+            <Image src="/images/logo2.svg" alt="Logo" width={120} height={120} className="mr-10 py-6 ml-4" priority />
           </Link>
           <button onClick={toggleMenu} className="px-4">
             <Image src={"/images/menu_m.png"} alt="Menu" width={32} height={30} />
