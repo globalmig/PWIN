@@ -11,8 +11,8 @@ const PDFViewer = dynamic(() => import("../components/PDFViewer"), {
   loading: () => (
     <div className="flex items-center justify-center bg-gray-100">
       <div className="flex flex-col items-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
-        <p className="text-gray-600">PDF 뷰어를 불러오는 중...</p>
+        <div className="animate-spin rounded-full h-screen w-12 border-b-2 border-blue-600 mb-4"></div>
+        {/* <p className="text-gray-600">PDF 뷰어를 불러오는 중...</p> */}
       </div>
     </div>
   ),
@@ -20,10 +20,8 @@ const PDFViewer = dynamic(() => import("../components/PDFViewer"), {
 
 export default function Ebook() {
   return (
-    <div className="w-full ">
-      {/* 
-      <PDFViewer pdfUrl={"/catalog.pdf"} title="평원산업 카타로그" /> */}
-      <PDFViewer pdfUrl={"/catalog.pdf"} title="평원산업 카타로그" />
+    <div className="w-full">
+      <PDFViewer pdfUrl={"/catalog_low_compressed2.pdf"} title="평원산업 카타로그" />
     </div>
   );
 }

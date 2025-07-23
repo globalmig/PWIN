@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
-import { FaFax } from "react-icons/fa";
+
+// TODO: pdf 2면으로 나오는걸로 수정해야함
 
 const menuItems = [
   {
     id: 1,
     title: "카타로그 다운로드",
-    link: "/catalog.pdf",
+    link: "/catalog_low.pdf",
     download: "평원산업 카타로그",
   },
   {
