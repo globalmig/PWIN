@@ -32,14 +32,14 @@ const galleryList = [
   { id: 222222, title: "축조블록(타원형)", content: "남양주 수동면 외방리 절토사면 옹벽공사", image: "/images/main/type02/6.webp", link: "/gallery/1012", type: "식생축조" },
 
   // 3 환경리스트
-  { id: 3, title: "환경호안블록", content: "별내 용암천 지방하천 정비사업", image: "/images/main/type03/1.webp", link: "/gallery/10000", type: "환경호안" },
+  { id: 3, title: "호안블록", content: "별내 용암천 지방하천 정비사업", image: "/images/main/type03/1.webp", link: "/gallery/10000", type: "환경호안" },
 ];
 
 const filter = [
   { key: 1, name: "ALL", type: "ALL" },
-  { key: 2, name: "보강토", type: "보강토" },
-  { key: 3, name: "식생축조", type: "식생축조" },
-  { key: 4, name: "환경호안", type: "환경호안" },
+  { key: 2, name: "보강토블록", type: "보강토" },
+  { key: 3, name: "축조블록", type: "식생축조" },
+  { key: 4, name: "호안블록", type: "환경호안" },
 ];
 
 export default function GallerySlider() {

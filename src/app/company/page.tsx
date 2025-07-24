@@ -24,7 +24,7 @@ export default function Company() {
             <div className="absolute inset-0 z-20 flex flex-col justify-center items-center text-white text-center space-y-6 px-4 sm:px-6 md:px-10">
               {/* 로고 */}
               <div className="relative w-40 sm:w-48 h-14 sm:h-16 mb-4">
-                <Image src="/images/pwinLogo7_white.svg" alt="평원산업로고" fill className="object-contain" />
+                <Image src="/images/logo_white.svg" alt="평원산업로고" fill className="object-contain" />
               </div>
 
               {/* 문구 */}
