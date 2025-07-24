@@ -7,9 +7,9 @@ import { useState } from "react";
 const menuItems = [
   {
     id: 1,
-    title: "카타로그 다운로드",
+    title: "카탈로그 다운로드",
     link: "/catalog_low.pdf",
-    download: "평원산업 카타로그",
+    download: "평원산업 카탈로그",
   },
   {
     id: 2,
