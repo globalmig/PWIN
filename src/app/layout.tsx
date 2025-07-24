@@ -5,6 +5,7 @@ import GNB from "./components/GNB";
 import Footer from "./components/Footer";
 
 import QuickMenu from "./components/QuickMenu";
+import TopButton from "./components/TopButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-pretendard`}>
         <GNB />
+        <TopButton />
         <div className="min-h-screen h-full">{children}</div>
 
         <QuickMenu />

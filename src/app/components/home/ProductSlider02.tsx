@@ -92,8 +92,8 @@ export default function ProductSlider02() {
     router.push(`/products?type=${type}`);
   };
   return (
-    <div className="flex flex-col items-center justify-center h-[500px]  w-full px-4 md:my-10">
-      <div className="my-10  text-center">
+    <div className="flex flex-col items-center justify-center h-[500px]  w-full px-4  md:my-10">
+      <div className="my-4 md:my-10  text-center">
         <h2 className="text-4xl md:text-5xl font-medium border-b-2 mb-2 border-lime-700 px-6 pb-2">제품소개</h2>
         <p className="text-xl text-zinc-400">PWIN PRODUCTS</p>
       </div>
@@ -115,19 +115,19 @@ export default function ProductSlider02() {
           navigation={true}
           breakpoints={{
             "@0.00": {
-              slidesPerView: 1,
+              slidesPerView: 2.5,
               spaceBetween: 10,
             },
             "@0.75": {
-              slidesPerView: 2,
+              slidesPerView: 3.5,
               spaceBetween: 20,
             },
             "@1.00": {
-              slidesPerView: 4,
+              slidesPerView: 4.5,
               spaceBetween: 20,
             },
             "@1.50": {
-              slidesPerView: 5,
+              slidesPerView: 5.5,
               spaceBetween: 20,
             },
           }}
@@ -136,7 +136,7 @@ export default function ProductSlider02() {
           {products.map((product) => (
             <SwiperSlide key={product.id}>
               <div className="relative group w-full  mx-auto cursor-pointer max-w-[300px]" onClick={() => handleClick(product.type as string)}>
-                <div className="w-full h-[300px]">
+                <div className="w-full h-[200px] md:h-[300px]">
                   <Image src={product.image} alt={product.name} fill className="w-full h-auto object-contain rounded-md" />
                 </div>
 

@@ -56,14 +56,14 @@ export default function GNB() {
 
   return (
     <div>
-      <div className="flex mx-auto mt-10 justify-between items-center w-full z-[100] relative">
+      <div className="flex mx-auto mt-10 justify-between items-center w-full z-[100] relative ">
         <div className="hidden md:flex w-full justify-center">
           <header className="opacity-90 w-full mx-auto relative z-[101]">
             <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
               <ul className="flex justify-center items-center mx-auto text-xl font-medium pb-4 pr-16 gap-20">
                 <li>
                   <Link href="/">
-                    <Image src="/images/logo2.svg" alt="Logo" width={200} height={400} className="mr-10 py-4 max-h-[74px]" priority />
+                    <Image src="/images/logo2.svg" alt="Logo" width={200} height={400} className="mr-10 py-4 max-h-[74px] px-4" priority />
                   </Link>
                 </li>
                 <ul className="flex w-full justify-between max-w-[960px]">

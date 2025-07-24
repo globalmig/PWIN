@@ -34,12 +34,12 @@ const sliderData = [
 export default function MainSlide() {
   return (
     <div>
-      <div className="absolute top-[200px] md:top-1/3 left-0 right-0 md:right-48 z-10 text-white text-3xl sm:text-4xl md:text-5xl font-semibold">
+      <div className="absolute top-[150px] md:top-[25%] left-0 right-0 md:right-32 z-10 text-white text-3xl sm:text-4xl md:text-5xl font-semibold">
         <div className="w-full max-w-[1440px] mx-auto px-4 flex justify-center md:justify-end">
-          <div className="text-center md:text-start md:text-shadow-lg text-shadow-xl">
-            <p className="text-4xl mb-8 text-white opacity-90">평원산업은</p>
-            <p className="mb-4">기술력과 친환경</p>
-            <p>건설의 미래를 만듭니다!</p>
+          <div className="text-center md:text-start bg-white/30 backdrop-blur-sm p-6 rounded-md">
+            <p className="text-4xl mb-8 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">평원산업은</p>
+            <p className="mb-4 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">기술력과 친환경</p>
+            <p className="drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">건설의 미래를 만듭니다!</p>
           </div>
         </div>
       </div>

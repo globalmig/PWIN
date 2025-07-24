@@ -40,7 +40,7 @@ export default function ProductClient() {
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }}>
       <div className="w-full max-w-[1440px] mx-auto flex flex-col justify-center items-center gap-5 px-4 ">
         <section className="w-full max-w-[1440px] h-[370px] md:h-[520px] bg-[url('/images/products/bg.png')] bg-cover bg-center text-center pt-10 md:pt-20 rounded-3xl px-4">
-          <h1 className="text-title font-semibold">Environment Company for the next Generation</h1>
+          <h1 className="text-lg md:text-title font-semibold">Environment Company for the next Generation</h1>
           <p>보강토 옹벽블록, 축조블록 생산/제조 전문기업</p>
 
           <div className="itemList flex w-full gap-4">

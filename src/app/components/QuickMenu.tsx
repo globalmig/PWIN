@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 // TODO: pdf 2면으로 나오는걸로 수정해야함
@@ -25,6 +26,7 @@ const CONTACT_INFO = {
 
 export default function QuickMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -51,22 +53,31 @@ export default function QuickMenu() {
                     ${isOpen ? "translate-x-0 opacity-100 scale-100" : "translate-x-full opacity-0 scale-95 pointer-events-none"}`}
       >
         {/* 메뉴 링크들 */}
-        {menuItems.map((item, index) => (
-          <div
-            key={item.id}
-            className={`bg-gradient-to-r from-green-500 to-emerald-500 hover:from-gray-700 hover:to-gray-900 text-white w-48 py-3 px-4
-            rounded-lg cursor-pointer mb-1
-            transform transition-all duration-500 ease-in-out
-            ${isOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"}`}
-            style={{
-              transitionDelay: isOpen ? `${200 + index * 100}ms` : "0ms",
-            }}
-          >
-            <a href={item.link} {...(item.download && { download: item.download })} className="block w-full h-full">
-              <p className="hover:text-green-300 transition-colors duration-200">{item.title}</p>
-            </a>
-          </div>
-        ))}
+        {menuItems.map((item, index) => {
+          const isDisabled = pathname === item.link;
+          return (
+            <div
+              key={item.id}
+              className={`bg-gradient-to-r from-green-500 to-emerald-500 hover:from-gray-700 hover:to-gray-900 text-white w-48 py-3 px-4
+          rounded-lg cursor-pointer mb-1
+          transform transition-all duration-500 ease-in-out
+          ${isOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"}`}
+              style={{
+                transitionDelay: isOpen ? `${200 + index * 100}ms` : "0ms",
+              }}
+            >
+              {isDisabled ? (
+                <div className="block w-full h-full cursor-not-allowed">
+                  <p className="">{item.title}</p>
+                </div>
+              ) : (
+                <a href={item.link} {...(item.download && { download: item.download })} className="block w-full h-full">
+                  <p className="hover:text-green-300 transition-colors duration-200">{item.title}</p>
+                </a>
+              )}
+            </div>
+          );
+        })}
 
         {/* 운영시간 및 전화연결 */}
         <div className="bg-zinc-100 shadow-xl border text-lime-950 w-48 py-3 px-4 rounded-t-lg">

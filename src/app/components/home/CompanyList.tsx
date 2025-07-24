@@ -32,7 +32,7 @@ const companyList = [
 
 export default function CompanyList() {
   return (
-    <div className="flex flex-col items-center justify-center w-full px-4 my-10  md:my-28 ">
+    <div className="flex flex-col items-center justify-center w-full  my-10  md:my-28 ">
       <div className="my-10 md:mb-10 text-center">
         <h2 className="text-4xl md:text-5xl font-medium border-b-2 mb-2 border-lime-700 px-6 pb-2">회사 소개</h2>
         <p className="text-xl text-zinc-400">ABOUT PWIN</p>

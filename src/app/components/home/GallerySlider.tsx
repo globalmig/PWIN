@@ -37,9 +37,9 @@ const galleryList = [
 
 const filter = [
   { key: 1, name: "ALL", type: "ALL" },
-  { key: 2, name: "보강토블록", type: "보강토" },
-  { key: 3, name: "축조블록", type: "식생축조" },
-  { key: 4, name: "호안블록", type: "환경호안" },
+  { key: 2, name: "보강토", type: "보강토" },
+  { key: 3, name: "축조", type: "식생축조" },
+  { key: 4, name: "호안", type: "환경호안" },
 ];
 
 export default function GallerySlider() {
@@ -67,7 +67,7 @@ export default function GallerySlider() {
           <div className="flex gap-4 justify-center">
             {filter.map((item) => (
               <button
-                className={`border border-white  px-6 py-4 rounded-xl font-bold ${isSelected === item.type ? "text-[#255853] bg-white " : "text-[#e5fcf9]"}`}
+                className={`border border-white text-sm  px-6 py-4 rounded-xl font-bold ${isSelected === item.type ? "text-[#255853] bg-white " : "text-[#e5fcf9]"}`}
                 onClick={() => Selected(item.type as string)}
                 key={item.key}
               >
