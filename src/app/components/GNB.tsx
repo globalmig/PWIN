@@ -62,7 +62,12 @@ export default function GNB() {
             <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
               <ul className="flex justify-center items-center mx-auto text-xl font-medium pb-4 pr-16 gap-20">
                 <li>
-                  <Link href="/">
+                  <Link
+                    href="/"
+                    onClick={() => {
+                      setOpenSubMenu("");
+                    }}
+                  >
                     <Image src="/images/logo2.svg" alt="Logo" width={200} height={400} className="mr-10 py-4 max-h-[74px] px-4" priority />
                   </Link>
                 </li>
@@ -152,7 +157,12 @@ export default function GNB() {
 
         <div className="md:hidden relative z-[102] flex w-full justify-between">
           <div className="w-[10%]" />
-          <Link href="/">
+          <Link
+            href="/"
+            onClick={() => {
+              setOpenSubMenu("");
+            }}
+          >
             <Image src="/images/logo2.svg" alt="Logo" width={120} height={120} className="mr-10 py-6 ml-4" priority />
           </Link>
           <button onClick={toggleMenu} className="px-4">

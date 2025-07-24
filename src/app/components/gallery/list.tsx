@@ -100,7 +100,7 @@ export default function List({ onEdit, onDelete, isAuthorized, galleryList = [],
             key={item.key}
             onClick={() => handleSelect(item.type)}
             type="button"
-            className={`border border-[#255853] px-6 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-lg ${
+            className={`border border-[#255853] px-6 py-3 rounded-xl font-bold transition-all duration-300 hover:shadow-lg ${
               isSelected === item.type ? "text-white bg-[#255853] shadow-md" : "text-[#255853] hover:bg-[#255853] hover:text-white"
             }`}
           >

@@ -53,7 +53,7 @@ export default function Company() {
           <History3 />
           {/* <History /> */}
         </section>
-        <section className="w-full max-w-[1440px] text-center" id="certificate">
+        <section className="w-full max-w-[1440px] text-center pt-32" id="certificate">
           <h2 className="text-4xl md:text-5xl font-medium border-b-2 mb-4 md:mb-4 md:mt-40 mt-10  border-lime-700 pb-2 inline-block ">인증현황</h2>
           <Certificate />
         </section>

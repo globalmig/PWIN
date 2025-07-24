@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 const historyList = [
-  { key: 1, index: 0, year: "1964/05", title: "평원산업 회사설립", img: "/images/main/main02.png" },
+  { key: 1, index: 0, year: "1964/05", title: "평원산업 설립", img: "/images/main/main02.png" },
   { key: 2, index: 1, year: "1990/08", title: "벽돌, 블록 유압식 자동화 생산설비 구축", img: "/images/certificate/certificates(1).webp" },
   { key: 3, index: 2, year: "1992/08", title: "KS F 4004 한국산업규격 표시인증 (인증번호: 제9301호)", img: "/images/certificate/certificates(7).webp" },
   { key: 4, index: 3, year: "2007/02", title: "우수제품(GQ)마크 인증 (인증번호: 제 건재-380호)", img: "/images/certificate/certificates(9).webp" },
@@ -29,7 +29,7 @@ export default function History3() {
             style={{ top: `${item.index * 160 + 20}px` }} // 텍스트보다 살짝 위쪽 위치
           />
           <div
-            className={`item item-${item.index} group absolute w-1/2 px-6 py-4 cursor-pointer ${item.index % 2 === 0 ? "left-0 text-right pr-12 " : "text-left left-1/2 pl-12 "}`}
+            className={`item item-${item.index} group absolute w-1/2 px-4 py-4 cursor-pointer ${item.index % 2 === 0 ? "left-0 text-right pr-4  " : "text-left left-1/2 pl-4 "}`}
             style={{ top: `${item.index * 160}px` }} // 아이템 간 간격 조정
           >
             <p className=" md:text-2xl font-bold text-green-950 group-hover:text-2xl md:group-hover:text-4xl transform ease-in-out duration-500">{item.year}</p>

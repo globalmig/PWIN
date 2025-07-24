@@ -2,8 +2,6 @@
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-// TODO: pdf 2면으로 나오는걸로 수정해야함
-
 const menuItems = [
   {
     id: 1,
@@ -28,49 +26,43 @@ export default function QuickMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
-  };
-
+  const toggleMenu = () => setIsOpen((prev) => !prev);
   if (pathname.startsWith("/manager")) return null;
 
   return (
-    <section className="fixed bottom-32 right-0  z-20 h-72 shadow-lg ">
-      {/* 메뉴 토글 버튼 */}
+    <section className="fixed bottom-64 md:bottom-32 right-2 md:right-0 z-20 h-auto md:h-72">
+      {/* 토글 버튼 */}
       <button
         onClick={toggleMenu}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 
-                  bg-gradient-to-tr  from-green-600 to-green-600 hover:bg-green-800 text-white 
-                   px-4 py-20 h-80 rounded-l-lg 
-                   transition-colors duration-200 z-20 shadow-lg "
+        className="absolute right-0 top-1/2 md:top-1/2 transform -translate-y-1/2
+                   bg-gradient-to-tr from-green-600 to-green-600 hover:bg-green-800 text-white 
+                   px-3 py-3 md:px-4 md:py-20  md:h-80 rounded-l-lg
+                   transition-colors duration-200 z-20 shadow-lg"
         aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
       >
-        <span className="inline-block transform transition-transform duration-300">{isOpen ? "평원 산업 >" : "평원 산업<"}</span>
+        <span className="text-sm md:text-base block transform transition-transform duration-300">{isOpen ? "평원 산업 >" : "평원 산업 <"}</span>
       </button>
 
       {/* 메뉴 컨텐츠 */}
       <div
-        className={`absolute right-10 top-1/2 transform -translate-y-1/2 
+        className={`absolute right-10 md:right-10 top-1/2 transform -translate-y-1/2 
                     flex flex-col transition-all duration-500 ease-in-out shadow-xl
                     ${isOpen ? "translate-x-0 opacity-100 scale-100" : "translate-x-full opacity-0 scale-95 pointer-events-none"}`}
       >
-        {/* 메뉴 링크들 */}
         {menuItems.map((item, index) => {
           const isDisabled = pathname === item.link;
           return (
             <div
               key={item.id}
-              className={`bg-gradient-to-r from-green-500 to-emerald-500 hover:from-gray-700 hover:to-gray-900 text-white w-48 py-3 px-4
-          rounded-lg cursor-pointer mb-1
-          transform transition-all duration-500 ease-in-out
-          ${isOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"}`}
-              style={{
-                transitionDelay: isOpen ? `${200 + index * 100}ms` : "0ms",
-              }}
+              className={`bg-gradient-to-r from-green-500 to-emerald-500 hover:from-gray-700 hover:to-gray-900 text-white w-44 md:w-48 py-2 md:py-3 px-3 md:px-4
+                rounded-lg cursor-pointer mb-1
+                transform transition-all duration-500 ease-in-out
+                ${isOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"}`}
+              style={{ transitionDelay: isOpen ? `${200 + index * 100}ms` : "0ms" }}
             >
               {isDisabled ? (
                 <div className="block w-full h-full cursor-not-allowed">
-                  <p className="">{item.title}</p>
+                  <p>{item.title}</p>
                 </div>
               ) : (
                 <a href={item.link} {...(item.download && { download: item.download })} className="block w-full h-full">
@@ -81,30 +73,30 @@ export default function QuickMenu() {
           );
         })}
 
-        {/* 운영시간 및 전화연결 */}
-        <div className="bg-zinc-100 shadow-xl border text-lime-950 w-48 py-3 px-4 rounded-t-lg">
-          <p className="text-xl font-bold">운영시간</p>
+        {/* 운영 시간 */}
+        <div className="bg-zinc-100 shadow-xl border text-lime-950 w-44 md:w-48 py-2 px-3 rounded-t-lg text-sm md:text-base">
+          <p className="text-base md:text-xl font-bold">운영시간</p>
           <p>{CONTACT_INFO.hours}</p>
         </div>
 
-        {/* 연락처 정보 */}
+        {/* 연락처 */}
         <div
-          className={`bg-zinc-100 border text-lime-950 w-48 py-3 px-4
+          className={`bg-zinc-100 border text-lime-950 w-44 md:w-48 py-2 px-3 text-sm md:text-base
                       transform transition-all duration-500 ease-in-out
                       ${isOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"}`}
           style={{ transitionDelay: isOpen ? "100ms" : "0ms" }}
         >
           <pre>
             ☎ {CONTACT_INFO.phone} <br />
-            <strong>Fax </strong>
-            {CONTACT_INFO.fax}
+            <strong>Fax</strong> {CONTACT_INFO.fax}
           </pre>
         </div>
+
+        {/* 전화 연결 */}
         <a
-          // href={`tel:${CONTACT_INFO.phone.replace(/[~-]/g, "")}`}
           href="/call"
-          className="bg-gradient-to-r from-teal-500 to-emerald-500  hover:from-gray-700 hover:to-gray-900 hover:text-green-400 text-white w-48 py-3 px-4 
-                     rounded-b-xl transition-colors duration-200"
+          className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-gray-700 hover:to-gray-900 hover:text-green-400 text-white w-44 md:w-48 py-2 px-3 
+                     rounded-b-xl text-sm md:text-base transition-colors duration-200"
         >
           <p>☎ 전화 연결하기</p>
         </a>

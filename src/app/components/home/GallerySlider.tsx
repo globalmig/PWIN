@@ -57,17 +57,17 @@ export default function GallerySlider() {
         <p className="text-xl text-zinc-400">CONSTRUCTION GALLERY</p>
       </div>
       <div
-        className="relative w-full max-w-[1440px] rounded-xl py-12 pl-6"
+        className="relative w-full max-w-[1440px] rounded-xl py-12  md:pl-6"
         style={{
           background: "linear-gradient(90deg, #2e502b 3.26%, #40853a 104.31%), #FFF",
         }}
       >
         <div>
           {/* 필터 */}
-          <div className="flex gap-4 justify-center">
+          <div className="flex gap-2 md:gap-4 justify-center">
             {filter.map((item) => (
               <button
-                className={`border border-white text-sm  px-6 py-4 rounded-xl font-bold ${isSelected === item.type ? "text-[#255853] bg-white " : "text-[#e5fcf9]"}`}
+                className={`border border-white text-sm px-3 md:px-6 py-4 rounded-xl font-bold ${isSelected === item.type ? "text-[#255853] bg-white " : "text-[#e5fcf9]"}`}
                 onClick={() => Selected(item.type as string)}
                 key={item.key}
               >
@@ -98,7 +98,7 @@ export default function GallerySlider() {
             pagination={true}
             navigation={true}
             modules={[Pagination, EffectCoverflow, Navigation]}
-            className="mySwiper"
+            className="mySwiper pl-2"
             breakpoints={{
               320: {
                 slidesPerView: 1.5,

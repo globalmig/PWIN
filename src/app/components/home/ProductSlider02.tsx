@@ -115,7 +115,7 @@ export default function ProductSlider02() {
           navigation={true}
           breakpoints={{
             "@0.00": {
-              slidesPerView: 2.5,
+              slidesPerView: 1,
               spaceBetween: 10,
             },
             "@0.75": {
@@ -144,7 +144,7 @@ export default function ProductSlider02() {
                   <FaSearchPlus color="white" size={30} />
                   <p className="text-white text-xl">상세보기</p>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 text-center">{product.name}</h3>
+                <h3 className="text-sm md:text-lg font-semibold mt-4 text-center">{product.name}</h3>
               </div>
             </SwiperSlide>
           ))}

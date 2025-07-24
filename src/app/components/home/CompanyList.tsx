@@ -32,8 +32,8 @@ const companyList = [
 
 export default function CompanyList() {
   return (
-    <div className="flex flex-col items-center justify-center w-full  my-10  md:my-28 ">
-      <div className="my-10 md:mb-10 text-center">
+    <div className="flex flex-col items-center justify-center w-full  my-28 ">
+      <div className="mt-32 mb-10 md:mb-10 text-center">
         <h2 className="text-4xl md:text-5xl font-medium border-b-2 mb-2 border-lime-700 px-6 pb-2">회사 소개</h2>
         <p className="text-xl text-zinc-400">ABOUT PWIN</p>
       </div>
@@ -60,7 +60,7 @@ export default function CompanyList() {
               <div className="group relative w-full h-[200px] shadow-sm rounded-md overflow-hidden mb-2">
                 <Image src={item.image} alt={item.name} fill sizes="100vw" className="object-cover rounded-md" />
                 <div className="absolute  inset-0 bg-black opacity-50 hover:opacity-30 rounded-lg translate ease-in-out duration-300"></div>
-                <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-3xl text-shadow-xl group-hover:scale-125  translate ease-in-out duration-300">
+                <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl md:text-3xl text-shadow-xl group-hover:scale-125  translate ease-in-out duration-300">
                   {item.name}
                 </p>
               </div>
