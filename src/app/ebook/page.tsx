@@ -21,7 +21,31 @@ const PDFViewer = dynamic(() => import("../components/PDFViewer"), {
 export default function Ebook() {
   return (
     <div className="w-full">
-      <PDFViewer pdfUrl={"/catalog_low_compressed2.pdf"} title="평원산업 카타로그" />
+      <PDFViewer
+        title="평원산업 카타로그"
+        images={[
+          "/images/book/blank.png",
+          "/images/book/cover.png",
+          "/images/book/page1.png",
+          "/images/book/page2.png",
+          "/images/book/page3.png",
+          "/images/book/page4.png",
+          "/images/book/page5.png",
+          "/images/book/page6.png",
+          "/images/book/page7.png",
+          "/images/book/page8.png",
+          "/images/book/page9.png",
+          "/images/book/page10.png",
+          "/images/book/page11.png",
+          "/images/book/page12.png",
+          "/images/book/page13.png",
+          "/images/book/page14.png",
+          "/images/book/page15.png",
+          "/images/book/page16.png",
+          "/images/book/page17.png",
+          "/images/book/blank.png",
+        ]}
+      />
     </div>
   );
 }

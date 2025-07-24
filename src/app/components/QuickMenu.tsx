@@ -28,6 +28,7 @@ export default function QuickMenu() {
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   if (pathname.startsWith("/manager")) return null;
+  if (pathname.startsWith("/ebook")) return null;
 
   return (
     <section className="fixed bottom-64 md:bottom-32 right-2 md:right-0 z-20 h-auto md:h-72">

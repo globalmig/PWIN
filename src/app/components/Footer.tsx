@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div className="flex w-full mx-auto justify-center items-start gap-10 pt-10 bg-slate-200 mt-10 md:mt-20 px-4">
+    <div className="flex w-full mx-auto justify-center items-start gap-10 pt-10 bg-slate-200 mt-10 md:mt-20 px-4 ">
       <div className="relative  w-40 h-auto aspect-[3/1]  max-w-[1440px] ">
         <Image src="/images/logo2.svg" alt="Logo" fill className="object-contain" />
       </div>

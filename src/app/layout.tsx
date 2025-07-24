@@ -36,10 +36,11 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-pretendard`}>
         <GNB />
         <TopButton />
-        <div className="min-h-screen h-full">{children}</div>
-
         <QuickMenu />
-        <Footer />
+        <div className="flex flex-col min-h-screen">
+          <div className="flex-1">{children}</div>
+          <Footer />
+        </div>
       </body>
     </html>
   );

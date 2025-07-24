@@ -1,136 +1,140 @@
-"use client";
-import React, { useState, useRef, useEffect } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
-import HTMLFlipBook from "react-pageflip";
+import React, { useRef, useEffect, useState } from "react";
+import HTMLFlipBookOriginal from "react-pageflip";
 import { BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 
-pdfjs.GlobalWorkerOptions.workerSrc = "https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
+// ✅ 타입 확장
+type CustomFlipBookProps = React.ComponentProps<typeof HTMLFlipBookOriginal> & {
+  startPage?: number;
+  startZIndex?: number;
+};
 
+const HTMLFlipBook = React.forwardRef<any, CustomFlipBookProps>((props, ref) => <HTMLFlipBookOriginal ref={ref} {...props} />);
+HTMLFlipBook.displayName = "HTMLFlipBook";
+
+// ✅ 모바일 판단 훅
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < breakpoint);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, [breakpoint]);
+  return isMobile;
+}
+
+// ✅ props
 interface PDFViewerProps {
-  pdfUrl: string;
+  images: string[];
   title?: string;
 }
 
-const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl, title = "PDF 도서" }) => {
-  const [numPages, setNumPages] = useState<number>(0);
-  const [scale] = useState<number>(1.0);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [renderedPageCount, setRenderedPageCount] = useState<number>(0);
-  const flipBookRef = useRef<any>(null);
-
-  function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
-    setNumPages(numPages);
-    setError(null);
-  }
-
-  function onDocumentLoadError(err: Error) {
-    console.error("❌ PDF 로딩 실패:", err);
-    setError("PDF를 불러올 수 없습니다.");
-    setLoading(false);
-  }
-
-  const handlePageRenderSuccess = () => {
-    setRenderedPageCount((prev) => prev + 1);
-  };
-
-  useEffect(() => {
-    if (renderedPageCount === numPages && numPages > 0) {
-      setLoading(false);
-    }
-
-    const timeout = setTimeout(() => {
-      if (renderedPageCount === 0 && numPages > 0) {
-        // console.warn("🧊 PDF 렌더링 콜백이 안 왔지만 강제로 loading 해제");
-        setLoading(false);
-      }
-    }, 1000); // 1초 후에도 렌더링 콜백 없으면 강제로 해제
-
-    return () => clearTimeout(timeout);
-  }, [renderedPageCount, numPages]);
+const PDFViewer: React.FC<PDFViewerProps> = ({ images, title = "E-Book" }) => {
+  const isMobile = useIsMobile();
+  const pcRef = useRef<any>(null);
+  const mobileRef = useRef<any>(null);
 
   const prevPage = () => {
-    flipBookRef.current?.pageFlip?.()?.flipPrev?.();
+    (isMobile ? mobileRef.current : pcRef.current)?.pageFlip()?.flipPrev();
+  };
+  const nextPage = () => {
+    (isMobile ? mobileRef.current : pcRef.current)?.pageFlip()?.flipNext();
   };
 
-  const nextPage = () => {
-    flipBookRef.current?.pageFlip?.()?.flipNext?.();
-  };
+  // ✅ PC용: blank + cover, cover는 오른쪽
+  const pcImages = ["/images/book/blank.png", "/images/book/cover.png", ...images.filter((src) => !src.includes("cover") && !src.includes("blank"))];
+  if (pcImages.length % 2 !== 0) pcImages.push("/images/book/blank.png");
+
+  // ✅ 모바일용: cover부터 단독 순서
+  const mobileImages = images.filter((src) => !src.includes("blank"));
 
   return (
     <div className="w-full flex flex-col items-center">
-      {/* 헤더 */}
-      <header className="flex items-center space-x-2 px-4 ">
+      <header className="flex items-center space-x-2 px-4 mb-2">
         <BookOpen className="h-6 w-6 text-blue-600" />
         <h1 className="text-xl font-semibold">{title}</h1>
       </header>
 
-      {/* 에러 메시지 */}
-      {error && <div className="p-4 text-red-500">❌ {error}</div>}
+      <div className="flex items-center space-x-4 mb-4">
+        <button onClick={prevPage} className="p-2 border rounded hover:bg-gray-200">
+          <ChevronLeft />
+        </button>
+        <button onClick={nextPage} className="p-2 border rounded hover:bg-gray-200">
+          <ChevronRight />
+        </button>
+      </div>
 
-      {/* 로딩 표시 */}
-      {loading && (
-        <div className="flex flex-col items-center justify-center my-60">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4" />
-          <p className="text-gray-600">
-            PDF를 렌더링 중입니다...
-            {numPages > 0 && <span className="ml-2 text-sm text-blue-600 font-semibold">{Math.min(100, Math.round((renderedPageCount / numPages) * 100))}%</span>}
-          </p>
-        </div>
-      )}
-
-      {/* 컨트롤 버튼 */}
-      {!loading && numPages > 0 && (
-        <div className="flex items-center space-x-4 my-2">
-          <button onClick={prevPage} className="p-2 border rounded hover:bg-gray-200 dark:hover:bg-gray-700">
-            <ChevronLeft />
-          </button>
-          <button onClick={nextPage} className="p-2 border rounded hover:bg-gray-200 dark:hover:bg-gray-700">
-            <ChevronRight />
-          </button>
-        </div>
-      )}
-
-      {/* PDF 문서 로딩 */}
-      <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess} onLoadError={onDocumentLoadError}>
+      {/* ✅ PC 버전 */}
+      <div className={`${isMobile ? "hidden" : "block"} w-full max-w-screen-lg`}>
         <HTMLFlipBook
-          ref={flipBookRef}
-          width={600}
+          ref={pcRef}
+          size="stretch" // ✅ 자동 맞춤 비율
+          usePortrait={false} // ✅ 두 페이지 보여주기
+          width={600} // ✅ 무시됨 (stretch 덕에)
           height={800}
-          style={{
-            backgroundColor: "white",
-            opacity: loading ? 0 : 1,
-            transition: "opacity 0.5s ease",
-            pointerEvents: loading ? "none" : "auto",
-          }}
-          drawShadow
-          showCover={true}
-          size="stretch"
-          minWidth={600}
-          maxWidth={600}
-          minHeight={800}
-          maxHeight={800}
+          minWidth={300}
+          maxWidth={2000}
+          minHeight={400}
+          maxHeight={2000}
+          maxShadowOpacity={0}
+          autoSize={true} // ✅ 컨테이너 크기에 맞게
+          className="w-full h-auto" // ✅ 컨테이너 기준으로 늘어남
+          style={{ backgroundColor: "white" }}
+          showCover={false}
+          drawShadow={false}
           flippingTime={600}
-          mobileScrollSupport={false}
+          startPage={0}
+          startZIndex={0}
+          mobileScrollSupport={true}
+          showPageCorners={true}
           clickEventForward={false}
           useMouseEvents={true}
           swipeDistance={30}
-          startPage={0}
-          startZIndex={0}
-          autoSize={true}
-          maxShadowOpacity={1}
-          usePortrait={false}
-          showPageCorners={true}
           disableFlipByClick={false}
-          className="w-full"
         >
-          {Array.from({ length: numPages }).map((_, i) => (
-            <div key={i} className="flex justify-center items-center bg-white dark:bg-gray-800">
-              <Page pageNumber={i + 1} scale={scale} renderTextLayer={false} renderAnnotationLayer={false} onRenderSuccess={handlePageRenderSuccess} />
+          {pcImages.map((src, i) => (
+            <div key={i} className="flex justify-center items-center bg-white">
+              <img src={src} alt={`page-${i + 1}`} className="w-full h-auto object-contain" />
             </div>
           ))}
         </HTMLFlipBook>
-      </Document>
+      </div>
+
+      {/* ✅ 모바일 버전 */}
+      <div className={`${isMobile ? "block" : "hidden"} w-full`}>
+        <HTMLFlipBook
+          ref={mobileRef}
+          width={300}
+          height={450}
+          size="stretch"
+          style={{ backgroundColor: "white" }}
+          showCover={true}
+          usePortrait={true}
+          minWidth={300}
+          maxWidth={600}
+          minHeight={400}
+          maxHeight={900}
+          flippingTime={500}
+          drawShadow={false}
+          startPage={0}
+          startZIndex={0}
+          autoSize={true}
+          maxShadowOpacity={0}
+          clickEventForward={false}
+          useMouseEvents={true}
+          swipeDistance={30}
+          disableFlipByClick={false}
+          className="w-full"
+          mobileScrollSupport={false}
+          showPageCorners={false}
+        >
+          {mobileImages.map((src, i) => (
+            <div key={i} className="flex justify-center items-center bg-white">
+              <img src={src} alt={`page-${i + 1}`} className="w-full h-auto object-contain" />
+            </div>
+          ))}
+        </HTMLFlipBook>
+      </div>
     </div>
   );
 };
