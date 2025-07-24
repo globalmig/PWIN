@@ -32,6 +32,8 @@ export default function QuickMenu() {
     setIsOpen((prev) => !prev);
   };
 
+  if (pathname.startsWith("/manager")) return null;
+
   return (
     <section className="fixed bottom-32 right-0  z-20 h-72 shadow-lg ">
       {/* 메뉴 토글 버튼 */}

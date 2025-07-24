@@ -28,12 +28,12 @@ interface FilterItem {
   name: string;
   type: string;
 }
-
+// TODO: DB 타입명 변경하면 이것도 수정해야함
 const filter: FilterItem[] = [
   { key: "1", name: "ALL", type: "ALL" },
   { key: "2", name: "보강토", type: "보강토" },
-  { key: "3", name: "식생축조", type: "식생축조" },
-  { key: "4", name: "환경호안", type: "환경호안" },
+  { key: "3", name: "축조블록", type: "축조" },
+  { key: "4", name: "호안블록", type: "호안" },
   { key: "5", name: "기타", type: "기타" },
 ];
 
