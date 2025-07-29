@@ -68,10 +68,10 @@ export default function EsoDescription() {
             <tbody>
               <tr className="border-b-2 border-zinc-300">
                 <td className="py-4 px-2 border-r-2 border-zinc-300">호안블록(250형)</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">500</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">340</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">125</td>
-                <td className="py-4 px-2 border-r-2 border-zinc-300">39kg</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">1000</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">1000</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">250</td>
+                <td className="py-4 px-2 border-r-2 border-zinc-300">320kg</td>
                 <th className="py-4 px- border-r-2 border-zinc-300">1장/m²</th>
               </tr>
             </tbody>
@@ -83,8 +83,8 @@ export default function EsoDescription() {
             <div className="basis-1/2">
               <Image src="/images/products/환경호안블록/example_01.png" alt="보강토200 사용예시" width={319} height={208} className="w-full rounded-lg" />
             </div>
-            <div className="basis-1/2">
-              <Image src="/images/products/환경호안블록/example_02.png" alt="보강토200 사용예시" width={319} height={208} className="w-full rounded-lg" />
+            <div className="basis-1/2  overflow-hidden">
+              <Image src="/images/products/환경호안블록/example_03.png" alt="보강토200 사용예시" width={319} height={208} className="w-full rounded-lg" />
             </div>
           </div>
         </div>

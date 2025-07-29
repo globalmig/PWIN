@@ -19,10 +19,9 @@ export default function RetainingDescription() {
           <div className="border border-zinc-300 rounded-xl w-full md:w-1/2 p-8 text-sm md:text-xl transform duration-500 ease-in-out">
             <p className="text-2xl md:text-title mb-4 md:mb-2 font-semibold">적용</p>
             <ul className="list-disc ml-4">
-              <li>하천 저/고수 호안공</li>
-              <li>만곡부</li>
-              <li>유수지</li>
-              <li>도로 법면</li>
+              <li>소하천</li>
+              <li>도로</li>
+              <li>법면 절/성토부</li>
             </ul>
           </div>
         </section>
@@ -33,19 +32,19 @@ export default function RetainingDescription() {
           <div className="blockList grid grid-cols-2 md:grid-cols-4 relative mt-10">
             <div className="flex flex-col items-center justify-center">
               <Image src="/images/products/보강토/gray.png" alt="보강토250형 회색" width={200} height={200} />
-              <p className="text-center mt-6 ">[ 회색 ]</p>
+              <p className="text-center mt-6 ">회색</p>
             </div>
             <div className="flex flex-col items-center justify-center">
               <Image src="/images/products/보강토/red.png" alt="보강토250형 적색" width={200} height={200} />
-              <p className="text-center mt-6 ">[ 적색 ]</p>
+              <p className="text-center mt-6 ">적색(주문생산)</p>
             </div>
             <div className="flex flex-col items-center justify-center">
               <Image src="/images/products/보강토/yellow.png" alt="보강토250형 황토색 주문생산 상품" width={200} height={200} />
-              <p className="text-center mt-6 ">[ 황토색(주문생산) ]</p>
+              <p className="text-center mt-6 ">황토색(주문생산)</p>
             </div>
             <div className="flex flex-col items-center justify-center">
               <Image src="/images/products/보강토/black.png" alt="보강토250형 흑색 주문생산 상품" width={200} height={200} />
-              <p className="text-center mt-6 ">[ 흑색(주문생산) ]</p>
+              <p className="text-center mt-6 ">흑색(주문생산)</p>
             </div>
           </div>
 
@@ -55,15 +54,15 @@ export default function RetainingDescription() {
             <div className="flex flex-col items-center justify-center">
               <Image src="/images/products/보강토/상세도1.png" alt="보강토250형 회색" width={600} height={600} />
               <div className="flex justify-between w-full px-0 md:px-8 mb-20 md:mb-0">
-                <p className="text-center mt-6 w-full ">[ 정면도 ]</p>
-                <p className="text-center mt-6 w-full">[ 측면도 ]</p>
+                <p className="text-center mt-6 w-full ">정면도</p>
+                <p className="text-center mt-6 w-full">측면도</p>
               </div>
             </div>
             <div className="flex flex-col items-center justify-center">
               <Image src="/images/products/보강토/상세도2.png" alt="보강토250형 회색" width={600} height={600} />
               <div className="flex justify-between w-full px-0 md:px-8 mt-10">
-                <p className="text-center mt-6 w-full ">[ 정면도 ]</p>
-                <p className="text-center mt-6 w-full">[ 측면도 ]</p>
+                <p className="text-center mt-6 w-full ">정면도</p>
+                <p className="text-center mt-6 w-full">측면도</p>
               </div>
             </div>
           </section>

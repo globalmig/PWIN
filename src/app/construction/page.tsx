@@ -78,7 +78,7 @@ const explain = [
 export default function Construction() {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }}>
-      <div className="w-full max-w-[1000px] mx-auto flex flex-col justify-center items-center px-4 my-10 md:my-20">
+      <div className="w-full max-w-[1100px] mx-auto flex flex-col justify-center items-center px-4 my-10 md:my-20">
         {/* 네비게이션 */}
         <SNB />
 
@@ -110,7 +110,7 @@ export default function Construction() {
           </div>
 
           {explain.map((item) => (
-            <figure id={item.name} className={`${item.name} flex md:flex-row flex-col-reverse justify-between w-full gap-4 my-4 md:my-11`} key={item.key}>
+            <figure id={item.name} className={`${item.name} flex md:flex-row flex-col-reverse justify-between w-full gap-4 my-4 md:my-11 max-w-[1440px]`} key={item.key}>
               <figcaption className="w-full md:w-1/2">
                 <h3 className="text-xl md:text-3xl font-semibold mb-4 text-[#3D7D38]">{item.title}</h3>
                 <p className="text-lg md:text-2xl text-[#161616]">{item.sub}</p>

@@ -18,7 +18,7 @@ const menuItems = [
 
 const CONTACT_INFO = {
   phone: "031-584-0023~5",
-  fax: "031-584-0023",
+  fax: "031-584-0026",
   hours: "평일: 07:00 ~ 18:00",
 };
 

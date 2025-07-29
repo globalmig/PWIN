@@ -31,16 +31,16 @@ export default function CapDescription() {
           <div className="blockList grid grid-cols-3 relative mt-10">
             <div className="flex flex-col items-center justify-center">
               <Image src="/images/products/캡블록/gray.png" alt="캡블록 회색" width={400} height={200} />
-              <p className="text-center mt-6 ">[ 회색 ]</p>
+              <p className="text-center mt-6 ">회색</p>
             </div>
             <div className="flex flex-col items-center justify-center">
               <Image src="/images/products/캡블록/red.png" alt="캡블록 적색 주문생산 상품" width={400} height={400} />
-              <p className="text-center mt-6 ">[ 적색(주문생상) ]</p>
+              <p className="text-center mt-6 ">적색(주문생상)</p>
             </div>
 
             <div className="flex flex-col items-center justify-center">
               <Image src="/images/products/캡블록/black.png" alt="캡블록 흑색" width={400} height={400} />
-              <p className="text-center mt-6 ">[ 흑색 ]</p>
+              <p className="text-center mt-6 ">흑색</p>
             </div>
           </div>
 
@@ -50,9 +50,9 @@ export default function CapDescription() {
             <div className="flex flex-col items-center justify-center ">
               <Image src="/images/products/캡블록/blueprint.png" alt="캡블록 설계도" width={1400} height={350} />
               <div className="flex justify-between w-full px-0 md:px-8 mb-20 md:mb-0">
-                <p className="text-start pl-10 mt-6 w-[30%] ">[ 정면도 ]</p>
-                <p className="text-center mt-6 w-[20%]">[ 측면도 ]</p>
-                <p className="text-center mt-6 w-[50%]">[ 마감(캡) 조립도 ]</p>
+                <p className="text-start pl-10 mt-6 w-[30%] ">정면도</p>
+                <p className="text-center mt-6 w-[20%]">측면도</p>
+                <p className="text-center mt-6 w-[50%]">마감(캡) 조립도</p>
               </div>
             </div>
           </section>

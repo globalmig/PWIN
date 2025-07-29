@@ -32,8 +32,12 @@ export default function History3() {
             className={`item item-${item.index} group absolute w-1/2 px-4 py-4 cursor-pointer ${item.index % 2 === 0 ? "left-0 text-right pr-4  " : "text-left left-1/2 pl-4 "}`}
             style={{ top: `${item.index * 160}px` }} // 아이템 간 간격 조정
           >
-            <p className=" md:text-2xl font-bold text-green-950 group-hover:text-2xl md:group-hover:text-4xl transform ease-in-out duration-500">{item.year}</p>
-            <p className=" md:text-lg text-gray-800 group-hover:text-green-600">{item.title}</p>
+            <div></div>
+            <div>
+              <p className=" md:text-2xl font-bold text-green-950 group-hover:text-2xl md:group-hover:text-4xl transform ease-in-out duration-500">{item.year}</p>
+              <p className=" md:text-lg text-gray-800 group-hover:text-green-600">{item.title}</p>
+            </div>
+
             <div className={` w-full flex ${item.index % 2 === 0 ? "justify-end" : "justify-start"}`}>
               <div className="overflow-hidden scale-y-0 group-hover:scale-y-100 transition-all duration-500 ease-in-out md:block hidden">
                 <Image src={item.img} alt="연호첨부이미지" width={100} height={100} className="rounded-lg" />
