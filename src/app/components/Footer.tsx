@@ -9,8 +9,9 @@ export default function Footer() {
       </div>
       <div>
         <p>평원산업 | 대표: 김범준</p>
-        <p>경기도 가평군 청평면 상천리 321-2 (상지로 11-111)</p>
+        <p>경기도 가평군 청평면 상지로 11-111 (상천리 321-2)</p>
         <p>전화 031-584-0023~5 | Fax 031-584-0026</p>
+        <p>이메일 pwin@naver.com</p>
 
         <div className=" text-gray-400 text-sm py-8">
           <Link href={"/manager"}>관리자페이지</Link>

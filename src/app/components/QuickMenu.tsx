@@ -41,7 +41,7 @@ export default function QuickMenu() {
                    transition-colors duration-200 z-20 shadow-lg"
         aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
       >
-        <span className="text-sm md:text-base block transform transition-transform duration-300">{isOpen ? "평원 산업 >" : "평원 산업 <"}</span>
+        <span className="text-sm md:text-base block transform transition-transform duration-300">{isOpen ? ">" : "<"}</span>
       </button>
 
       {/* 메뉴 컨텐츠 */}
@@ -87,10 +87,13 @@ export default function QuickMenu() {
                       ${isOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"}`}
           style={{ transitionDelay: isOpen ? "100ms" : "0ms" }}
         >
-          <pre>
+          <p>
             ☎ {CONTACT_INFO.phone} <br />
-            <strong>Fax</strong> {CONTACT_INFO.fax}
-          </pre>
+            <strong>Fax</strong> {CONTACT_INFO.fax} <br />
+            <br />
+            <strong>E-Mail</strong> <br />
+            pwin@naver.com
+          </p>
         </div>
 
         {/* 전화 연결 */}

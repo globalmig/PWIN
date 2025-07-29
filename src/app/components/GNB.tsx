@@ -8,7 +8,7 @@ const desktopMenuItems = [
   { key: 1, name: "회사소개", href: "/company" },
   { key: 2, name: "제품소개", href: "/products" },
   { key: 3, name: "공법소개", href: "/construction" },
-  { key: 4, name: "시공갤러리", href: "/gallery" },
+  { key: 4, name: "시공 사례", href: "/gallery" },
 ];
 
 const CompanySubMenuItems = [
@@ -36,7 +36,7 @@ const mobileMenuItems = [
   { key: 16, name: "회사소개", href: "/company" },
   { key: 17, name: "제품소개", href: "/products" },
   { key: 18, name: "공법소개", href: "/construction" },
-  { key: 19, name: "시공갤러리", href: "/gallery" },
+  { key: 19, name: "시공 사례", href: "/gallery" },
 ];
 
 export default function GNB() {
@@ -68,7 +68,7 @@ export default function GNB() {
                       setOpenSubMenu("");
                     }}
                   >
-                    <Image src="/images/logo2.svg" alt="Logo" width={200} height={400} className="mr-10 py-4 max-h-[74px] px-4" priority />
+                    <Image src="/images/logo_big.svg" alt="Logo" width={250} height={400} className="mr-10 py-4 max-h-[74px] px-4" priority />
                   </Link>
                 </li>
                 <ul className="flex w-full justify-between max-w-[960px]">
@@ -139,7 +139,7 @@ export default function GNB() {
                           <Link
                             href={item.href}
                             onClick={() => {
-                              setActiveMenu("시공갤러리");
+                              setActiveMenu("시공 사례");
                               setOpen(false);
                             }}
                           >
@@ -163,9 +163,9 @@ export default function GNB() {
               setOpenSubMenu("");
             }}
           >
-            <Image src="/images/logo2.svg" alt="Logo" width={120} height={120} className="mr-10 py-6 ml-4" priority />
+            <Image src="/images/logo_big.svg" alt="Logo" width={160} height={120} className="mr-10 pb-6 ml-4" priority />
           </Link>
-          <button onClick={toggleMenu} className="px-4">
+          <button onClick={toggleMenu} className="px-4 pb-6">
             <Image src="/images/menu_m.png" alt="Menu" width={32} height={30} />
           </button>
 
@@ -239,10 +239,10 @@ export default function GNB() {
                 )}
               </li>
               <li>
-                <button onClick={() => setOpenSubMenu(openSubMenu === "시공갤러리" ? "" : "시공갤러리")} className="w-full  text-center">
-                  시공갤러리
+                <button onClick={() => setOpenSubMenu(openSubMenu === "시공 사례" ? "" : "시공 사례")} className="w-full  text-center">
+                  시공 사례
                 </button>
-                {openSubMenu === "시공갤러리" && (
+                {openSubMenu === "시공 사례" && (
                   <ul className="text-base text-gray-600 mt-2">
                     {GallerySubMenuItems.map((item) => (
                       <li key={item.key} className=" text-center my-4">
@@ -251,7 +251,7 @@ export default function GNB() {
                           onClick={() => {
                             setOpen(false);
                             setOpenSubMenu("");
-                            setActiveMenu("시공갤러리");
+                            setActiveMenu("시공 사례");
                           }}
                         >
                           {item.name}

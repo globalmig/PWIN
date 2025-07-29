@@ -26,7 +26,7 @@ const sliderData = [
   },
   {
     id: 4,
-    image: "/images/main/main04.jpg",
+    image: "/images/main/main05.jpg",
     alt: "테스트 이미지 3",
   },
 ];
@@ -36,10 +36,14 @@ export default function MainSlide() {
     <div>
       <div className="absolute top-[150px] md:top-[25%] left-0 right-0 md:right-32 z-10 text-white text-xl sm:text-4xl md:text-5xl font-semibold">
         <div className="w-full max-w-[1440px] mx-auto px-4 flex justify-center md:justify-end">
-          <div className="text-center md:text-start bg-white/30 backdrop-blur-sm p-6 rounded-md md:block hidden">
-            <p className="text-xl md:text-4xl mb-8 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">평원산업은</p>
-            <p className="text mb-4 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">기술력과 친환경</p>
-            <p className="drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">건설의 미래를 만듭니다!</p>
+          <div className="text-center md:text-start bg-white/30 backdrop-blur-sm p-10 rounded-md md:block hidden">
+            <div className="flex items-end gap-2">
+              <p className="text-xl md:text-6xl mb-8 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">평원산업</p>
+              <p className="text-lg md:text-4xl mb-8 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">은</p>
+            </div>
+
+            <p className="text-lg md:text-4xl mb-4 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">인증받은 기술력으로</p>
+            <p className="text-lg md:text-4xl drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">친환경 건설의 미래를 만들겠습니다!</p>
           </div>
         </div>
       </div>

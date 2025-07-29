@@ -15,27 +15,6 @@ import { FaSearchPlus } from "react-icons/fa";
 
 const products = [
   {
-    id: 1,
-    name: "호안블록",
-    image: "/images/products/환경호안블록/gray.png",
-    description: "이것은 제품 1의 설명입니다.",
-    type: "eco",
-  },
-  {
-    id: 2,
-    name: "축조블록(타원형)",
-    image: "/images/products/식생축조/gray.png",
-    description: "이것은 제품 2의 설명입니다.",
-    type: "masonry",
-  },
-  {
-    id: 3,
-    name: "축조블록(평면형)",
-    image: "/images/products/식생축조/gray_plane.png",
-    description: "이것은 제품 3의 설명입니다.",
-    type: "masonry",
-  },
-  {
     id: 4,
     name: "보강토블록 (회색)",
     image: "/images/products/보강토/gray_.png",
@@ -63,6 +42,7 @@ const products = [
     description: "이것은 제품 3의 설명입니다.",
     type: "retaining",
   },
+
   {
     id: 8,
     name: "캡블록(회색)",
@@ -83,6 +63,28 @@ const products = [
     image: "/images/products/캡블록/black.png",
     description: "이것은 제품 3의 설명입니다.",
     type: "cap",
+  },
+
+  {
+    id: 2,
+    name: "축조블록(타원형)",
+    image: "/images/products/식생축조/gray.png",
+    description: "이것은 제품 2의 설명입니다.",
+    type: "masonry",
+  },
+  {
+    id: 3,
+    name: "축조블록(평면형)",
+    image: "/images/products/식생축조/gray_plane.png",
+    description: "이것은 제품 3의 설명입니다.",
+    type: "masonry",
+  },
+  {
+    id: 1,
+    name: "호안블록",
+    image: "/images/products/환경호안블록/gray.png",
+    description: "이것은 제품 1의 설명입니다.",
+    type: "eco",
   },
 ];
 
