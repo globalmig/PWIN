@@ -23,7 +23,7 @@ const CONTACT_INFO = {
 };
 
 export default function QuickMenu() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const pathname = usePathname();
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
@@ -37,7 +37,7 @@ export default function QuickMenu() {
         onClick={toggleMenu}
         className="absolute right-0 top-1/2 md:top-1/2 transform -translate-y-1/2
                    bg-gradient-to-tr from-green-600 to-green-600 hover:bg-green-800 text-white 
-                   px-3 py-3 md:px-4 md:py-20  md:h-80 rounded-l-lg
+                   px-3 py-3 md:px-4 md:py-20  md:h-[370px] rounded-l-lg
                    transition-colors duration-200 z-20 shadow-lg"
         aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
       >
@@ -53,9 +53,10 @@ export default function QuickMenu() {
         {menuItems.map((item, index) => {
           const isDisabled = pathname === item.link;
           return (
+            // from-green-500 to-emerald-500
             <div
               key={item.id}
-              className={`bg-gradient-to-r from-green-500 to-emerald-500 hover:from-gray-700 hover:to-gray-900 text-white w-44 md:w-48 py-2 md:py-3 px-3 md:px-4
+              className={`bg-green-700 hover:bg-gray-700  text-white w-44 md:w-48 py-2 md:py-3 px-3 md:px-4
                 rounded-lg cursor-pointer mb-1
                 transform transition-all duration-500 ease-in-out
                 ${isOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"}`}
@@ -99,7 +100,7 @@ export default function QuickMenu() {
         {/* 전화 연결 */}
         <a
           href="/call"
-          className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-gray-700 hover:to-gray-900 hover:text-green-400 text-white w-44 md:w-48 py-2 px-3 
+          className="bg-green-700 hover:bg-gray-700  hover:text-green-400 text-white w-44 md:w-48 py-2 px-3 
                      rounded-b-xl text-sm md:text-base transition-colors duration-200"
         >
           <p>☎ 전화 연결하기</p>
