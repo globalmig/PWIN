@@ -13,8 +13,8 @@ export default function Location() {
       <div className="w-full flex mt-10  py-5 border-t-2 border-green-700 md:text-xl">
         <p className="w-[40%] font-semibold">주소</p>
         <p className="text-start">
-          경기도 가평군 청평면 상천리 321-2 <br className="block md:hidden" />
-          (상지로 11-111)
+          경기도 가평군 청평면 상지로 11-111 <br className="block md:hidden" />
+          (상천리 321-2)
         </p>
       </div>
       <div className="w-full flex  py-5 border-b border-t  md:text-xl">
@@ -23,7 +23,7 @@ export default function Location() {
       </div>
       <div className="w-full flex  py-5 border-b-2 border-green-700 md:text-xl">
         <p className="w-[40%] font-semibold">팩스</p>
-        <p>031-584-0023</p>
+        <p>031-584-0026</p>
       </div>
     </div>
   );
