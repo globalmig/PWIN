@@ -95,12 +95,12 @@ export default function MasonryDescription() {
         </div>
       </section>
 
-      {/* 축조블록 */}
+      {/* 축조블록 평면형*/}
       <section className="w-full mt-10 md:mt-32">
         <p className="text-center mt-10 text-xl md:text-3xl font-bold border-b-2 pb-5 text-green-900">축조블록 (평면형)</p>
         <div className="block relative mt-10">
           <div className="flex flex-col items-center justify-center">
-            <Image src="/images/products/식생축조/gray.png" alt="식생축조" width={400} height={400} />
+            <Image src="/images/products/식생축조/gray_plane.png" alt="식생축조(평면형)" width={400} height={400} />
           </div>
         </div>
 
@@ -110,8 +110,8 @@ export default function MasonryDescription() {
             <Image src="/images/products/식생축조/blueprint_plane_01.png" alt="시공단면도" width={700} height={500} className="w-full max-w-[70%] rounded-lg" />
           </div>
           <div className="text-wrap flex w-full max-w-[90%] px-10 justify-between mx-auto items-center">
-            <p className="w-full max-w-[60%] md:pl-10 text-center">[ 평면도 ]</p>
-            <p className="w-full max-w-[40%] pl-4 md:pl-0 text-center">[ 평면도 ]</p>
+            <p className="w-full max-w-[60%] md:pl-10 text-center">평면도</p>
+            <p className="w-full max-w-[40%] pl-4 md:pl-0 text-center">평면도</p>
           </div>
         </div>
 
@@ -121,9 +121,9 @@ export default function MasonryDescription() {
             <Image src="/images/products/식생축조/blueprint_plane_02.png" alt="시공단면도" width={700} height={500} className="w-full md:max-w-[70%] rounded-lg" />
           </div>
           <div className="text-wrap flex w-full md:max-w-[90%] md:px-10 justify-between mx-auto items-center">
-            <p className="w-full max-w-[40%] text-center">[ 코너블록(좌측) ]</p>
-            <p className="w-full max-w-[40%] text-center">[ 코너블록(우측) ]</p>
-            <p className="w-full max-w-[20%] md:pr-10 lg:pr-32 text-center">[ 반블록 ]</p>
+            <p className="w-full max-w-[40%] text-center">코너블록(좌측)</p>
+            <p className="w-full max-w-[40%] text-center">코너블록(우측)</p>
+            <p className="w-full max-w-[20%] md:pr-10 lg:pr-32 text-center">반블록</p>
           </div>
         </div>
       </section>
@@ -147,7 +147,7 @@ export default function MasonryDescription() {
           {/* 축조블록 평면형 */}
           <tbody>
             <tr className="border-b-2 border-zinc-300">
-              <td className="py-4 px-2 border-r-2 border-zinc-300">식생 축조블록(타원형)</td>
+              <td className="py-4 px-2 border-r-2 border-zinc-300">축조블록(평면형)</td>
               <td className="py-4 px-2 border-r-2 border-zinc-300">1000</td>
               <td className="py-4 px-2 border-r-2 border-zinc-300">700</td>
               <td className="py-4 px-2 border-r-2 border-zinc-300">500</td>

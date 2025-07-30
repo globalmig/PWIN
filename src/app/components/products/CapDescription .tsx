@@ -35,12 +35,12 @@ export default function CapDescription() {
             </div>
             <div className="flex flex-col items-center justify-center">
               <Image src="/images/products/캡블록/red.png" alt="캡블록 적색 주문생산 상품" width={400} height={400} />
-              <p className="text-center mt-6 ">적색(주문생상)</p>
+              <p className="text-center mt-6 ">적색(주문생산)</p>
             </div>
 
             <div className="flex flex-col items-center justify-center">
               <Image src="/images/products/캡블록/black.png" alt="캡블록 흑색" width={400} height={400} />
-              <p className="text-center mt-6 ">흑색</p>
+              <p className="text-center mt-6 ">흑색(주문생산)</p>
             </div>
           </div>
 

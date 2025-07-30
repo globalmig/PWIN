@@ -84,7 +84,7 @@ export default function EsoDescription() {
               <Image src="/images/products/환경호안블록/example_01.png" alt="보강토200 사용예시" width={319} height={208} className="w-full rounded-lg" />
             </div>
             <div className="basis-1/2  overflow-hidden">
-              <Image src="/images/products/환경호안블록/example_03.png" alt="보강토200 사용예시" width={319} height={208} className="w-full rounded-lg" />
+              <Image src="/images/products/환경호안블록/example_04.png" alt="보강토200 사용예시" width={319} height={208} className="w-full rounded-lg" />
             </div>
           </div>
         </div>

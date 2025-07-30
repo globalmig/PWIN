@@ -14,7 +14,7 @@ import CapDescription from "./CapDescription ";
 const blockData = [
   { key: 1, title: "보강토블록", img: "/images/products/보강토_btn5.png", alt: "보강토블록버튼", desc: "소하천, 도로, 법면 절/성토부", type: "retaining" },
   { key: 2, title: "캡블록", img: "/images/products/cap.png", alt: "보강토블록버튼", desc: "소하천, 도로, 법면 절/성토부", type: "cap" },
-  { key: 3, title: "축조블록(평면형)", img: "/images/products/축조평면_btn.png", alt: "축조블록버튼", desc: "소하천, 도로, 법면 절/성토부", type: "masonry" },
+  { key: 3, title: "축조블록", img: "/images/products/축조_btn2.png", alt: "축조블록버튼", desc: "소하천, 도로, 법면 절/성토부", type: "masonry" },
   { key: 4, title: "호안블록", img: "/images/products/호안_btn.png", alt: "호안블록버튼", desc: "하천 저/고수 호안공, 만곡부, 유수지, 도로 법면", type: "eco" },
 ];
 
