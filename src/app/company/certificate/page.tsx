@@ -12,8 +12,8 @@ const certificateData = [
   { key: 8, image: "/images/certificate/certificates(8).webp", alt: "디자인등록증" },
   { key: 9, image: "/images/certificate/certificates(9).webp", alt: "디자인등록증" },
   { key: 10, image: "/images/certificate/certificates(10).webp", alt: "디자인등록증" },
-  { key: 11, image: "/images/certificate/certificates(11).webp", alt: "디자인등록증" },
-  { key: 12, image: "/images/certificate/certificates(12).webp", alt: "디자인등록증" },
+  { key: 11, image: "/images/certificate/certificates(11).png", alt: "디자인등록증" },
+  { key: 12, image: "/images/certificate/certificates(12).png", alt: "디자인등록증" },
   { key: 13, image: "/images/certificate/certificates(13).webp", alt: "디자인등록증" },
 ];
 

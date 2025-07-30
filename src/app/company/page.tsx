@@ -49,16 +49,25 @@ export default function Company() {
 
         {/* 하단 구성 */}
         <section className="w-full max-w-[1440px]  text-center" id="history">
-          <h2 className="text-4xl md:text-5xl font-medium border-b-2 mb-4 md:mb-20 border-lime-700 pb-2 inline-block">회사연혁</h2>
+          <div className="my-4 md:my-10 text-center">
+            <h2 className="w-fit mx-auto text-4xl md:text-5xl font-medium border-b-2 mb-2 border-lime-700 px-6 pb-2">회사연혁</h2>
+            <p className="text-xl text-zinc-400">PWIN HISTORY</p>
+          </div>
           <History3 />
           {/* <History /> */}
         </section>
         <section className="w-full max-w-[1440px] text-center pt-32" id="certificate">
-          <h2 className="text-4xl md:text-5xl font-medium border-b-2 mb-4 md:mb-4 md:mt-40 mt-10  border-lime-700 pb-2 inline-block ">인증현황</h2>
+          <div className="my-4 md:my-10 text-center">
+            <h2 className="w-fit mx-auto text-4xl md:text-5xl font-medium border-b-2 mb-2 border-lime-700 px-6 pb-2">인증현황</h2>
+            <p className="text-xl text-zinc-400">PWIN CERTIFICATE</p>
+          </div>
           <Certificate />
         </section>
         <section className="w-full max-w-[1440px] text-center" id="location">
-          <h2 className="text-4xl md:text-5xl font-medium border-b-2 mb-4 md:mb-10 md:mt-10  border-lime-700 pb-2 inline-block ">오시는 길</h2>
+          <div className="my-4 md:my-10 text-center">
+            <h2 className="w-fit mx-auto text-4xl md:text-5xl font-medium border-b-2 mb-2 border-lime-700 px-6 pb-2">오시는길</h2>
+            <p className="text-xl text-zinc-400">PWIN LOCATION</p>
+          </div>
           <Location />
         </section>
       </div>

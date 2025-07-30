@@ -65,6 +65,8 @@ export default function GNB() {
                   <Link
                     href="/"
                     onClick={() => {
+                      setActiveMenu("");
+                      setOpen(false);
                       setOpenSubMenu("");
                     }}
                   >
@@ -160,6 +162,8 @@ export default function GNB() {
           <Link
             href="/"
             onClick={() => {
+              setActiveMenu("");
+              setOpen(false);
               setOpenSubMenu("");
             }}
           >
