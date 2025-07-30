@@ -37,7 +37,7 @@ export default function QuickMenu() {
         onClick={toggleMenu}
         className="absolute right-0 top-1/2 md:top-1/2 transform -translate-y-1/2
                    bg-gradient-to-tr from-green-600 to-green-600 hover:bg-green-800 text-white 
-                   px-3 py-3 md:px-4 md:py-20  md:h-[370px] rounded-l-lg
+                   px-3 py-3 md:px-4 md:py-20  md:h-[370px] rounded-l-lg  
                    transition-colors duration-200 z-20 shadow-lg"
         aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
       >

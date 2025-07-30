@@ -68,7 +68,7 @@ export default function GNB() {
                       setOpenSubMenu("");
                     }}
                   >
-                    <Image src="/images/logo_big.svg" alt="Logo" width={250} height={400} className="mr-10 py-4 max-h-[74px] px-4" priority />
+                    <Image src="/images/logo3.svg" alt="Logo" width={250} height={400} className="mr-10 py-4 max-h-[74px] px-4" priority />
                   </Link>
                 </li>
                 <ul className="flex w-full justify-between max-w-[960px]">
@@ -163,7 +163,7 @@ export default function GNB() {
               setOpenSubMenu("");
             }}
           >
-            <Image src="/images/logo_big.svg" alt="Logo" width={160} height={120} className="mr-10 pb-6 ml-4" priority />
+            <Image src="/images/logo3.svg" alt="Logo" width={160} height={120} className="mr-10 pb-6 ml-4" priority />
           </Link>
           <button onClick={toggleMenu} className="px-4 pb-6">
             <Image src="/images/menu_m.png" alt="Menu" width={32} height={30} />
