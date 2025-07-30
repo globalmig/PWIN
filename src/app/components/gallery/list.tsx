@@ -32,8 +32,8 @@ interface FilterItem {
 const filter: FilterItem[] = [
   { key: "1", name: "ALL", type: "ALL" },
   { key: "2", name: "보강토", type: "보강토" },
-  { key: "3", name: "축조블록", type: "축조" },
-  { key: "4", name: "호안블록", type: "호안" },
+  { key: "3", name: "축조블록", type: "축조블록" },
+  { key: "4", name: "호안블록", type: "호안블록" },
   { key: "5", name: "기타", type: "기타" },
 ];
 

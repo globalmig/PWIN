@@ -6,13 +6,15 @@ const menuItems = [
   {
     id: 1,
     title: "카탈로그 다운로드",
-    link: "/catalog_low.pdf",
+    link: "/pwin_catalog.pdf",
     download: "평원산업 카탈로그",
+    color: "bg-red-700",
   },
   {
     id: 2,
     title: "E-book 바로가기",
     link: "/ebook",
+    color: "bg-orange-500",
   },
 ];
 
@@ -36,7 +38,7 @@ export default function QuickMenu() {
       <button
         onClick={toggleMenu}
         className="absolute right-0 top-1/2 md:top-1/2 transform -translate-y-1/2
-                   bg-gradient-to-tr from-green-600 to-green-600 hover:bg-green-800 text-white 
+                   bg-green-800 hover:bg-green-900 text-white 
                    px-3 py-3 md:px-4 md:py-20  md:h-[370px] rounded-l-lg  
                    transition-colors duration-200 z-20 shadow-lg"
         aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
@@ -56,7 +58,7 @@ export default function QuickMenu() {
             // from-green-500 to-emerald-500
             <div
               key={item.id}
-              className={`bg-green-700 hover:bg-gray-700  text-white w-44 md:w-48 py-2 md:py-3 px-3 md:px-4
+              className={` ${item.color} hover:bg-gray-700  text-white w-44 md:w-48 py-2 md:py-3 px-3 md:px-4
                 rounded-lg cursor-pointer mb-1
                 transform transition-all duration-500 ease-in-out
                 ${isOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"}`}
@@ -74,9 +76,13 @@ export default function QuickMenu() {
             </div>
           );
         })}
+        <div className="bg-zinc-100 shadow-xl border text-lime-950 w-44 md:w-48 py-2 px-3 rounded-t-lg text-sm md:text-base">
+          <p className="text-base md:text-xl font-bold">이메일</p>
+          <p>pwin@naver.com</p>
+        </div>
 
         {/* 운영 시간 */}
-        <div className="bg-zinc-100 shadow-xl border text-lime-950 w-44 md:w-48 py-2 px-3 rounded-t-lg text-sm md:text-base">
+        <div className="bg-zinc-100 shadow-xl border text-lime-950 w-44 md:w-48 py-2 px-3  text-sm md:text-base">
           <p className="text-base md:text-xl font-bold">운영시간</p>
           <p>{CONTACT_INFO.hours}</p>
         </div>
@@ -89,18 +95,15 @@ export default function QuickMenu() {
           style={{ transitionDelay: isOpen ? "100ms" : "0ms" }}
         >
           <p>
-            ☎ {CONTACT_INFO.phone} <br />
-            <strong>Fax</strong> {CONTACT_INFO.fax} <br />
-            <br />
-            <strong>E-Mail</strong> <br />
-            pwin@naver.com
+            <strong>전화</strong> {CONTACT_INFO.phone} <br />
+            <strong>팩스</strong> {CONTACT_INFO.fax} <br />
           </p>
         </div>
 
         {/* 전화 연결 */}
         <a
           href="/call"
-          className="bg-green-700 hover:bg-gray-700  hover:text-green-400 text-white w-44 md:w-48 py-2 px-3 
+          className="bg-yellow-500 hover:bg-gray-700  hover:text-green-400 text-white w-44 md:w-48 py-2 px-3 
                      rounded-b-xl text-sm md:text-base transition-colors duration-200"
         >
           <p>☎ 전화 연결하기</p>
