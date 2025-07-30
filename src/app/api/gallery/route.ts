@@ -7,8 +7,8 @@ import { v4 as uuidv4 } from "uuid";
 export async function GET() {
   try {
     const { data, error } = await supabase
-      .from("gallery") // 
-      .select("*"); // 
+      .from("gallery") //
+      .select("*"); //
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 });
@@ -31,12 +31,16 @@ export async function POST(req: NextRequest) {
   // 타입별 ID 범위 정의
   const typeIdRanges: Record<string, { start: number; end: number }> = {
     보강토: { start: 1, end: 999 },
-    식생축조: { start: 1000, end: 9999 },
-    환경호안: { start: 10000, end: 99999 },
+    축조블록: { start: 1000, end: 9999 },
+    호안블록: { start: 10000, end: 99999 },
     기타: { start: 100000, end: 999999 },
   };
 
   const { start, end } = typeIdRanges[type];
+
+  if (!typeIdRanges[type]) {
+    return NextResponse.json({ success: false, error: "유효하지 않은 type입니다." }, { status: 400 });
+  }
 
   // 현재 타입 범위에서 가장 큰 id 가져오기
   const { data: latest, error: fetchError } = await supabase.from("gallery").select("id").gte("id", start).lte("id", end).order("id", { ascending: false }).limit(1).maybeSingle();

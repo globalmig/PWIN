@@ -25,7 +25,7 @@ const galleryList = [
   // 2식생축조 리스트
   { id: 2, title: "축조블록(타원형)", content: "양평군 옥천면 용천리 절토사면 옹벽공사", image: "/images/main/type02/5.jpg", link: "/gallery/1026", type: "식생축조" },
   // TODO: 춘천 칠전동 이미지 수정 이미지 없는뎅
-  { id: 22, title: "축조블록(평면형)", content: "춘천 칠전동 전원주택단지 조성공사", image: "/images/main/type02/5.jpg", link: "/gallery/1026", type: "식생축조" },
+  { id: 22, title: "축조블록(평면형)", content: "춘천 칠전동 전원주택단지 조성공사", image: "/images/main/type02/7.jpg", link: "/gallery/1026", type: "식생축조" },
   // { id: 2, title: "축조블록(타원형)", content: "남양주 조안면 삼봉리 옹벽공사", image: "/images/main/type02/1.jpg", link: "/gallery/1014", type: "식생축조" },
   // { id: 22, title: "축조블록(타원형)", content: "양평군 양평읍 회현리 축조공사", image: "/images/main/type02/2.jpg", link: "/gallery/1025", type: "식생축조" },
   // { id: 222, title: "축조블록(타원형)", content: "남양주 별내면 광적리 묘역조성공사", image: "/images/main/type02/3.jpg", link: "/gallery/1022", type: "식생축조" },
