@@ -8,7 +8,7 @@ const desktopMenuItems = [
   { key: 1, name: "회사소개", href: "/company" },
   { key: 2, name: "제품소개", href: "/products" },
   { key: 3, name: "공법소개", href: "/construction" },
-  { key: 4, name: "시공 사례", href: "/gallery" },
+  { key: 4, name: "시공사례", href: "/gallery" },
 ];
 
 const CompanySubMenuItems = [
@@ -30,13 +30,13 @@ const ConstructionSubMenuItems = [
   { key: 14, name: "시공예시", href: "/construction#title02" },
 ];
 
-const GallerySubMenuItems = [{ key: 15, name: "실제 사례", href: "/gallery" }];
+const GallerySubMenuItems = [{ key: 15, name: "실제사례", href: "/gallery" }];
 
 const mobileMenuItems = [
   { key: 16, name: "회사소개", href: "/company" },
   { key: 17, name: "제품소개", href: "/products" },
   { key: 18, name: "공법소개", href: "/construction" },
-  { key: 19, name: "시공 사례", href: "/gallery" },
+  { key: 19, name: "시공사례", href: "/gallery" },
 ];
 
 export default function GNB() {
@@ -141,7 +141,7 @@ export default function GNB() {
                           <Link
                             href={item.href}
                             onClick={() => {
-                              setActiveMenu("시공 사례");
+                              setActiveMenu("시공사례");
                               setOpen(false);
                             }}
                           >
@@ -243,10 +243,10 @@ export default function GNB() {
                 )}
               </li>
               <li>
-                <button onClick={() => setOpenSubMenu(openSubMenu === "시공 사례" ? "" : "시공 사례")} className="w-full  text-center">
-                  시공 사례
+                <button onClick={() => setOpenSubMenu(openSubMenu === "시공사례" ? "" : "시공사례")} className="w-full  text-center">
+                  시공사례
                 </button>
-                {openSubMenu === "시공 사례" && (
+                {openSubMenu === "시공사례" && (
                   <ul className="text-base text-gray-600 mt-2">
                     {GallerySubMenuItems.map((item) => (
                       <li key={item.key} className=" text-center my-4">
@@ -255,7 +255,7 @@ export default function GNB() {
                           onClick={() => {
                             setOpen(false);
                             setOpenSubMenu("");
-                            setActiveMenu("시공 사례");
+                            setActiveMenu("시공사례");
                           }}
                         >
                           {item.name}

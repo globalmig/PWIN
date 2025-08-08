@@ -17,17 +17,17 @@ const sliderData = [
   {
     id: 2,
     image: "/images/main/main02.png",
-    alt: "테스트 이미지 2",
+    alt: "메인이미지",
   },
   {
     id: 3,
     image: "/images/main/main03.png",
-    alt: "테스트 이미지 3",
+    alt: "메인이미지",
   },
   {
     id: 4,
     image: "/images/main/main05.jpg",
-    alt: "테스트 이미지 3",
+    alt: "메인이미지",
   },
 ];
 
