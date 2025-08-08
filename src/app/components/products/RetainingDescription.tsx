@@ -82,7 +82,7 @@ export default function RetainingDescription() {
               </thead>
               <tbody>
                 <tr className="border-b-2 border-zinc-300">
-                  <td className="py-4 px-2 border-r-2 border-zinc-300">보강토 옹벽블록 (250형)</td>
+                  <td className="py-4 px-2 border-r-2 border-zinc-300">보강토블록(250형)</td>
                   <td className="py-4 px-2 border-r-2 border-zinc-300">500</td>
                   <td className="py-4 px-2 border-r-2 border-zinc-300">410</td>
                   <td className="py-4 px-2 border-r-2 border-zinc-300">250</td>
