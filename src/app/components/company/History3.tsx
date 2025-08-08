@@ -23,24 +23,36 @@ export default function History3() {
       {/* 연혁 아이템 */}
       {historyList.map((item) => {
         const isLeft = item.index % 2 === 0;
+
         return (
           <div key={item.key} className="relative">
             <div className={`group absolute w-1/2 px-4 py-4 ${isLeft ? "left-0" : "left-1/2"}`} style={{ top: `${item.index * 160}px` }}>
-              <div className={`relative flex ${isLeft ? "justify-end" : "justify-start"} items-center gap-4`}>
-                {/* 텍스트 영역 */}
-                <div className={`${isLeft ? "border-r-2 text-right" : "border-l-2 text-left"} hover:border-green-600 hover:${isLeft ? "border-r-4 text-right" : "border-l-4 text-left"}- px-6 z-10`}>
+              {/* flex 한 줄 구성: 왼쪽 항목이면 텍스트가 오른쪽에 오도록 row-reverse */}
+              <div className={`relative flex items-center gap-4 ${isLeft ? " flex-row-reverse" : "justify-start"}`}>
+                {/* 텍스트 */}
+                <div
+                  className={`
+              ${isLeft ? "border-r-2 text-right pr-6" : "border-l-2 text-left pl-6"}
+              transition-all duration-300 group-hover:border-green-600
+            `}
+                >
                   <p className="text-xl font-bold text-green-950 group-hover:text-3xl transition-all duration-500">{item.year}</p>
                   <p className="text-gray-800 group-hover:text-green-600">{item.title}</p>
                 </div>
 
-                {/* 이미지: hover 시 텍스트 위에 뜨도록 absolute 배치 */}
-                <Image
-                  src={item.img}
-                  alt="연혁 이미지"
-                  width={400}
-                  height={400}
-                  className={`absolute top-20 ${isLeft ? "right-0" : "left-0"} rounded-lg hidden group-hover:block transition-opacity duration-500 z-50`}
-                />
+                {/* 이미지: 자리는 항상 확보(w-[300px])하고, hover 때만 보이게 */}
+                <div className={`w-[300px] h-[300px] rounded-lg overflow-hidden shrink-0 ${isLeft ? "mr-6" : "ml-6"}`}>
+                  <img
+                    src={item.img}
+                    alt="연혁 이미지"
+                    className="
+                w-full h-full object-cover rounded-lg
+                opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100
+                transition-transform duration-500 ease-out
+                pointer-events-none
+              "
+                  />
+                </div>
               </div>
             </div>
           </div>
