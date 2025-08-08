@@ -118,22 +118,27 @@ export default function Manager() {
       const folderType = typeMap[isType];
       let uploadedUrls: string[] = [];
 
-      for (const file of selectedFiles) {
-        const fileExt = file.name.split(".").pop();
-        const fileName = `${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${fileExt}`;
-        const filePath = `${folderType}/${editId || "temp"}/${fileName}`;
+      // ------- 수정 모드 -------
+      if (editId) {
+        // 새 파일이 있다면, 해당 id 폴더로 업로드
+        if (selectedFiles.length > 0) {
+          for (const file of selectedFiles) {
+            const fileExt = file.name.split(".").pop();
+            const fileName = `${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${fileExt}`;
+            const filePath = `${folderType}/${editId}/${fileName}`;
 
-        const { error: uploadError } = await supabase.storage.from("gallery").upload(filePath, file);
-        if (uploadError) {
-          console.error("업로드 실패:", uploadError.message);
-          continue;
+            const { error: uploadError } = await supabase.storage.from("gallery").upload(filePath, file);
+            if (uploadError) {
+              console.error("업로드 실패:", uploadError.message);
+              continue;
+            }
+
+            const { data } = supabase.storage.from("gallery").getPublicUrl(filePath);
+            uploadedUrls.push(data.publicUrl);
+          }
         }
 
-        const { data } = supabase.storage.from("gallery").getPublicUrl(filePath);
-        uploadedUrls.push(data.publicUrl);
-      }
-
-      if (editId) {
+        // DB 업데이트 (이미지 없으면 그대로 유지)
         const updateRes = await fetch(`/api/gallery/${editId}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -145,71 +150,103 @@ export default function Manager() {
           }),
         });
 
-        if (updateRes.ok) {
-          alert("수정되었습니다!");
-          setGalleryList((prev) =>
-            prev.map((item) =>
-              item.id === editId
-                ? {
-                    ...item,
-                    title,
-                    description,
-                    type: isType,
-                    images: uploadedUrls.length > 0 ? uploadedUrls : item.images,
-                  }
-                : item
-            )
-          );
-        }
-      } else {
-        const postRes = await fetch("/api/gallery", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            title,
-            description,
-            type: isType,
-            images: [],
-            is_visible: true,
-          }),
-        });
-
-        const result = await postRes.json();
-        if (!result.success || !result.id) {
-          alert("게시글 등록 실패: " + result.error);
-          setUploading(false);
-          return;
+        if (!updateRes.ok) {
+          const err = await updateRes.json();
+          throw new Error(err?.error || "수정 실패");
         }
 
-        if (uploadedUrls.length > 0) {
-          await fetch(`/api/gallery/${result.id}`, {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ images: uploadedUrls }),
-          });
-        }
+        alert("수정되었습니다!");
+        setGalleryList((prev) =>
+          prev.map((item) =>
+            item.id === editId
+              ? {
+                  ...item,
+                  title,
+                  description,
+                  type: isType,
+                  images: uploadedUrls.length > 0 ? uploadedUrls : item.images,
+                }
+              : item
+          )
+        );
 
-        alert("게시글이 등록되었습니다!");
+        resetForm();
+        setUploading(false);
+        return;
+      }
 
-        const newItem: GalleryItem = {
-          id: result.id,
+      // ------- 등록 모드 -------
+      // 1) 먼저 빈 글을 만들어 id 확보 (images는 빈 배열)
+      const postRes = await fetch("/api/gallery", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           title,
           description,
           type: isType,
-          images: uploadedUrls,
-          link: "",
-          created_at: new Date().toISOString(),
-        };
-        setGalleryList((prev) => [newItem, ...prev]);
+          images: [],
+          is_visible: true,
+        }),
+      });
+
+      const result = await postRes.json();
+      if (!result.success || !result.id) {
+        alert("게시글 등록 실패: " + result.error);
+        setUploading(false);
+        return;
       }
+
+      const newId = String(result.id); // 서버는 숫자지만 경로 조립에 문자열로 사용
+
+      // 2) 확보한 id 폴더로 업로드
+      for (const file of selectedFiles) {
+        const fileExt = file.name.split(".").pop();
+        const fileName = `${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${fileExt}`;
+        const filePath = `${folderType}/${newId}/${fileName}`;
+
+        const { error: uploadError } = await supabase.storage.from("gallery").upload(filePath, file);
+        if (uploadError) {
+          console.error("업로드 실패:", uploadError.message);
+          continue;
+        }
+
+        const { data } = supabase.storage.from("gallery").getPublicUrl(filePath);
+        uploadedUrls.push(data.publicUrl);
+      }
+
+      // 3) 업로드된 이미지 URL로 PATCH
+      if (uploadedUrls.length > 0) {
+        const patchRes = await fetch(`/api/gallery/${newId}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ images: uploadedUrls }),
+        });
+        if (!patchRes.ok) {
+          const err = await patchRes.json();
+          console.error("이미지 URL 업데이트 실패:", err?.error);
+        }
+      }
+
+      alert("게시글이 등록되었습니다!");
+
+      const newItem: GalleryItem = {
+        id: newId,
+        title,
+        description,
+        type: isType,
+        images: uploadedUrls,
+        link: "",
+        created_at: new Date().toISOString(),
+      };
+      setGalleryList((prev) => [newItem, ...prev]);
 
       resetForm();
     } catch (err) {
       alert("오류 발생");
       console.error(err);
+    } finally {
+      setUploading(false);
     }
-
-    setUploading(false);
   };
 
   const handleEdit = useCallback((item: GalleryItem) => {
