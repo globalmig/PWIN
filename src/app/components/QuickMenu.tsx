@@ -6,7 +6,7 @@ const menuItems = [
   {
     id: 1,
     title: "카탈로그 다운로드",
-    link: "/pwin_catalog.pdf",
+    link: "/pwin_catalog_250808.pdf",
     download: "평원산업 카탈로그",
     color: "bg-red-700",
   },
@@ -21,7 +21,8 @@ const menuItems = [
 const CONTACT_INFO = {
   phone: "031-584-0023~5",
   fax: "031-584-0026",
-  hours: "평일: 07:00 ~ 18:00",
+  hours: "평일: 07:00 ~ 17:00",
+  hours2: "주말 : 07:00 ~ 15:00",
 };
 
 export default function QuickMenu() {
@@ -39,7 +40,7 @@ export default function QuickMenu() {
         onClick={toggleMenu}
         className="absolute right-0 top-1/2 md:top-1/2 transform -translate-y-1/2
                    bg-green-800 hover:bg-green-900 text-white 
-                   px-3 py-3 md:px-4 md:py-20  md:h-[370px] rounded-l-lg  
+                   px-3 py-3 md:px-4 md:py-20  md:h-[350px] rounded-l-lg  
                    transition-colors duration-200 z-20 shadow-lg"
         aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
       >
@@ -83,8 +84,9 @@ export default function QuickMenu() {
 
         {/* 운영 시간 */}
         <div className="bg-zinc-100 shadow-xl border text-lime-950 w-44 md:w-48 py-2 px-3  text-sm md:text-base">
-          <p className="text-base md:text-xl font-bold">운영시간</p>
+          <p className="text-base md:text-xl font-bold">업무시간</p>
           <p>{CONTACT_INFO.hours}</p>
+          <p>{CONTACT_INFO.hours2}</p>
         </div>
 
         {/* 연락처 */}
