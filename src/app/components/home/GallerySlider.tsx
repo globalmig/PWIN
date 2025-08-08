@@ -17,11 +17,11 @@ import { useState } from "react";
 const galleryList = [
   // 1보강토 리스트
   { id: 1, title: "보강토(회색)", content: "춘천 고은리 스테이문", image: "/images/main/type01/1.webp", link: "/gallery/91", type: "보강토" },
-  { id: 11, title: "보강토(적색)", content: "가평군 청평면 쁘띠프랑스", image: "/images/main/type01/22.jpg", link: "/gallery/44", type: "보강토" },
+  { id: 11, title: "보강토(적색)", content: "가평군 청평면 쁘띠프랑스", image: "/images/main/type01/22.jpg", link: "/gallery/9111", type: "보강토" },
   { id: 111, title: "보강토(황토색)", content: "가평 달전리 전원주택단지조성", image: "/images/main/type01/7.jpg", link: "/gallery/46", type: "보강토" },
   { id: 1111, title: "보강토(흑색)", content: "남양주시 화도읍 가곡리 단지조성", image: "/images/main/type01/4.webp", link: "/gallery/16", type: "보강토" },
   { id: 11111, title: "보강토(멀티)", content: "가평군 상면 행현리 단지조성", image: "/images/main/type01/3.webp", link: "/gallery/37", type: "보강토" },
-  { id: 111111, title: "보강토(회색+흑색)", content: "가평군 설악면 회곡리 단지조성", image: "/images/main/type01/5.webp", link: "/gallery/35", type: "보강토" },
+  { id: 111111, title: "보강토(회색+흑색)", content: "가평군 설악면 회곡리 단지조성", image: "/images/main/type01/5.webp", link: "/gallery/3", type: "보강토" },
   { id: 1111111, title: "보강토(회색+적색)", content: "남양주시 화도읍 마석우리 전원주택 단지조성", image: "/images/main/type01/6.webp", link: "/gallery/15", type: "보강토" },
 
   // 2식생축조 리스트
@@ -35,14 +35,14 @@ const galleryList = [
   // { id: 222222, title: "축조블록(타원형)", content: "남양주 수동면 외방리 절토사면 옹벽공사", image: "/images/main/type02/6.webp", link: "/gallery/1012", type: "식생축조" },
 
   // 3 환경리스트
-  { id: 3, title: "호안블록", content: "별내 용암천 지방하천 정비사업", image: "/images/main/type03/1.webp", link: "/gallery/10000", type: "환경호안" },
+  { id: 3, title: "호안블록", content: "별내 용암천 지방하천 정비사업", image: "/images/main/type03/1.webp", link: "/gallery/91111", type: "환경호안" },
 ];
 
 const filter = [
   { key: 1, name: "ALL", type: "ALL" },
-  { key: 2, name: "보강토", type: "보강토" },
-  { key: 3, name: "축조", type: "식생축조" },
-  { key: 4, name: "호안", type: "환경호안" },
+  { key: 2, name: "보강토블록", type: "보강토" },
+  { key: 3, name: "축조블록", type: "식생축조" },
+  { key: 4, name: "호안블록", type: "환경호안" },
 ];
 
 export default function GallerySlider() {
@@ -60,17 +60,17 @@ export default function GallerySlider() {
         <p className="text-xl text-zinc-400">CONSTRUCTION GALLERY</p>
       </div>
       <div
-        className="relative w-full max-w-[1440px] rounded-xl py-12  md:pl-6"
+        className="relative w-full max-w-[1440px] rounded-xl py-4 md:py-12  md:pl-6"
         style={{
           background: "linear-gradient(90deg, #2e502b 3.26%, #40853a 104.31%), #FFF",
         }}
       >
         <div>
           {/* 필터 */}
-          <div className="flex gap-2 md:gap-4 justify-center">
+          <div className="md:flex gap-1 md:gap-4 justify-center px-2 hidden">
             {filter.map((item) => (
               <button
-                className={`border border-white text-sm px-3 md:px-6 py-4 rounded-xl font-bold ${isSelected === item.type ? "text-[#255853] bg-white " : "text-[#e5fcf9]"}`}
+                className={`border border-white md:text-sm text-xs px-3 md:px-6 md:py-4 py-2 rounded-xl font-bold ${isSelected === item.type ? "text-[#255853] bg-white " : "text-[#e5fcf9]"}`}
                 onClick={() => Selected(item.type as string)}
                 key={item.key}
               >
@@ -104,7 +104,7 @@ export default function GallerySlider() {
             className="mySwiper pl-2"
             breakpoints={{
               320: {
-                slidesPerView: 1.5,
+                slidesPerView: 1.2,
                 spaceBetween: 10,
               },
               640: {
