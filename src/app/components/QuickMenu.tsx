@@ -6,7 +6,7 @@ const menuItems = [
   {
     id: 1,
     title: "카탈로그 다운로드",
-    link: "/pwin_catalog_250808.pdf",
+    link: "/pwin_catalog_250908.pdf",
     download: "평원산업 카탈로그",
     color: "bg-red-700",
   },
