@@ -27,7 +27,7 @@ export default function RetainingDescription() {
         </section>
         {/* 상세도 */}
         <section className="w-full mt-5 md:mt-10 flex flex-col gap-10">
-          <p className="text-center mt-10 text-xl md:text-3xl font-bold border-b-2 pb-5 text-green-900">보강토 옹벽블록 (250형)</p>
+          <p className="text-center mt-10 text-xl md:text-3xl font-bold border-b-2 pb-5 text-green-900">보강토블록</p>
           {/* 블록 색상별 섹션 */}
           <div className="blockList grid grid-cols-2 md:grid-cols-4 relative mt-10">
             <div className="flex flex-col items-center justify-center">

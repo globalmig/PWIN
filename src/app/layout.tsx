@@ -18,8 +18,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "평원산업",
-  description: "평원 산업 사이트",
+  metadataBase: new URL("https://www.pwin.co.kr"),
+  title: {
+    default: "평원산업 | 친환경 보강토·축조·호안 블록",
+    template: "%s | 평원산업",
+  },
+  description: "인증받은 기술력으로 친환경 건설의 미래를 만드는 평원산업. 보강토블록, 캡블록, 축조블록, 호안블록 제품과 시공사례를 확인하세요.",
+  keywords: ["평원산업", "pwin", "보강토블록", "축조블록", "호안블록", "캡블록", "옹벽블록", "친환경 건설자재", "가평 건설자재"],
+  openGraph: {
+    title: "평원산업 | 친환경 보강토·축조·호안 블록",
+    description: "인증받은 기술력으로 친환경 건설의 미래를 만드는 평원산업...",
+    url: "https://www.pwin.co.kr",
+    images: [{ url: "/images/OpenGraph_thumbnail.png", width: 1200, height: 630 }],
+  },
+  other: {
+    // "google-site-verification": "구글_콘솔에서_받은_코드", // e.g. abcdefg...
+    "naver-site-verification": "796207cd9cc7479383137c7ce21eec72b33b6a57", // e.g. 1234567...
+  },
 };
 
 export default function RootLayout({

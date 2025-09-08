@@ -111,7 +111,7 @@ export default function MasonryDescription() {
           </div>
           <div className="text-wrap flex w-full max-w-[90%] px-10 justify-between mx-auto items-center">
             <p className="w-full max-w-[60%] md:pl-10 text-center">평면도</p>
-            <p className="w-full max-w-[40%] pl-4 md:pl-0 text-center">평면도</p>
+            <p className="w-full max-w-[40%] pl-4 md:pl-0 text-center">측면도</p>
           </div>
         </div>
 
