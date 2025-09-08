@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div className="flex w-full mx-auto justify-center items-start gap-10 pt-10 bg-slate-200 mt-10 md:mt-20 px-4 ">
       <div className="relative  w-40 h-auto aspect-[3/1]  max-w-[1440px] ">
-        <Image src="/images/logo4.svg" alt="Logo" fill className="object-contain" />
+        <Image src="/images/logo5.svg" alt="Logo" fill className="object-contain" />
       </div>
       <div>
         <p>평원산업 | 대표: 김범준</p>
