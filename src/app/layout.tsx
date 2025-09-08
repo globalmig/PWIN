@@ -47,6 +47,67 @@ export default function RootLayout({
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
         <link rel="icon" href="/favicon.png" sizes="any" type="image/png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "http://schema.org",
+              "@type": "ItemList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  item: {
+                    "@type": "Organization",
+                    name: "보강토(회색)",
+                    image: "/images/products/보강토/gray_.png",
+                    url: "https://www.pwin.co.kr/products?type=retaining",
+                  },
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  item: {
+                    "@type": "Organization",
+                    name: "캡블록(회색)",
+                    image: "/images/products/캡블록/gray.png",
+                    url: "https://www.pwin.co.kr/products?type=cap",
+                  },
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  item: {
+                    "@type": "Organization",
+                    name: "축조블록(타원형)",
+                    image: "/images/products/식생축조/gray.png",
+                    url: "https://www.pwin.co.kr/products?type=masonry",
+                  },
+                },
+                {
+                  "@type": "ListItem",
+                  position: 4,
+                  item: {
+                    "@type": "Organization",
+                    name: "축조블록(평면형)",
+                    image: "/images/products/식생축조/gray_plane.png",
+                    url: "https://www.pwin.co.kr/products?type=masonry",
+                  },
+                },
+                {
+                  "@type": "ListItem",
+                  position: 5,
+                  item: {
+                    "@type": "Organization",
+                    name: "호안블록",
+                    image: "/images/products/환경호안블록/gray.png",
+                    url: "https://www.pwin.co.kr/products?type=eco",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-pretendard`}>
         <GNB />
