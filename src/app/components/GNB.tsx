@@ -70,7 +70,7 @@ export default function GNB() {
                       setOpenSubMenu("");
                     }}
                   >
-                    <Image src="/images/logo4.svg" alt="Logo" width={250} height={400} className="mr-10 py-4 max-h-[74px] px-4" priority />
+                    <Image src="/images/logo5.svg" alt="Logo" width={300} height={500} className="mr-10 py-4 max-h-[86px] px-4" priority />
                   </Link>
                 </li>
                 <ul className="flex w-full justify-between max-w-[960px]">
@@ -94,7 +94,7 @@ export default function GNB() {
                 } justify-center`}
               >
                 <ul className="w-full flex justify-center gap-10">
-                  <li className="w-[140px] md:w-[160px] mr-12 py-4"></li>
+                  <li className="w-[140px] md:w-[220px] lg:w-[260px] mr-12 py-4"></li>
                   <ul className="flex w-full justify-between max-w-[960px]">
                     <ul className="flex flex-col gap-9 items-center">
                       {CompanySubMenuItems.map((item) => (
